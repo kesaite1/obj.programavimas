@@ -11,3 +11,5 @@ using std::vector;
 using std::endl;
 using std::fixed;
 using std::setprecision;
+using std::left;
+using std::setw;

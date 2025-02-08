@@ -6,7 +6,12 @@ struct studentai {
     float hw;
     int egz;
 };
+void atsakymas ()
+{
+    cout << left<< setw(15)<<"Pavarde" << left<<setw(15)<<"Vardas" << "Galutinis (vid.)" << endl;
+    cout << "-----------------------------------------------------------------" << endl;
 
+}
 int main()
 {
    // vector <studentai> grupe;
@@ -36,7 +41,7 @@ int main()
         cin >> grupe.egz;
 
         paz = 0.4 * grupe.hw + 0.6 * grupe.egz;
-
+        atsakymas();
         cout << fixed<<setprecision(2)<<"The student's final mark is: " <<paz<< endl;
 
         //studentai laik;
