@@ -5,7 +5,7 @@ struct studentai {
    // vector <float> hw;
     float hw;
     int egz;
-};
+} A;
 void atsakymas ()
 {
     cout << left<< setw(15)<<"Pavarde" << left<<setw(15)<<"Vardas" << "Galutinis (vid.)" << endl;
@@ -15,7 +15,7 @@ void atsakymas ()
 int main()
 {
    // vector <studentai> grupe;
-    studentai grupe;
+   // studentai grupe;
     int n, k;
     float ndd, suma, paz;
     //studentai A;
@@ -25,7 +25,7 @@ int main()
     for (int i = 0; i < n; i++)
     {
         cout << "Enter student's name and surname: ";
-        cin >> grupe.v >> grupe.pav;
+        cin >> A.v >> A.pav;
         cout << "Enter the number of marks the student has from homework: ";
         cin >> k;
         cout << "Enter the student's marks from the homework: "<<endl;
@@ -36,13 +36,16 @@ int main()
             cin >> ndd;
             suma = suma + ndd;
         }
-        grupe.hw = suma / k;
+        A.hw = suma / k;
         cout << "Enter student's mark from exam: ";
-        cin >> grupe.egz;
+        cin >> A.egz;
 
-        paz = 0.4 * grupe.hw + 0.6 * grupe.egz;
+        paz = 0.4 * A.hw + 0.6 * A.egz;
         atsakymas();
-        cout << fixed<<setprecision(2)<<"The student's final mark is: " <<paz<< endl;
+        cout << left << setw(15) << A.pav;
+        cout << left << setw(15) << A.v;
+        cout<< fixed << setprecision(2) << paz << endl;
+
 
         //studentai laik;
         // grupe.push_back(laik);
