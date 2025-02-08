@@ -3,8 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\Dell\\Documents\\VU MIF\\Objektinis programavimas\\obj.programavimas\\v.pradine\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{C7D001DE-B751-482C-9787-27525616D8D6}|v.pradine.vcxproj|C:\\Users\\Dell\\Documents\\VU MIF\\Objektinis programavimas\\obj.programavimas\\v.pradine\\v.pradine.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{C7D001DE-B751-482C-9787-27525616D8D6}|v.pradine.vcxproj|solutionrelative:v.pradine.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Dell\\Documents\\VU MIF\\Objektinis programavimas\\obj.programavimas\\v.pradine\\v.pradine.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:v.pradine.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Dell\\Documents\\VU MIF\\Objektinis programavimas\\obj.programavimas\\v.pradine\\CppProperties.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:CppProperties.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     }
   ],
   "DocumentGroupContainers": [
@@ -14,11 +18,24 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "CppProperties.json",
+              "DocumentMoniker": "C:\\Users\\Dell\\Documents\\VU MIF\\Objektinis programavimas\\obj.programavimas\\v.pradine\\CppProperties.json",
+              "RelativeDocumentMoniker": "CppProperties.json",
+              "ToolTip": "C:\\Users\\Dell\\Documents\\VU MIF\\Objektinis programavimas\\obj.programavimas\\v.pradine\\CppProperties.json",
+              "RelativeToolTip": "CppProperties.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-02-08T19:26:46.212Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -28,7 +45,7 @@
               "RelativeDocumentMoniker": "v.pradine.cpp",
               "ToolTip": "C:\\Users\\Dell\\Documents\\VU MIF\\Objektinis programavimas\\obj.programavimas\\v.pradine\\v.pradine.cpp",
               "RelativeToolTip": "v.pradine.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAASAAAAAAAAAA==",
+              "ViewState": "AgIAACcAAAAAAAAAAAAAADQAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2025-02-08T19:01:16.627Z",
               "EditorCaption": ""

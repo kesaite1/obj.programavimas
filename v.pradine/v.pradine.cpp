@@ -9,6 +9,8 @@ using std::cin;
 using std::string;
 using std::vector;
 using std::endl;
+using std::fixed;
+using std::setprecision;
 
 struct studentai {
     string v, pav;
@@ -47,7 +49,7 @@ int main()
 
         paz = 0.4 * grupe.hw + 0.6 * grupe.egz;
 
-        cout << "The student's final mark is :" << paz << endl;
+        cout << fixed<<setprecision(2)<<"The student's final mark is: " <<paz<< endl;
 
         //studentai laik;
         // grupe.push_back(laik);
