@@ -1,0 +1,3 @@
+﻿  v.pradine.cpp
+C:\Users\Dell\Documents\VU MIF\Objektinis programavimas\obj.programavimas\v.pradine\v.pradine.cpp(48,30): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+  v.pradine.vcxproj -> C:\Users\Dell\Documents\VU MIF\Objektinis programavimas\obj.programavimas\v.pradine\x64\Debug\v.pradine.exe
