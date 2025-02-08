@@ -1,0 +1,41 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Dell\\Documents\\VU MIF\\Objektinis programavimas\\obj.programavimas\\v.pradine\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{C7D001DE-B751-482C-9787-27525616D8D6}|v.pradine.vcxproj|C:\\Users\\Dell\\Documents\\VU MIF\\Objektinis programavimas\\obj.programavimas\\v.pradine\\v.pradine.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{C7D001DE-B751-482C-9787-27525616D8D6}|v.pradine.vcxproj|solutionrelative:v.pradine.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "v.pradine.cpp",
+              "DocumentMoniker": "C:\\Users\\Dell\\Documents\\VU MIF\\Objektinis programavimas\\obj.programavimas\\v.pradine\\v.pradine.cpp",
+              "RelativeDocumentMoniker": "v.pradine.cpp",
+              "ToolTip": "C:\\Users\\Dell\\Documents\\VU MIF\\Objektinis programavimas\\obj.programavimas\\v.pradine\\v.pradine.cpp",
+              "RelativeToolTip": "v.pradine.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-02-08T19:01:16.627Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
