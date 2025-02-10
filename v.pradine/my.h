@@ -3,6 +3,7 @@
 #include <vector>
 #include <iomanip>
 #include <string>
+#include <algorithm>
 
 using std::cout;
 using std::cin;
@@ -13,3 +14,4 @@ using std::fixed;
 using std::setprecision;
 using std::left;
 using std::setw;
+using std::sort;
