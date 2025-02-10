@@ -1,0 +1,4 @@
+Egle           Eglaite        8 6.54 7.98 9.5 10 3.44
+Alma           Almaite        10 10 9.58 8.9
+Greta          Pavardaite     6 8.44 7.32 4.56 9.01
+Tadas          Tadaitis       3 2.56 6.77 7
