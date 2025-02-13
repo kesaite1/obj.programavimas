@@ -4,6 +4,7 @@ struct studentai {
     string v, pav;
     vector <double> hw;
     int egz;
+    double paz;
 } ;
 //----------------------------------------------------------------------------------------------------
 static void atsakymas ()
@@ -11,25 +12,25 @@ static void atsakymas ()
     cout << left<< setw(15)<<"Pavarde" << left<<setw(15)<<"Vardas" << "Galutinis (vid.)" << endl;
     cout << "-----------------------------------------------------------------" << endl;
 }
-static double average(studentai & A, long n)
+static double average(studentai & A)
 {
-    double suma = 0, ndd, vid;
+    double suma = 0,sk, vid;
     A.hw.clear();
-    cout << "Enter the student's marks from the homework: " << endl;
-    for (int i = 0; i < n; i++)
+    sk = hw.size();
+    for (int i = 0; i < sk; i++)
     {
-        cin >> ndd;
-        A.hw.push_back(ndd);
-        suma = suma + ndd;
+        suma = suma + A.hw;
     }
-    vid = suma / n;
+    vid = suma / sk;
     return vid;
 }
-static double median(studentai & A, long n)
+static double median(studentai & A)
 {
+    int sk;
+    sk = hw.size();
     sort(A.hw.begin(), A.hw.end());
-    if (n % 2 == 0)  return (A.hw[n / 2] + A.hw[(n / 2) - 1]) / 2.0;
-    else return A.hw[n / 2];
+    if (sk % 2 == 0)  return (A.hw[sk / 2] + A.hw[(sk / 2) - 1]) / 2.0;
+    else return A.hw[sk / 2];
 }
 //------------------------------------------------------------------------------------------------------
 
@@ -37,7 +38,7 @@ int main()
 {
     vector <studentai> grupe;
     
-    int m, n, hw, iv; //m- studentu sk, n- nd sk
+    int iv = 0;
     double paz, vidu, med, nd;
     string t;
     studentai  A;
@@ -62,8 +63,12 @@ int main()
         A.hw.push_back(nd);
         cout << " Ar norite testi? taip/ne" << endl;
         cin >> t;
-
         }
+        vidu = average(A);
+        med = median(A);
+        if (vidu > med)  A.paz = 0.4 * vidu + 0.6 * A.egz;
+        else A.paz = 0.4 * med + 0.6 * A.egz;
+
     grupe.push_back(A);
     }
     else if (iv == 2)
@@ -78,6 +83,10 @@ int main()
             cout << " Ar norite testi? taip/ne" << endl;
             cin >> t;
         }
+        vidu = average(A);
+        med = median(A);
+        if (vidu > med)  A.paz = 0.4 * vidu + 0.6 * A.egz;
+        else A.paz = 0.4 * med + 0.6 * A.egz;
         grupe.push_back(A);
     }
     else if (iv == 3)
@@ -94,25 +103,22 @@ int main()
             cout << " Ar norite testi? taip/ne" << endl;
             cin >> t;
         }
+        vidu = average(A);
+        med = median(A);
+        if (vidu > med)  A.paz = 0.4 * vidu + 0.6 * A.egz;
+        else A.paz = 0.4 * med + 0.6 * A.egz;
         grupe.push_back(A);
     }
-    else {
+    else {  
+        atsakymas();
+        cout << left << setw(15) << grupe.A.pav;
+        cout << left << setw(15) << grupe.A.v;
+        cout << fixed << setprecision(2) << grupe.A.paz << endl;
 
     }    
-        vidu = average(A, n);
-        med = median(A, n);
-       
-        if (vidu > med)  paz = 0.4 * vidu + 0.6 * A.egz;
-        else paz = 0.4 * med + 0.6 * A.egz;
-
-        atsakymas();
-        cout << left << setw(15) << A.pav;
-        cout << left << setw(15) << A.v;
-        cout << fixed << setprecision(2) << paz << endl;
 
     }
       
-    }
     
     return 0;
 }
