@@ -14,21 +14,20 @@ static void atsakymas ()
 }
 static double average(studentai & A)
 {
-    double suma = 0,sk, vid;
-    A.hw.clear();
-    sk = hw.size();
+    double suma = 0,sk;
+    sk = A.hw.size();
     for (int i = 0; i < sk; i++)
     {
-        suma = suma + A.hw;
+        suma += A.hw[i];
     }
-    vid = suma / sk;
-    return vid;
+    return (sk > 0) ? suma / sk : 0;
 }
 static double median(studentai & A)
 {
     int sk;
-    sk = hw.size();
+    sk = A.hw.size();
     sort(A.hw.begin(), A.hw.end());
+    if (sk == 0) return 0;
     if (sk % 2 == 0)  return (A.hw[sk / 2] + A.hw[(sk / 2) - 1]) / 2.0;
     else return A.hw[sk / 2];
 }
@@ -39,8 +38,8 @@ int main()
     vector <studentai> grupe;
     
     int iv = 0;
-    double paz, vidu, med, nd;
-    string t;
+    double vidu, med, nd;
+    string t = "taip";
     studentai  A;
     vector <string> vardai = { "Emile", "Greta", "Haroldas", "Guste", "Paulius", "Aleksas", "Kristina", "Aidas", "Vasare", "Diana"};
     vector <string> pavardes = { "Jonaitis", "Pavardaite", "Pavardenis", "Adomaitis", "Lapaite", "Apuokas", "Karalaite", "Nausediene"};
@@ -48,7 +47,7 @@ int main()
     while (iv!=4)
     { 
     cout << "Pasirink, kokiu budu bus ivedami studentu duomenys" << endl;
-    cout << "1 - ranka, 2 - generuoti paşymius, 3 - generuoti ir paşymius ir studentø vardus, pavardes, 4 - baigti darbà " << endl;
+    cout << "1 - ranka, 2 - generuoti pazymius, 3 - generuoti ir pazymius ir studentu vardus, pavardes, 4 - baigti darba " << endl;
     cin >> iv;
     if (iv == 1) 
     { 
@@ -57,7 +56,7 @@ int main()
     cout << "Iveskite studento egzamino pazymi: ";
         cin >> A.egz;
     cout << "Iveskite studento namu darbu pazymius: ";
-    while ( t!= "ne")
+        while ( t!= "ne")
     {
         cin >> nd;
         A.hw.push_back(nd);
@@ -91,10 +90,9 @@ int main()
     }
     else if (iv == 3)
     {
-        vardai[rand() % vardai.size()];
-        A.v.push_back(vardai);
-        pavardes[rand() % pavardes.size()];
-        A.pav.push_back(pavardes);
+        A.v = vardai[rand() % vardai.size()];
+        A.pav = pavardes[rand() % pavardes.size()];
+     
         A.egz = rand() % 10 + 1;
         while (t != "ne")
         {
@@ -111,9 +109,12 @@ int main()
     }
     else {  
         atsakymas();
-        cout << left << setw(15) << grupe.A.pav;
-        cout << left << setw(15) << grupe.A.v;
-        cout << fixed << setprecision(2) << grupe.A.paz << endl;
+        for (const auto& A : grupe) {
+            cout << left << setw(15) << A.v;
+            cout << left << setw(15) << A.pav;
+            cout << fixed << setprecision(2) << A.paz << endl;
+        }
+
 
     }    
 
