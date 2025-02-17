@@ -32,56 +32,63 @@ static double median(studentai & A)
     else return A.hw[sk / 2];
 }
 
-void pazymys(double& vidu, double& med)
+static void pazymys(studentai& A, double& vidu, double& med)
 {
     vidu = average(A);
     med = median(A);
     if (vidu > med)  A.paz = 0.4 * vidu + 0.6 * A.egz;
     else A.paz = 0.4 * med + 0.6 * A.egz;
 }
-void iv1(studentai& A, int t, int nd)
+static void iv1(studentai& A)
 {
+    double nd;
+    string t = "taip";
     cout << "Iveskite studento varda ir pavarde: ";
     cin >> A.v >> A.pav;
     cout << "Iveskite studento egzamino pazymi: ";
     cin >> A.egz;
-    cout << "Iveskite studento namu darbu pazymius: ";
+    
     while (t != "ne")
     {
+        cout << "Iveskite studento namu darbu pazymi: ";
         cin >> nd;
         A.hw.push_back(nd);
-        cout << " Ar norite testi? taip/ne" << endl;
+        cout << " Ar norite testi? (taip/ne): ";
         cin >> t;
     }
 }
 
- void iv2(studentai & A, int t, int nd)
+ static void iv2(studentai & A)
     {
+     double nd;
+     int kiek;
      cout << "Iveskite studento varda ir pavarde: ";
      cin >> A.v >> A.pav;
      A.egz = rand() % 10 + 1;
-     while (t != "ne")
+     cout << "Kiek pazymiu uz namu darbus turi studentas? ";
+     cin >> kiek;
+     for (int i=0; i<kiek; i++)
      {
          nd = 1.0 + (double)rand() / RAND_MAX * 9.0;
          A.hw.push_back(nd);
-         cout << " Ar norite testi? taip/ne" << endl;
-         cin >> t;
      }
 
     }
 
- void iv3(studentai& A, int t, int nd)
+ static void iv3(studentai& A, vector <string> vardai, vector <string> pavardes)
  {
+     double nd;
+     int kiek;
      A.v = vardai[rand() % vardai.size()];
      A.pav = pavardes[rand() % pavardes.size()];
 
      A.egz = rand() % 10 + 1;
-     while (t != "ne")
+     cout << "Kiek pazymiu uz namu darbus turi studentas? ";
+     cin >> kiek;
+     for (int i = 0; i < kiek; i++)
      {
          nd = 1.0 + (double)rand() / RAND_MAX * 9.0;
          A.hw.push_back(nd);
-         cout << " Ar norite testi? taip/ne" << endl;
-         cin >> t;
      }
  }
 
@@ -91,9 +98,8 @@ int main()
 {
     vector <studentai> grupe;
     
-    int iv = 0;
-    double vidu, med, nd;
-    string t = "taip";
+    int iv = 0; //??
+    double vidu, med;
     studentai  A;
     vector <string> vardai = { "Emile", "Greta", "Haroldas", "Guste", "Paulius", "Aleksas", "Kristina", "Aidas", "Vasare", "Diana"};
     vector <string> pavardes = { "Jonaitis", "Pavardaite", "Pavardenis", "Adomaitis", "Lapaite", "Apuokas", "Karalaite", "Nausediene"};
@@ -105,33 +111,23 @@ int main()
     cin >> iv;
     if (iv == 1) 
     { 
-        iv1(A, t, nd);
-        pazymys(vidu, med);
-       /* vidu = average(A);
-        med = median(A);
-        if (vidu > med)  A.paz = 0.4 * vidu + 0.6 * A.egz;
-        else A.paz = 0.4 * med + 0.6 * A.egz;*/
+        iv1(A);
+        pazymys(A, vidu, med);
 
-    grupe.push_back(A);
+        grupe.push_back(A);
     }
     else if (iv == 2)
     {
-        iv2(A,t,nd);
-        pazymys(vidu, med);
-        /*vidu = average(A);
-        med = median(A);
-        if (vidu > med)  A.paz = 0.4 * vidu + 0.6 * A.egz;
-        else A.paz = 0.4 * med + 0.6 * A.egz;*/
+        iv2(A);
+        pazymys(A, vidu, med);
+        
         grupe.push_back(A);
     }
     else if (iv == 3)
     {
-        iv3(A,t,nd);
-        pazymys(vidu, med);
-        /*vidu = average(A);
-        med = median(A);
-        if (vidu > med)  A.paz = 0.4 * vidu + 0.6 * A.egz;
-        else A.paz = 0.4 * med + 0.6 * A.egz;*/
+        iv3(A, vardai, pavardes);
+        pazymys(A, vidu, med);
+
         grupe.push_back(A);
     }
     else {  
