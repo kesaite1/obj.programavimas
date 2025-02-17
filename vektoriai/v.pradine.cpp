@@ -31,6 +31,60 @@ static double median(studentai & A)
     if (sk % 2 == 0)  return (A.hw[sk / 2] + A.hw[(sk / 2) - 1]) / 2.0;
     else return A.hw[sk / 2];
 }
+
+void pazymys(double& vidu, double& med)
+{
+    vidu = average(A);
+    med = median(A);
+    if (vidu > med)  A.paz = 0.4 * vidu + 0.6 * A.egz;
+    else A.paz = 0.4 * med + 0.6 * A.egz;
+}
+void iv1(studentai& A, int t, int nd)
+{
+    cout << "Iveskite studento varda ir pavarde: ";
+    cin >> A.v >> A.pav;
+    cout << "Iveskite studento egzamino pazymi: ";
+    cin >> A.egz;
+    cout << "Iveskite studento namu darbu pazymius: ";
+    while (t != "ne")
+    {
+        cin >> nd;
+        A.hw.push_back(nd);
+        cout << " Ar norite testi? taip/ne" << endl;
+        cin >> t;
+    }
+}
+
+ void iv2(studentai & A, int t, int nd)
+    {
+     cout << "Iveskite studento varda ir pavarde: ";
+     cin >> A.v >> A.pav;
+     A.egz = rand() % 10 + 1;
+     while (t != "ne")
+     {
+         nd = 1.0 + (double)rand() / RAND_MAX * 9.0;
+         A.hw.push_back(nd);
+         cout << " Ar norite testi? taip/ne" << endl;
+         cin >> t;
+     }
+
+    }
+
+ void iv3(studentai& A, int t, int nd)
+ {
+     A.v = vardai[rand() % vardai.size()];
+     A.pav = pavardes[rand() % pavardes.size()];
+
+     A.egz = rand() % 10 + 1;
+     while (t != "ne")
+     {
+         nd = 1.0 + (double)rand() / RAND_MAX * 9.0;
+         A.hw.push_back(nd);
+         cout << " Ar norite testi? taip/ne" << endl;
+         cin >> t;
+     }
+ }
+
 //------------------------------------------------------------------------------------------------------
 
 int main()
@@ -46,65 +100,38 @@ int main()
     srand(time(NULL));
     while (iv!=4)
     { 
-    cout << "Pasirink, kokiu budu bus ivedami studentu duomenys" << endl;
+    cout << "Pasirink, kokiu budu bus ivedami studento duomenys" << endl;
     cout << "1 - ranka, 2 - generuoti pazymius, 3 - generuoti ir pazymius ir studentu vardus, pavardes, 4 - baigti darba " << endl;
     cin >> iv;
     if (iv == 1) 
     { 
-    cout << "Iveskite studento varda ir pavarde: ";
-        cin >> A.v >> A.pav; 
-    cout << "Iveskite studento egzamino pazymi: ";
-        cin >> A.egz;
-    cout << "Iveskite studento namu darbu pazymius: ";
-        while ( t!= "ne")
-    {
-        cin >> nd;
-        A.hw.push_back(nd);
-        cout << " Ar norite testi? taip/ne" << endl;
-        cin >> t;
-        }
-        vidu = average(A);
+        iv1(A, t, nd);
+        pazymys(vidu, med);
+       /* vidu = average(A);
         med = median(A);
         if (vidu > med)  A.paz = 0.4 * vidu + 0.6 * A.egz;
-        else A.paz = 0.4 * med + 0.6 * A.egz;
+        else A.paz = 0.4 * med + 0.6 * A.egz;*/
 
     grupe.push_back(A);
     }
     else if (iv == 2)
     {
-        cout << "Iveskite studento varda ir pavarde: ";
-        cin >> A.v >> A.pav;
-        A.egz = rand() % 10 + 1;
-        while (t != "ne")
-        {
-            nd = 1.0 + (double)rand() / RAND_MAX * 9.0;
-            A.hw.push_back(nd);
-            cout << " Ar norite testi? taip/ne" << endl;
-            cin >> t;
-        }
-        vidu = average(A);
+        iv2(A,t,nd);
+        pazymys(vidu, med);
+        /*vidu = average(A);
         med = median(A);
         if (vidu > med)  A.paz = 0.4 * vidu + 0.6 * A.egz;
-        else A.paz = 0.4 * med + 0.6 * A.egz;
+        else A.paz = 0.4 * med + 0.6 * A.egz;*/
         grupe.push_back(A);
     }
     else if (iv == 3)
     {
-        A.v = vardai[rand() % vardai.size()];
-        A.pav = pavardes[rand() % pavardes.size()];
-     
-        A.egz = rand() % 10 + 1;
-        while (t != "ne")
-        {
-            nd = 1.0 + (double)rand() / RAND_MAX * 9.0;
-            A.hw.push_back(nd);
-            cout << " Ar norite testi? taip/ne" << endl;
-            cin >> t;
-        }
-        vidu = average(A);
+        iv3(A,t,nd);
+        pazymys(vidu, med);
+        /*vidu = average(A);
         med = median(A);
         if (vidu > med)  A.paz = 0.4 * vidu + 0.6 * A.egz;
-        else A.paz = 0.4 * med + 0.6 * A.egz;
+        else A.paz = 0.4 * med + 0.6 * A.egz;*/
         grupe.push_back(A);
     }
     else {  
