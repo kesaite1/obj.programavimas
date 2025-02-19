@@ -32,10 +32,10 @@ static double median(studentai & A)
     else return A.hw[sk / 2];
 }
 
-static void pazymys(studentai& A, double& vidu, double& med)
+static void pazymys(studentai& A)
 {
-    vidu = average(A);
-    med = median(A);
+    double vidu = average(A);
+    double med = median(A);
     if (vidu > med)  A.paz = 0.4 * vidu + 0.6 * A.egz;
     else A.paz = 0.4 * med + 0.6 * A.egz;
 }
@@ -97,53 +97,46 @@ static void iv1(studentai& A)
 int main()
 {
     vector <studentai> grupe;
-    
     int iv = 0; //??
-    double vidu, med;
     studentai  A;
     vector <string> vardai = { "Emile", "Greta", "Haroldas", "Guste", "Paulius", "Aleksas", "Kristina", "Aidas", "Vasare", "Diana"};
     vector <string> pavardes = { "Jonaitis", "Pavardaite", "Pavardenis", "Adomaitis", "Lapaite", "Apuokas", "Karalaite", "Nausediene"};
     srand(time(NULL));
-    while (iv!=4)
-    { 
-    cout << "Pasirink, kokiu budu bus ivedami studento duomenys" << endl;
-    cout << "1 - ranka, 2 - generuoti pazymius, 3 - generuoti ir pazymius ir studentu vardus, pavardes, 4 - baigti darba " << endl;
-    cin >> iv;
-    if (iv == 1) 
-    { 
-        iv1(A);
-        pazymys(A, vidu, med);
-
-        grupe.push_back(A);
-    }
-    else if (iv == 2)
+    while (iv != 4)
     {
-        iv2(A);
-        pazymys(A, vidu, med);
-        
-        grupe.push_back(A);
-    }
-    else if (iv == 3)
-    {
-        iv3(A, vardai, pavardes);
-        pazymys(A, vidu, med);
+        cout << "Pasirink, kokiu budu bus ivedami studento duomenys" << endl;
+        cout << "1 - ranka, 2 - generuoti pazymius, 3 - generuoti ir pazymius ir studentu vardus, pavardes, 4 - baigti darba " << endl;
+        cin >> iv;
+        if (iv == 1)
+        {
+            iv1(A);
+            pazymys(A);
 
-        grupe.push_back(A);
-    }
-    else {  
-        atsakymas();
-        for (const auto& A : grupe) {
-            cout << left << setw(15) << A.v;
-            cout << left << setw(15) << A.pav;
-            cout << fixed << setprecision(2) << A.paz << endl;
+            grupe.push_back(A);
         }
+        else if (iv == 2)
+        {
+            iv2(A);
+            pazymys(A);
 
+            grupe.push_back(A);
+        }
+        else if (iv == 3)
+        {
+            iv3(A, vardai, pavardes);
+            pazymys(A);
 
-    }    
-
+            grupe.push_back(A);
+        }
+        else {
+            atsakymas();
+            for (const auto& A : grupe) {
+                cout << left << setw(15) << A.v;
+                cout << left << setw(15) << A.pav;
+                cout << fixed << setprecision(2) << A.paz << endl;
+            }
+        }
     }
-      
-    
     return 0;
 }
 
