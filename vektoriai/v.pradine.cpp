@@ -91,6 +91,33 @@ static void iv1(studentai& A)
          A.hw.push_back(nd);
      }
  }
+ static void iv4(vector<studentai>& grupe)
+ {
+     int kiek_paz = 0;
+     double nd;
+     studentai B;
+     ifstream fd("kursiokai.txt");
+     if (!fd)
+     {
+         cout << "Failed to open file!" << endl;
+     }
+     while (fd>>B.v>>B.pav)
+     {   
+         while (fd>>nd)
+         {
+             B.hw.push_back(nd);
+             if (fd.peek() == '\n')
+                 break;
+             kiek_paz++;
+         }
+         B.egz = B.hw[kiek_paz - 1];
+         B.hw.pop_back();
+      
+     }
+     pazymys(B);
+     grupe.push_back(B);
+     fd.close();
+ }
 
 //------------------------------------------------------------------------------------------------------
 
@@ -102,10 +129,11 @@ int main()
     vector <string> vardai = { "Emile", "Greta", "Haroldas", "Guste", "Paulius", "Aleksas", "Kristina", "Aidas", "Vasare", "Diana"};
     vector <string> pavardes = { "Jonaitis", "Pavardaite", "Pavardenis", "Adomaitis", "Lapaite", "Apuokas", "Karalaite", "Nausediene"};
     srand(time(NULL));
-    while (iv != 4)
+    while (iv != 5)
     {
         cout << "Pasirink, kokiu budu bus ivedami studento duomenys" << endl;
-        cout << "1 - ranka, 2 - generuoti pazymius, 3 - generuoti ir pazymius ir studentu vardus, pavardes, 4 - baigti darba " << endl;
+        cout << "1 - ranka, 2 - generuoti pazymius, 3 - generuoti ir pazymius ir studentu vardus, pavardes," << endl;
+        cout << "4 - skaityti duomenis is failo, 5 - baigti darba " << endl;
         cin >> iv;
         if (iv == 1)
         {
@@ -127,6 +155,10 @@ int main()
             pazymys(A);
 
             grupe.push_back(A);
+        }
+        else if (iv == 4)
+        {
+            iv4(grupe);
         }
         else {
             atsakymas();
