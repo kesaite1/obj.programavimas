@@ -7,11 +7,6 @@ struct studentai {
     double paz_m, paz_avrg;
 } ;
 //----------------------------------------------------------------------------------------------------
-static void atsakymas ()
-{
-    cout << left<< setw(15)<<"Pavarde" << left<<setw(15)<<"Vardas" << left << setw(18) << "Galutinis (vid.)" << "Galutinis (med.)" << endl;
-    cout << "-----------------------------------------------------------------" << endl;
-}
 static double average(studentai & A)
 {
     double suma = 0,sk;
@@ -185,7 +180,8 @@ int main()
             if (output == 'f')
             {
                 ofstream fr("results.txt");
-                atsakymas();
+                fr << left << setw(15) << "Pavarde" << left << setw(15) << "Vardas" << left << setw(18) << "Galutinis (vid.)" << "Galutinis (med.)" << endl;
+                fr << "-----------------------------------------------------------------" << endl;
                 for (const auto& A : grupe) {
                     fr << left << setw(15) << A.v;
                     fr << left << setw(15) << A.pav;
@@ -196,7 +192,8 @@ int main()
             }
             else
             {
-                atsakymas();
+                cout << left << setw(15) << "Pavarde" << left << setw(15) << "Vardas" << left << setw(18) << "Galutinis (vid.)" << "Galutinis (med.)" << endl;
+                cout << "-----------------------------------------------------------------" << endl;
                 for (const auto& A : grupe) {
                     cout << left << setw(15) << A.v;
                     cout << left << setw(15) << A.pav;
