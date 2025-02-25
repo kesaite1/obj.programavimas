@@ -17,3 +17,4 @@ using std::left;
 using std::setw;
 using std::sort;
 using std::ifstream;
+using std::ofstream;

@@ -4,12 +4,12 @@ struct studentai {
     string v, pav;
     vector <double> hw;
     int egz;
-    double paz;
+    double paz_m, paz_avrg;
 } ;
 //----------------------------------------------------------------------------------------------------
 static void atsakymas ()
 {
-    cout << left<< setw(15)<<"Pavarde" << left<<setw(15)<<"Vardas" << "Galutinis (vid.)" << endl;
+    cout << left<< setw(15)<<"Pavarde" << left<<setw(15)<<"Vardas" << left << setw(18) << "Galutinis (vid.)" << "Galutinis (med.)" << endl;
     cout << "-----------------------------------------------------------------" << endl;
 }
 static double average(studentai & A)
@@ -32,12 +32,15 @@ static double median(studentai & A)
     else return A.hw[sk / 2];
 }
 
-static void pazymys(studentai& A)
+static void pazymys_median(studentai& A)
+{
+    double med = median(A);
+    A.paz_m = 0.4 * med + 0.6 * A.egz;
+}
+static void pazymys_average(studentai& A)
 {
     double vidu = average(A);
-    double med = median(A);
-    if (vidu > med)  A.paz = 0.4 * vidu + 0.6 * A.egz;
-    else A.paz = 0.4 * med + 0.6 * A.egz;
+    A.paz_avrg = 0.4 * vidu + 0.6 * A.egz;
 }
 static void iv1(studentai& A)
 {
@@ -122,7 +125,8 @@ static void iv1(studentai& A)
              B.egz = B.hw[kiek_paz - 1];
              B.hw.pop_back();
          }
-       pazymys(B);
+         pazymys_average(B);
+         pazymys_median(B);
        grupe.push_back(B);
 
      }
@@ -136,6 +140,7 @@ int main()
 {
     vector <studentai> grupe;
     int iv = 0; //??
+    char output;
     studentai  A;
     vector <string> vardai = { "Emile", "Greta", "Haroldas", "Guste", "Paulius", "Aleksas", "Kristina", "Aidas", "Vasare", "Diana"};
     vector <string> pavardes = { "Jonaitis", "Pavardaite", "Pavardenis", "Adomaitis", "Lapaite", "Apuokas", "Karalaite", "Nausediene"};
@@ -149,21 +154,24 @@ int main()
         if (iv == 1)
         {
             iv1(A);
-            pazymys(A);
+            pazymys_average(A);
+            pazymys_median(A);
 
             grupe.push_back(A);
         }
         else if (iv == 2)
         {
             iv2(A);
-            pazymys(A);
+            pazymys_average(A);
+            pazymys_median(A);
 
             grupe.push_back(A);
         }
         else if (iv == 3)
         {
             iv3(A, vardai, pavardes);
-            pazymys(A);
+            pazymys_average(A);
+            pazymys_median(A);
 
             grupe.push_back(A);
         }
@@ -172,11 +180,29 @@ int main()
             iv4(grupe);
         }
         else {
-            atsakymas();
-            for (const auto& A : grupe) {
-                cout << left << setw(15) << A.v;
-                cout << left << setw(15) << A.pav;
-                cout << fixed << setprecision(2) << A.paz << endl;
+            cout << "Pasirinkite, kur norite isvesti duomenis: i ekrana - e, i faila - f" << endl;
+            cin >> output;
+            if (output == 'f')
+            {
+                ofstream fr("results.txt");
+                atsakymas();
+                for (const auto& A : grupe) {
+                    fr << left << setw(15) << A.v;
+                    fr << left << setw(15) << A.pav;
+                    fr << left << setw(18) << fixed << setprecision(2) << A.paz_avrg;
+                    fr << fixed << setprecision(2) << A.paz_m << endl;
+                }
+                fr.close();
+            }
+            else
+            {
+                atsakymas();
+                for (const auto& A : grupe) {
+                    cout << left << setw(15) << A.v;
+                    cout << left << setw(15) << A.pav;
+                    cout << left << setw(18) << fixed << setprecision(2) << A.paz_avrg;
+                    cout << fixed << setprecision(2) << A.paz_m << endl;
+                }
             }
         }
     }
