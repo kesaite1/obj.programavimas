@@ -93,16 +93,22 @@ static void iv1(studentai& A)
  }
  static void iv4(vector<studentai>& grupe)
  {
-     int kiek_paz = 0;
+     int kiek_paz;
      double nd;
      studentai B;
      ifstream fd("kursiokai.txt");
-     if (!fd)
+        if (!fd)
      {
          cout << "Failed to open file!" << endl;
      }
+     
+
+     string antrastes;
+     getline(fd, antrastes);
+
      while (fd>>B.v>>B.pav)
      {   
+         kiek_paz = 0;
          while (fd>>nd)
          {
              B.hw.push_back(nd);
@@ -110,12 +116,17 @@ static void iv1(studentai& A)
                  break;
              kiek_paz++;
          }
-         B.egz = B.hw[kiek_paz - 1];
-         B.hw.pop_back();
-      
+        
+         if (kiek_paz > 0)
+         {
+             B.egz = B.hw[kiek_paz - 1];
+             B.hw.pop_back();
+         }
+       pazymys(B);
+       grupe.push_back(B);
+
      }
-     pazymys(B);
-     grupe.push_back(B);
+    
      fd.close();
  }
 
