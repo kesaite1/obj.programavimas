@@ -146,6 +146,11 @@ int main()
         cout << "1 - ranka, 2 - generuoti pazymius, 3 - generuoti ir pazymius ir studentu vardus, pavardes," << endl;
         cout << "4 - skaityti duomenis is failo, 5 - baigti darba " << endl;
         cin >> iv;
+        if (iv != 1 && iv != 2 && iv != 3 && iv != 4 && iv != 5)
+        {
+            cout << "Invalid input!!!" << endl;
+            return 0;
+        }
         if (iv == 1)
         {
             iv1(A);
@@ -177,6 +182,15 @@ int main()
         else {
             cout << "Pasirinkite, kur norite isvesti duomenis: i ekrana - e, i faila - f" << endl;
             cin >> output;
+            if (output != 'f' && output != 'e')
+            {
+                while (output != 'f' && output != 'e')
+                {
+                    cout << "Invalid input!!!" << endl;
+                    cout << "Pasirinkite, kur norite isvesti duomenis: i ekrana - e, i faila - f" << endl;
+                    cin >> output;
+                }
+            }
             if (output == 'f')
             {
                 ofstream fr("results.txt");
