@@ -1,4 +1,0 @@
-Skaitant faila studentai10000.txt programos vykdymo laikas yra: 1.24744
-Skaitant faila studentai100000.txt programos vykdymo laikas yra: 9.01201
-Skaitant faila studentai1000000.txt programos vykdymo laikas yra: 53.7709
-Laiku vidurkis: 21.3435

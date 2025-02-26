@@ -231,7 +231,7 @@ int main()
             if (output == 'f')
             {
                 ofstream fr("results.txt");
-                fr << left << setw(15) << "Pavarde" << left << setw(15) << "Vardas" << left << setw(18) << "Galutinis (vid.)" << "Galutinis (med.)" << endl;
+                fr << left << setw(15) << "Vardas" << left << setw(15) << "Pavarde" << left << setw(18) << "Galutinis (vid.)" << "Galutinis (med.)" << endl;
                 fr << "-----------------------------------------------------------------" << endl;
                 for (const auto& A : grupe) {
                     fr << left << setw(15) << A.v;
@@ -243,7 +243,7 @@ int main()
             }
             else
             {
-                cout << left << setw(15) << "Pavarde" << left << setw(15) << "Vardas" << left << setw(18) << "Galutinis (vid.)" << "Galutinis (med.)" << endl;
+                cout << left << setw(15) << "Vardas" << left << setw(15) << "Pavarde" << left << setw(18) << "Galutinis (vid.)" << "Galutinis (med.)" << endl;
                 cout << "-----------------------------------------------------------------" << endl;
                 for (const auto& A : grupe) {
                     cout << left << setw(15) << A.v;
