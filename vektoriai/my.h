@@ -5,6 +5,7 @@
 #include <string>
 #include <algorithm>
 #include <ctime>
+#include <chrono>
 
 using std::cout;
 using std::cin;

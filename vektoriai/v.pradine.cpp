@@ -26,7 +26,6 @@ static double median(studentai & A)
     if (sk % 2 == 0)  return (A.hw[sk / 2] + A.hw[(sk / 2) - 1]) / 2.0;
     else return A.hw[sk / 2];
 }
-
 static void pazymys_median(studentai& A)
 {
     double med = median(A);
@@ -55,7 +54,6 @@ static void iv1(studentai& A)
         cin >> t;
     }
 }
-
  static void iv2(studentai & A)
     {
      double nd;
@@ -70,16 +68,14 @@ static void iv1(studentai& A)
          nd = 1.0 + (double)rand() / RAND_MAX * 9.0;
          A.hw.push_back(nd);
      }
-
     }
 
- static void iv3(studentai& A, vector <string> vardai, vector <string> pavardes)
+ static void iv3(studentai& A, vector <string>& vardai, vector <string>& pavardes)
  {
      double nd;
      int kiek;
      A.v = vardai[rand() % vardai.size()];
      A.pav = pavardes[rand() % pavardes.size()];
-
      A.egz = rand() % 10 + 1;
      cout << "Kiek pazymiu uz namu darbus turi studentas? ";
      cin >> kiek;
@@ -89,33 +85,32 @@ static void iv1(studentai& A)
          A.hw.push_back(nd);
      }
  }
- static void iv4(vector<studentai>& grupe)
+ static double iv4(vector<studentai>& grupe, string file_name)
  {
+     using namespace std::chrono;
      int kiek_paz;
      double nd;
      studentai B;
-     ifstream fd("kursiokai.txt");
-        if (!fd)
+     ifstream fd(file_name);
+     if (!fd)
      {
          cout << "Failed to open file!" << endl;
+         return 0;
      }
-     
-
      string antrastes;
      getline(fd, antrastes);
-
-     while (fd>>B.v>>B.pav)
+     auto start = high_resolution_clock::now();
+     while (fd >> B.v >> B.pav)
      {
          B.hw.clear();
          kiek_paz = 0;
-         while (fd>>nd)
+         while (fd >> nd)
          {
              B.hw.push_back(nd);
              if (fd.peek() == '\n')
                  break;
              kiek_paz++;
          }
-        
          if (kiek_paz > 0)
          {
              B.egz = B.hw[kiek_paz - 1];
@@ -123,23 +118,25 @@ static void iv1(studentai& A)
          }
          pazymys_average(B);
          pazymys_median(B);
-       grupe.push_back(B);
-
+         grupe.push_back(B);
      }
-    
+     auto end = high_resolution_clock::now();
+     duration<double> skirtumas = end - start;
      fd.close();
+
+     return skirtumas.count();
  }
-
-//------------------------------------------------------------------------------------------------------
-
+//-----------------------------------------------------------------------------------------------------
 int main()
 {
+    string file_name;
     vector <studentai> grupe;
     int iv = 0, sorting = 0; //??
     char output;
     studentai  A;
     vector <string> vardai = { "Emile", "Greta", "Haroldas", "Guste", "Paulius", "Aleksas", "Kristina", "Aidas", "Vasare", "Diana"};
     vector <string> pavardes = { "Jonaitis", "Pavardaite", "Pavardenis", "Adomaitis", "Lapaite", "Apuokas", "Karalaite", "Nausediene"};
+    ofstream laiko_failas("laikas.txt");
     srand(time(NULL));
     while (iv != 5)
     {
@@ -178,7 +175,14 @@ int main()
         }
         else if (iv == 4)
         {
-            iv4(grupe);
+            double time1 = iv4(grupe, "studentai10000.txt");
+            double time2 = iv4(grupe, "studentai100000.txt");
+            double time3 = iv4(grupe, "studentai1000000.txt");
+
+            laiko_failas << "Skaitant faila studentai10000.txt programos vykdymo laikas yra: " << time1 << endl;
+            laiko_failas << "Skaitant faila studentai100000.txt programos vykdymo laikas yra: " << time2 << endl;
+            laiko_failas << "Skaitant faila studentai1000000.txt programos vykdymo laikas yra: " << time3 << endl;
+            laiko_failas << "Laiku vidurkis: " << (time1 + time2 + time3) / 3 << endl;
         }
         else {
             cout << "Pasirinkite, kaip norite rikiuoti duomenis: " << endl;
@@ -213,7 +217,6 @@ int main()
             {
                 sort(grupe.begin(), grupe.end(), [](const studentai& A, const studentai& B) { return A.paz_m > B.paz_m; });
             }
-
             cout << "Pasirinkite, kur norite isvesti duomenis: i ekrana - e, i faila - f" << endl;
             cin >> output;
             if (output != 'f' && output != 'e')
@@ -251,6 +254,7 @@ int main()
             }
         }
     }
+    laiko_failas.close();
     return 0;
 }
 
