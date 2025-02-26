@@ -105,7 +105,8 @@ static void iv1(studentai& A)
      getline(fd, antrastes);
 
      while (fd>>B.v>>B.pav)
-     {   
+     {
+         B.hw.clear();
          kiek_paz = 0;
          while (fd>>nd)
          {
@@ -134,7 +135,7 @@ static void iv1(studentai& A)
 int main()
 {
     vector <studentai> grupe;
-    int iv = 0; //??
+    int iv = 0, sorting = 0; //??
     char output;
     studentai  A;
     vector <string> vardai = { "Emile", "Greta", "Haroldas", "Guste", "Paulius", "Aleksas", "Kristina", "Aidas", "Vasare", "Diana"};
@@ -180,6 +181,39 @@ int main()
             iv4(grupe);
         }
         else {
+            cout << "Pasirinkite, kaip norite rikiuoti duomenis: " << endl;
+            cout << "1 - vardai abeceles tvarka," << endl;
+            cout << "2 - pavardes abeceles tvarka," << endl;
+            cout << "3 - galutini vidurkio pazymiai didejimo tvarka," << endl;
+            cout << "4 - galutiniai vidurkio pazymiai mazejimo tvarka," << endl;
+            cout << "5 - galutiniai medianos pazymiai didejimo tvarka," << endl;
+            cout << "6 - galutiniai medianos pazymiai mazejimo tvarka" << endl;
+            cin >> sorting;
+            if (sorting == 1)
+            {
+                sort(grupe.begin(), grupe.end(), [](const studentai& A, const studentai& B) { return A.v < B.v; });
+            }
+            else if (sorting == 2)
+            {
+                sort(grupe.begin(), grupe.end(), [](const studentai& A, const studentai& B) { return A.pav < B.pav; });
+            }
+            else if (sorting == 3)
+            {
+                sort(grupe.begin(), grupe.end(), [](const studentai& A, const studentai& B) { return A.paz_avrg < B.paz_avrg; });
+            }
+            else if (sorting == 4)
+            {
+                sort(grupe.begin(), grupe.end(), [](const studentai& A, const studentai& B) { return A.paz_avrg > B.paz_avrg; });
+            }
+            else if (sorting == 5)
+            {
+                sort(grupe.begin(), grupe.end(), [](const studentai& A, const studentai& B) { return A.paz_m < B.paz_m; });
+            }
+            else if (sorting == 6)
+            {
+                sort(grupe.begin(), grupe.end(), [](const studentai& A, const studentai& B) { return A.paz_m > B.paz_m; });
+            }
+
             cout << "Pasirinkite, kur norite isvesti duomenis: i ekrana - e, i faila - f" << endl;
             cin >> output;
             if (output != 'f' && output != 'e')
