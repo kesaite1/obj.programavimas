@@ -175,14 +175,14 @@ int main()
         }
         else if (iv == 4)
         {
-            double time1 = iv4(grupe, "studentai10000.txt");
-            double time2 = iv4(grupe, "studentai100000.txt");
-            double time3 = iv4(grupe, "studentai1000000.txt");
+           // double time1 = iv4(grupe, "studentai10000.txt");
+           // double time2 = iv4(grupe, "studentai100000.txt");
+           // double time3 = iv4(grupe, "studentai1000000.txt");
 
-            laiko_failas << "Skaitant faila studentai10000.txt programos vykdymo laikas yra: " << time1 << endl;
-            laiko_failas << "Skaitant faila studentai100000.txt programos vykdymo laikas yra: " << time2 << endl;
-            laiko_failas << "Skaitant faila studentai1000000.txt programos vykdymo laikas yra: " << time3 << endl;
-            laiko_failas << "Laiku vidurkis: " << (time1 + time2 + time3) / 3 << endl;
+           // laiko_failas << "Skaitant faila studentai10000.txt programos vykdymo laikas yra: " << time1 << endl;
+           // laiko_failas << "Skaitant faila studentai100000.txt programos vykdymo laikas yra: " << time2 << endl;
+           //laiko_failas << "Skaitant faila studentai1000000.txt programos vykdymo laikas yra: " << time3 << endl;
+           // laiko_failas << "Laiku vidurkis: " << (time1 ) / 1<< endl;
         }
         else {
             cout << "Pasirinkite, kaip norite rikiuoti duomenis: " << endl;
