@@ -4,7 +4,7 @@ struct studentai {
     string v, pav;
     vector <double> hw;
     int egz;
-    double paz_m, paz_avrg;
+    double paz_m, paz_vid;
 } ;
 //----------------------------------------------------------------------------------------------------
 static double vidurkis(studentai & A)
@@ -34,7 +34,7 @@ static void pazymys_median(studentai& A)
 static void pazymys_average(studentai& A)
 {
     double vidu = vidurkis(A);
-    A.paz_avrg = 0.4 * vidu + 0.6 * A.egz;
+    A.paz_vid = 0.4 * vidu + 0.6 * A.egz;
 }
 static void iv1(studentai& A)
 {
@@ -203,11 +203,11 @@ int main()
             }
             else if (sorting == 3)
             {
-                sort(grupe.begin(), grupe.end(), [](const studentai& A, const studentai& B) { return A.paz_avrg < B.paz_avrg; });
+                sort(grupe.begin(), grupe.end(), [](const studentai& A, const studentai& B) { return A.paz_vid < B.paz_vid; });
             }
             else if (sorting == 4)
             {
-                sort(grupe.begin(), grupe.end(), [](const studentai& A, const studentai& B) { return A.paz_avrg > B.paz_avrg; });
+                sort(grupe.begin(), grupe.end(), [](const studentai& A, const studentai& B) { return A.paz_vid > B.paz_vid; });
             }
             else if (sorting == 5)
             {
@@ -236,7 +236,7 @@ int main()
                 for (const auto& A : grupe) {
                     fr << left << setw(15) << A.v;
                     fr << left << setw(15) << A.pav;
-                    fr << left << setw(18) << fixed << setprecision(2) << A.paz_avrg;
+                    fr << left << setw(18) << fixed << setprecision(2) << A.paz_vid;
                     fr << fixed << setprecision(2) << A.paz_m << endl;
                 }
                 fr.close();
@@ -248,7 +248,7 @@ int main()
                 for (const auto& A : grupe) {
                     cout << left << setw(15) << A.v;
                     cout << left << setw(15) << A.pav;
-                    cout << left << setw(18) << fixed << setprecision(2) << A.paz_avrg;
+                    cout << left << setw(18) << fixed << setprecision(2) << A.paz_vid;
                     cout << fixed << setprecision(2) << A.paz_m << endl;
                 }
             }
