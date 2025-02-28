@@ -7,7 +7,7 @@ struct studentai {
     double paz_m, paz_avrg;
 } ;
 //----------------------------------------------------------------------------------------------------
-static double average(studentai & A)
+static double vidurkis(studentai & A)
 {
     double suma = 0,sk;
     sk = A.hw.size();
@@ -33,7 +33,7 @@ static void pazymys_median(studentai& A)
 }
 static void pazymys_average(studentai& A)
 {
-    double vidu = average(A);
+    double vidu = vidurkis(A);
     A.paz_avrg = 0.4 * vidu + 0.6 * A.egz;
 }
 static void iv1(studentai& A)
