@@ -61,7 +61,7 @@ static void iv1(studentai& A)
      cout << "Iveskite studento varda ir pavarde: ";
      cin >> A.v >> A.pav;
      A.egz = rand() % 10 + 1;
-     cout << "Kiek pazymiu uz namu darbus turi studentas? ";
+     cout << "Kiek namu darbu pazymiu turi studentas? ";
      cin >> kiek;
      for (int i=0; i<kiek; i++)
      {
@@ -77,7 +77,7 @@ static void iv1(studentai& A)
      A.v = vardai[rand() % vardai.size()];
      A.pav = pavardes[rand() % pavardes.size()];
      A.egz = rand() % 10 + 1;
-     cout << "Kiek pazymiu uz namu darbus turi studentas? ";
+     cout << "Kiek namu darbu pazymiu turi studentas? ";
      cin >> kiek;
      for (int i = 0; i < kiek; i++)
      {
