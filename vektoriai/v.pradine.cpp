@@ -223,7 +223,7 @@ int main()
             {
                 while (isvestis != 'f' && isvestis != 'e')
                 {
-                    cout << "Invalid input!!!" << endl;
+                    cout << "Neteisinga ivestis!!!" << endl;
                     cout << "Pasirinkite, kur norite isvesti duomenis: i ekrana - e, i faila - f" << endl;
                     cin >> isvestis;
                 }
