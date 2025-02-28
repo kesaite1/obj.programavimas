@@ -17,7 +17,7 @@ static double vidurkis(studentai & A)
     }
     return (sk > 0) ? suma / sk : 0;
 }
-static double median(studentai & A)
+static double mediana(studentai & A)
 {
     int sk;
     sk = A.hw.size();
@@ -26,9 +26,9 @@ static double median(studentai & A)
     if (sk % 2 == 0)  return (A.hw[sk / 2] + A.hw[(sk / 2) - 1]) / 2.0;
     else return A.hw[sk / 2];
 }
-static void pazymys_median(studentai& A)
+static void pazymys_mediana(studentai& A)
 {
-    double med = median(A);
+    double med = mediana(A);
     A.paz_m = 0.4 * med + 0.6 * A.egz;
 }
 static void pazymys_average(studentai& A)
@@ -117,7 +117,7 @@ static void iv1(studentai& A)
              B.hw.pop_back();
          }
          pazymys_average(B);
-         pazymys_median(B);
+         pazymys_mediana(B);
          grupe.push_back(B);
      }
      auto end = high_resolution_clock::now();
@@ -153,7 +153,7 @@ int main()
         {
             iv1(A);
             pazymys_average(A);
-            pazymys_median(A);
+            pazymys_mediana(A);
 
             grupe.push_back(A);
         }
@@ -161,7 +161,7 @@ int main()
         {
             iv2(A);
             pazymys_average(A);
-            pazymys_median(A);
+            pazymys_mediana(A);
 
             grupe.push_back(A);
         }
@@ -169,7 +169,7 @@ int main()
         {
             iv3(A, vardai, pavardes);
             pazymys_average(A);
-            pazymys_median(A);
+            pazymys_mediana(A);
 
             grupe.push_back(A);
         }
