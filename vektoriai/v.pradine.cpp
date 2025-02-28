@@ -31,7 +31,7 @@ static void pazymys_mediana(studentai& A)
     double med = mediana(A);
     A.paz_m = 0.4 * med + 0.6 * A.egz;
 }
-static void pazymys_average(studentai& A)
+static void pazymys_vidurkis(studentai& A)
 {
     double vidu = vidurkis(A);
     A.paz_vid = 0.4 * vidu + 0.6 * A.egz;
@@ -116,7 +116,7 @@ static void iv1(studentai& A)
              B.egz = B.hw[kiek_paz - 1];
              B.hw.pop_back();
          }
-         pazymys_average(B);
+         pazymys_vidurkis(B);
          pazymys_mediana(B);
          grupe.push_back(B);
      }
@@ -152,7 +152,7 @@ int main()
         if (iv == 1)
         {
             iv1(A);
-            pazymys_average(A);
+            pazymys_vidurkis(A);
             pazymys_mediana(A);
 
             grupe.push_back(A);
@@ -160,7 +160,7 @@ int main()
         else if (iv == 2)
         {
             iv2(A);
-            pazymys_average(A);
+            pazymys_vidurkis(A);
             pazymys_mediana(A);
 
             grupe.push_back(A);
@@ -168,7 +168,7 @@ int main()
         else if (iv == 3)
         {
             iv3(A, vardai, pavardes);
-            pazymys_average(A);
+            pazymys_vidurkis(A);
             pazymys_mediana(A);
 
             grupe.push_back(A);
