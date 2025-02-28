@@ -30,7 +30,9 @@
 *.exe
 *.out
 *.app
+v0.2
 v0.3
 
+main
 vektoriai/Debug/studentai1000000.txt
 main
