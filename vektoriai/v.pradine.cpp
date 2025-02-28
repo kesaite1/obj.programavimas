@@ -146,7 +146,7 @@ int main()
         cin >> iv;
         if (iv != 1 && iv != 2 && iv != 3 && iv != 4 && iv != 5)
         {
-            cout << "Invalid input!!!" << endl;
+            cout << "Neteisinga ivestis!!!" << endl;
             return 0;
         }
         if (iv == 1)
