@@ -94,7 +94,7 @@ static void iv1(studentai& A)
      ifstream fd(file_name);
      if (!fd)
      {
-         cout << "Failed to open file!" << endl;
+         cout << "Nepavyko atidaryti failo!" << endl;
          return 0;
      }
      string antrastes;
