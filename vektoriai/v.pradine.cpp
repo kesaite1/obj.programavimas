@@ -132,7 +132,7 @@ int main()
     string file_name;
     vector <studentai> grupe;
     int iv = 0, sorting = 0; //??
-    char output;
+    char isvestis;
     studentai  A;
     vector <string> vardai = { "Emile", "Greta", "Haroldas", "Guste", "Paulius", "Aleksas", "Kristina", "Aidas", "Vasare", "Diana"};
     vector <string> pavardes = { "Jonaitis", "Pavardaite", "Pavardenis", "Adomaitis", "Lapaite", "Apuokas", "Karalaite", "Nausediene"};
@@ -218,17 +218,17 @@ int main()
                 sort(grupe.begin(), grupe.end(), [](const studentai& A, const studentai& B) { return A.paz_m > B.paz_m; });
             }
             cout << "Pasirinkite, kur norite isvesti duomenis: i ekrana - e, i faila - f" << endl;
-            cin >> output;
-            if (output != 'f' && output != 'e')
+            cin >> isvestis;
+            if (isvestis != 'f' && isvestis != 'e')
             {
-                while (output != 'f' && output != 'e')
+                while (isvestis != 'f' && isvestis != 'e')
                 {
                     cout << "Invalid input!!!" << endl;
                     cout << "Pasirinkite, kur norite isvesti duomenis: i ekrana - e, i faila - f" << endl;
-                    cin >> output;
+                    cin >> isvestis;
                 }
             }
-            if (output == 'f')
+            if (isvestis == 'f')
             {
                 ofstream fr("results.txt");
                 fr << left << setw(15) << "Vardas" << left << setw(15) << "Pavarde" << left << setw(18) << "Galutinis (vid.)" << "Galutinis (med.)" << endl;
