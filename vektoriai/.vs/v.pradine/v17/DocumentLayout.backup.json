@@ -1,18 +1,22 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\Dell\\Documents\\VU MIF\\Objektinis programavimas\\obj.programavimas\\v.pradine\\",
+  "WorkspaceRootPath": "C:\\Users\\Dell\\Documents\\VU MIF\\Objektinis programavimas\\obj.programavimas\\vektoriai\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Dell\\Documents\\VU MIF\\Objektinis programavimas\\obj.programavimas\\v.pradine\\v.pradine.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:v.pradine.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{C7D001DE-B751-482C-9787-27525616D8D6}|v.pradine.vcxproj|C:\\Users\\Dell\\Documents\\VU MIF\\Objektinis programavimas\\obj.programavimas\\vektoriai\\v.pradine.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{C7D001DE-B751-482C-9787-27525616D8D6}|v.pradine.vcxproj|solutionrelative:v.pradine.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Dell\\Documents\\VU MIF\\Objektinis programavimas\\obj.programavimas\\v.pradine\\my.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:my.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{C7D001DE-B751-482C-9787-27525616D8D6}|v.pradine.vcxproj|C:\\Users\\Dell\\Documents\\VU MIF\\Objektinis programavimas\\obj.programavimas\\vektoriai\\functions.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{C7D001DE-B751-482C-9787-27525616D8D6}|v.pradine.vcxproj|solutionrelative:functions.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Dell\\Documents\\VU MIF\\Objektinis programavimas\\obj.programavimas\\v.pradine\\duomenys.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:duomenys.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
+      "AbsoluteMoniker": "D:0:0:{C7D001DE-B751-482C-9787-27525616D8D6}|v.pradine.vcxproj|C:\\Users\\Dell\\Documents\\VU MIF\\Objektinis programavimas\\obj.programavimas\\vektoriai\\code.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{C7D001DE-B751-482C-9787-27525616D8D6}|v.pradine.vcxproj|solutionrelative:code.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C7D001DE-B751-482C-9787-27525616D8D6}|v.pradine.vcxproj|C:\\Users\\Dell\\Documents\\VU MIF\\Objektinis programavimas\\obj.programavimas\\vektoriai\\my.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{C7D001DE-B751-482C-9787-27525616D8D6}|v.pradine.vcxproj|solutionrelative:my.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,47 +26,64 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
             },
             {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
+            },
+            {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "duomenys.txt",
-              "DocumentMoniker": "C:\\Users\\Dell\\Documents\\VU MIF\\Objektinis programavimas\\obj.programavimas\\v.pradine\\duomenys.txt",
-              "RelativeDocumentMoniker": "duomenys.txt",
-              "ToolTip": "C:\\Users\\Dell\\Documents\\VU MIF\\Objektinis programavimas\\obj.programavimas\\v.pradine\\duomenys.txt",
-              "RelativeToolTip": "duomenys.txt",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAArAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
-              "WhenOpened": "2025-02-10T19:24:47.409Z",
+              "Title": "code.h",
+              "DocumentMoniker": "C:\\Users\\Dell\\Documents\\VU MIF\\Objektinis programavimas\\obj.programavimas\\vektoriai\\code.h",
+              "RelativeDocumentMoniker": "code.h",
+              "ToolTip": "C:\\Users\\Dell\\Documents\\VU MIF\\Objektinis programavimas\\obj.programavimas\\vektoriai\\code.h",
+              "RelativeToolTip": "code.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-03-01T21:34:14.88Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "functions.cpp",
+              "DocumentMoniker": "C:\\Users\\Dell\\Documents\\VU MIF\\Objektinis programavimas\\obj.programavimas\\vektoriai\\functions.cpp",
+              "RelativeDocumentMoniker": "functions.cpp",
+              "ToolTip": "C:\\Users\\Dell\\Documents\\VU MIF\\Objektinis programavimas\\obj.programavimas\\vektoriai\\functions.cpp",
+              "RelativeToolTip": "functions.cpp",
+              "ViewState": "AgIAAEUAAAAAAAAAAAAAAFEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-03-01T21:31:46.888Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "my.h",
-              "DocumentMoniker": "C:\\Users\\Dell\\Documents\\VU MIF\\Objektinis programavimas\\obj.programavimas\\v.pradine\\my.h",
+              "DocumentMoniker": "C:\\Users\\Dell\\Documents\\VU MIF\\Objektinis programavimas\\obj.programavimas\\vektoriai\\my.h",
               "RelativeDocumentMoniker": "my.h",
-              "ToolTip": "C:\\Users\\Dell\\Documents\\VU MIF\\Objektinis programavimas\\obj.programavimas\\v.pradine\\my.h",
+              "ToolTip": "C:\\Users\\Dell\\Documents\\VU MIF\\Objektinis programavimas\\obj.programavimas\\vektoriai\\my.h",
               "RelativeToolTip": "my.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAQAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB4AAAAHAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-02-08T20:50:52.793Z",
+              "WhenOpened": "2025-03-01T21:11:17.337Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "v.pradine.cpp",
-              "DocumentMoniker": "C:\\Users\\Dell\\Documents\\VU MIF\\Objektinis programavimas\\obj.programavimas\\v.pradine\\v.pradine.cpp",
+              "DocumentMoniker": "C:\\Users\\Dell\\Documents\\VU MIF\\Objektinis programavimas\\obj.programavimas\\vektoriai\\v.pradine.cpp",
               "RelativeDocumentMoniker": "v.pradine.cpp",
-              "ToolTip": "C:\\Users\\Dell\\Documents\\VU MIF\\Objektinis programavimas\\obj.programavimas\\v.pradine\\v.pradine.cpp",
+              "ToolTip": "C:\\Users\\Dell\\Documents\\VU MIF\\Objektinis programavimas\\obj.programavimas\\vektoriai\\v.pradine.cpp",
               "RelativeToolTip": "v.pradine.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAHcAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAACcAAAAAAAAAAAAAACsAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2025-02-08T19:01:16.627Z",
               "EditorCaption": ""

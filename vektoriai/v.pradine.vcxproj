@@ -127,7 +127,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="functions.cpp" />
     <ClCompile Include="v.pradine.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="code.h" />
+    <ClInclude Include="my.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="kursiokai.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
