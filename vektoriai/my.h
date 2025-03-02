@@ -1,3 +1,5 @@
+#ifndef MY_H       
+#define MY_H
 #include <iostream>
 #include <fstream>
 #include <vector>
@@ -19,3 +21,11 @@ using std::setw;
 using std::sort;
 using std::ifstream;
 using std::ofstream;
+using std::transform;
+using std::exception;
+using std::cerr;
+using std::invalid_argument;
+using std::out_of_range;
+
+
+#endif 
