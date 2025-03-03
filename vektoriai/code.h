@@ -17,7 +17,8 @@ void pazymys_vidurkis(studentai& A);
 void iv1(studentai& A);
 void iv2(studentai& A);
 void iv3(studentai& A, vector <string>& vardai, vector <string>& pavardes);
-double iv4(vector<studentai>& grupe, string file_name);
+double iv4(vector<studentai>& grupe);
 string raide(string vardai);
+void generavimas(string failas, int dydis);
 
 #endif
