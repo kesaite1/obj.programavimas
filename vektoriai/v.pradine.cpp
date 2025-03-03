@@ -4,7 +4,7 @@
 
 int main()
 {
-    string file_name;
+   // string filename;
     vector <studentai> grupe;
     int iv = 0, sorting = 0; //??
     string isvestis;
@@ -57,8 +57,12 @@ int main()
                 grupe.push_back(A);
             }
             else if (iv == 4)
-            {
-                 double time1 = iv4(grupe, "kursiokai.txt");
+            {    
+                /*cout << "Iveskite failo pavadinima tokiu formatu pavadinimas.txt: ";
+                cin >> filename;
+                cout << "Iveskite irasu skaiciu faile: ";
+                cin << dydis;*/
+                 double time1 = iv4(grupe);
                 // double time2 = iv4(grupe, "studentai100000.txt");
                 // double time3 = iv4(grupe, "studentai1000000.txt");
 

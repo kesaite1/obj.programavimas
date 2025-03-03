@@ -26,6 +26,6 @@ using std::exception;
 using std::cerr;
 using std::invalid_argument;
 using std::out_of_range;
-
+using std::to_string;
 
 #endif 
