@@ -79,13 +79,19 @@ void iv3(studentai& A, vector <string>& vardai, vector <string>& pavardes)
     }
 }
 //-------------------------------------------------------------------------------------------
-double iv4(vector<studentai>& grupe, string file_name)
+double iv4(vector<studentai>& grupe)
 {
     using namespace std::chrono;
-    int kiek_paz;
+    int kiek_paz, dydis;
+    string filename;
     double nd;
     studentai B;
-    ifstream fd(file_name);
+    cout << "Iveskite failo pavadinima tokiu formatu: pavadinimas.txt: ";
+    cin >> filename;
+    cout << "Iveskite irasu skaiciu faile: ";
+    cin >> dydis;
+    generavimas(filename, dydis);
+    ifstream fd(filename);
     if (!fd)
     {
         cout << "Nepavyko atidaryti failo!" << endl;
@@ -125,4 +131,24 @@ string raide (string vardai)
 {
     transform(vardai.begin(), vardai.end(), vardai.begin(), ::tolower);
     return vardai;
+}
+
+void generavimas(string failas, int dydis)
+{
+    int sk, egz;
+    double nd;
+    ofstream file(failas);
+    for (int i = 0; i < dydis; i++)
+    {
+        file << left << setw(20) << ("Vardas"+ to_string(i)) << left << setw(20) << ("Pavarde" + to_string(i));
+        sk = rand() % 10 + 1;
+        for (int j = 0; j < sk; j++)
+        {
+            nd = 1.0 + (double)rand() / RAND_MAX * 9.0;
+            file << fixed << setprecision(2) << left << setw(5) << nd;
+        }
+        egz = rand() % 10 + 1;
+        file << egz << endl;
+    }
+    file.close();
 }
