@@ -169,11 +169,28 @@ int main()
                         {
                             cout << left << setw(15) << "Vardas" << left << setw(15) << "Pavarde" << left << setw(18) << "Galutinis (vid.)" << "Galutinis (med.)" << endl;
                             cout << "-----------------------------------------------------------------" << endl;
+                            cout << "Pazangus studentai: " << endl;
+                            cout << "-----------------------------------------------------------------" << endl;
                             for (const auto& A : grupe) {
-                                cout << left << setw(15) << A.v;
-                                cout << left << setw(15) << A.pav;
-                                cout << left << setw(18) << fixed << setprecision(2) << A.paz_vid;
-                                cout << fixed << setprecision(2) << A.paz_m << endl;
+                                if (A.paz_vid >= 5 || A.paz_m >= 5)
+                                {
+                                    cout << left << setw(15) << A.v;
+                                    cout << left << setw(15) << A.pav;
+                                    cout << left << setw(18) << fixed << setprecision(2) << A.paz_vid;
+                                    cout << fixed << setprecision(2) << A.paz_m << endl;
+                                }
+                            }
+                            cout << "-----------------------------------------------------------------" << endl;
+                            cout << "Nepazangus studentai: " << endl;
+                            cout << "-----------------------------------------------------------------" << endl;
+                            for (const auto& A : grupe) {
+                                if (A.paz_vid < 5 && A.paz_m < 5)
+                                {
+                                    cout << left << setw(15) << A.v;
+                                    cout << left << setw(15) << A.pav;
+                                    cout << left << setw(18) << fixed << setprecision(2) << A.paz_vid;
+                                    cout << fixed << setprecision(2) << A.paz_m << endl;
+                                }
                             }
                             break;
                         }
