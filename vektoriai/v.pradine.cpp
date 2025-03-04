@@ -57,12 +57,12 @@ int main()
                 grupe.push_back(A);
             }
             else if (iv == 4)
-            {    
+            {
                 /*cout << "Iveskite failo pavadinima tokiu formatu pavadinimas.txt: ";
                 cin >> filename;
                 cout << "Iveskite irasu skaiciu faile: ";
                 cin << dydis;*/
-                 double time1 = iv4(grupe);
+                double time1 = iv4(grupe);
                 // double time2 = iv4(grupe, "studentai100000.txt");
                 // double time3 = iv4(grupe, "studentai1000000.txt");
 
@@ -93,7 +93,7 @@ int main()
 
                             throw out_of_range(" Neteisinga ivestis! Iveskite skaiciu nuo 1 iki 6.");
                         }
-                      
+
                         if (sorting == 1)
                         {
                             sort(grupe.begin(), grupe.end(), [](const studentai& A, const studentai& B) { return raide(A.v) < raide(B.v); });
@@ -138,19 +138,34 @@ int main()
                         }
                         if (isvestis == "f")
                         {
-                            ofstream fr("results.txt");
-                            fr << left << setw(15) << "Vardas" << left << setw(15) << "Pavarde" << left << setw(18) << "Galutinis (vid.)" << "Galutinis (med.)" << endl;
-                            fr << "-----------------------------------------------------------------" << endl;
-                            for (const auto& A : grupe) {
-                                fr << left << setw(15) << A.v;
-                                fr << left << setw(15) << A.pav;
-                                fr << left << setw(18) << fixed << setprecision(2) << A.paz_vid;
-                                fr << fixed << setprecision(2) << A.paz_m << endl;
-                            }
-                            fr.close();
+                            ofstream sp("pazangus.txt");
+                            ofstream sn("nepazangus.txt");
+                           
+                            sp << left << setw(15) << "Vardas" << left << setw(15) << "Pavarde" << left << setw(18) << "Galutinis (vid.)" << "Galutinis (med.)" << endl;
+                            sp << "-----------------------------------------------------------------" << endl;
+                            sn << left << setw(15) << "Vardas" << left << setw(15) << "Pavarde" << left << setw(18) << "Galutinis (vid.)" << "Galutinis (med.)" << endl;
+                            sn << "-----------------------------------------------------------------" << endl;
+                                for (const auto& A : grupe) {
+                                    if (A.paz_vid >= 5 || A.paz_m >= 5)
+                                    {
+                                        sp << left << setw(15) << A.v;
+                                        sp << left << setw(15) << A.pav;
+                                        sp << left << setw(18) << fixed << setprecision(2) << A.paz_vid;
+                                        sp << fixed << setprecision(2) << A.paz_m << endl;
+                                    }
+                                    else
+                                    {
+                                        sn << left << setw(15) << A.v;
+                                        sn << left << setw(15) << A.pav;
+                                        sn << left << setw(18) << fixed << setprecision(2) << A.paz_vid;
+                                        sn << fixed << setprecision(2) << A.paz_m << endl;
+                                    }
+                                }
+                            sp.close();
+                            sn.close();
                             break;
                         }
-                        else
+                              else
                         {
                             cout << left << setw(15) << "Vardas" << left << setw(15) << "Pavarde" << left << setw(18) << "Galutinis (vid.)" << "Galutinis (med.)" << endl;
                             cout << "-----------------------------------------------------------------" << endl;
