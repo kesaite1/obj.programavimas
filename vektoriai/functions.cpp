@@ -113,7 +113,7 @@ double iv4(vector<studentai>& grupe)
     ifstream fd(filename);
     if (!fd)
     {
-        cout << "Nepavyko atidaryti failo!" << endl;
+        cout << "Nepavyko atidaryti failo!\n";
         return 0;
     }
     string antrastes;
