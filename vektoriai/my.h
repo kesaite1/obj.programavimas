@@ -8,6 +8,7 @@
 #include <algorithm>
 #include <ctime>
 #include <chrono>
+#include <numeric>
 
 using std::cout;
 using std::cin;
@@ -28,5 +29,7 @@ using std::invalid_argument;
 using std::out_of_range;
 using std::to_string;
 using namespace std::chrono;
+using std::accumulate;
+
 
 #endif 
