@@ -1,24 +1,23 @@
 #include "my.h"
 #include "code.h"
 
-
 int main()
 {
-   // string filename;
+    // string filename;
     vector <studentai> grupe;
     int iv = 0, sorting = 0; //??
     string isvestis;
     studentai  A;
-    vector <string> vardai = { "Emile", "Greta", "Haroldas", "Guste", "Paulius", "Aleksas", "Kristina", "Aidas", "Vasare", "Diana"};
-    vector <string> pavardes = { "Jonaitis", "Pavardaite", "Pavardenis", "Adomaitis", "Lapaite", "Apuokas", "Karalaite", "Nausediene"};
+    vector <string> vardai = { "Emile", "Greta", "Haroldas", "Guste", "Paulius", "Aleksas", "Kristina", "Aidas", "Vasare", "Diana" };
+    vector <string> pavardes = { "Jonaitis", "Pavardaite", "Pavardenis", "Adomaitis", "Lapaite", "Apuokas", "Karalaite", "Nausediene" };
     ofstream laiko_failas("laikas.txt");
     srand(time(NULL));
     while (iv != 5)
     {
         try {
-            cout << "Pasirink, kokiu budu bus ivedami studento duomenys" << endl;
-            cout << "1 - ranka, 2 - generuoti pazymius, 3 - generuoti ir pazymius ir studentu vardus, pavardes," << endl;
-            cout << "4 - skaityti duomenis is failo, 5 - baigti darba " << endl;
+            cout << "Pasirink, kokiu budu bus ivedami studento duomenys\n";
+            cout << "1 - ranka, 2 - generuoti pazymius, 3 - generuoti ir pazymius ir studentu vardus, pavardes,\n";
+            cout << "4 - skaityti duomenis is failo, 5 - baigti darba\n";
             cin >> iv;
             if (cin.fail())
             {
@@ -29,9 +28,7 @@ int main()
             if (iv < 1 || iv > 5)
             {
                 throw out_of_range("Neteisinga ivestis! Iveskite skaiciu nuo 1 iki 5.");
-
             }
-
             if (iv == 1)
             {
                 iv1(A);
@@ -88,12 +85,10 @@ int main()
                             cin.ignore(1000, '\n');
                             throw invalid_argument(" Neteisinga ivestis! Iveskite skaiciu nuo 1 iki 6.");
                         }
-
                         if (sorting < 1 || sorting > 6) {
 
                             throw out_of_range(" Neteisinga ivestis! Iveskite skaiciu nuo 1 iki 6.");
                         }
-
                         if (sorting == 1)
                         {
                             sort(grupe.begin(), grupe.end(), [](const studentai& A, const studentai& B) { return raide(A.v) < raide(B.v); });
@@ -140,32 +135,32 @@ int main()
                         {
                             ofstream sp("pazangus.txt");
                             ofstream sn("nepazangus.txt");
-                           
+
                             sp << left << setw(15) << "Vardas" << left << setw(15) << "Pavarde" << left << setw(18) << "Galutinis (vid.)" << "Galutinis (med.)" << endl;
                             sp << "-----------------------------------------------------------------" << endl;
                             sn << left << setw(15) << "Vardas" << left << setw(15) << "Pavarde" << left << setw(18) << "Galutinis (vid.)" << "Galutinis (med.)" << endl;
                             sn << "-----------------------------------------------------------------" << endl;
-                                for (const auto& A : grupe) {
-                                    if (A.paz_vid >= 5 || A.paz_m >= 5)
-                                    {
-                                        sp << left << setw(15) << A.v;
-                                        sp << left << setw(15) << A.pav;
-                                        sp << left << setw(18) << fixed << setprecision(2) << A.paz_vid;
-                                        sp << fixed << setprecision(2) << A.paz_m << endl;
-                                    }
-                                    else
-                                    {
-                                        sn << left << setw(15) << A.v;
-                                        sn << left << setw(15) << A.pav;
-                                        sn << left << setw(18) << fixed << setprecision(2) << A.paz_vid;
-                                        sn << fixed << setprecision(2) << A.paz_m << endl;
-                                    }
+                            for (const auto& A : grupe) {
+                                if (A.paz_vid >= 5 || A.paz_m >= 5)
+                                {
+                                    sp << left << setw(15) << A.v;
+                                    sp << left << setw(15) << A.pav;
+                                    sp << left << setw(18) << fixed << setprecision(2) << A.paz_vid;
+                                    sp << fixed << setprecision(2) << A.paz_m << endl;
                                 }
+                                else
+                                {
+                                    sn << left << setw(15) << A.v;
+                                    sn << left << setw(15) << A.pav;
+                                    sn << left << setw(18) << fixed << setprecision(2) << A.paz_vid;
+                                    sn << fixed << setprecision(2) << A.paz_m << endl;
+                                }
+                            }
                             sp.close();
                             sn.close();
                             break;
                         }
-                              else
+                        else
                         {
                             cout << left << setw(15) << "Vardas" << left << setw(15) << "Pavarde" << left << setw(18) << "Galutinis (vid.)" << "Galutinis (med.)" << endl;
                             cout << "-----------------------------------------------------------------" << endl;
@@ -194,19 +189,18 @@ int main()
                             }
                             break;
                         }
-                        
                     }
                     catch (const invalid_argument& e) { cerr << "Klaida: " << e.what() << endl; }
                     catch (const out_of_range& e) { cerr << "Klaida: " << e.what() << endl; }
                 }
             }
-        } catch (const invalid_argument& e) { cerr << "Klaida: " << e.what() << endl; }
-    catch (const out_of_range& e) { cerr << "Klaida: " << e.what() << endl; }
-
         }
-    laiko_failas.close();
-    return 0;
-    } 
+        catch (const invalid_argument& e) { cerr << "Klaida: " << e.what() << endl; }
+        catch (const out_of_range& e) { cerr << "Klaida: " << e.what() << endl; }
+    }
+        laiko_failas.close();
+        return 0;
+}
 
     
 
