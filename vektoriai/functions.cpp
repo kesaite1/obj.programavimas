@@ -83,14 +83,33 @@ double iv4(vector<studentai>& grupe)
 {
     using namespace std::chrono;
     int kiek_paz, dydis;
-    string filename;
+    string filename, choose;
     double nd;
     studentai B;
+    try {
+        cout << "Pasirinkite: generuoti nauja faila - g, ar skaityti is egzistuoancio - e: ";
+        cin >> choose;
+        if (cin.fail()) {
+            cin.clear();
+            cin.ignore(1000, '\n');
+            throw invalid_argument(" Neteisinga ivestis! Iveskite raide g arbe e.");
+        }
+
+        if (choose != "g" && choose != "e" && choose != "G" && choose != "E") {
+
+            throw out_of_range(" Neteisinga ivestis! Iveskite raide g arbe e.");
+        }
+    }
+    catch (const invalid_argument &e) { cerr << "Klaida: " << e.what() << endl; }
+    catch (const out_of_range &e) { cerr << "Klaida: " << e.what() << endl; }
     cout << "Iveskite failo pavadinima tokiu formatu: pavadinimas.txt: ";
     cin >> filename;
-    cout << "Iveskite irasu skaiciu faile: ";
-    cin >> dydis;
-    generavimas(filename, dydis);
+
+    if (choose == "g") {
+        cout << "Iveskite irasu skaiciu faile: ";
+        cin >> dydis;
+        generavimas(filename, dydis);
+    }
     ifstream fd(filename);
     if (!fd)
     {
@@ -126,13 +145,13 @@ double iv4(vector<studentai>& grupe)
 
     return skirtumas.count();
 }
-
+//------------------------------------------------------------------------------------------------------------------
 string raide (string vardai)
 {
     transform(vardai.begin(), vardai.end(), vardai.begin(), ::tolower);
     return vardai;
 }
-
+//------------------------------------------------------------------------------------------------------------------------
 void generavimas(string failas, int dydis)
 {
     int sk, egz;
