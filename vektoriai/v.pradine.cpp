@@ -71,13 +71,13 @@ int main()
             else {
                 while (true) {
                     try {
-                        cout << "Pasirinkite, kaip norite rikiuoti duomenis: " << endl;
-                        cout << "1 - vardai abeceles tvarka," << endl;
-                        cout << "2 - pavardes abeceles tvarka," << endl;
-                        cout << "3 - galutini vidurkio pazymiai didejimo tvarka," << endl;
-                        cout << "4 - galutiniai vidurkio pazymiai mazejimo tvarka," << endl;
-                        cout << "5 - galutiniai medianos pazymiai didejimo tvarka," << endl;
-                        cout << "6 - galutiniai medianos pazymiai mazejimo tvarka" << endl;
+                        cout << "Pasirinkite, kaip norite rikiuoti duomenis:\n ";
+                        cout << "1 - vardai abeceles tvarka,\n";
+                        cout << "2 - pavardes abeceles tvarka,\n";
+                        cout << "3 - galutini vidurkio pazymiai didejimo tvarka,\n";
+                        cout << "4 - galutiniai vidurkio pazymiai mazejimo tvarka,\n";
+                        cout << "5 - galutiniai medianos pazymiai didejimo tvarka,\n";
+                        cout << "6 - galutiniai medianos pazymiai mazejimo tvarka\n";
                         cin >> sorting;
 
                         if (cin.fail()) {
@@ -120,7 +120,7 @@ int main()
                 }
                 while (true) {
                     try {
-                        cout << "Pasirinkite, kur norite isvesti duomenis: i ekrana - e, i faila - f" << endl;
+                        cout << "Pasirinkite, kur norite isvesti duomenis: i ekrana - e, i faila - f\n";
                         cin >> isvestis;
                         if (cin.fail()) {
                             cin.clear();
@@ -136,10 +136,10 @@ int main()
                             ofstream sp("pazangus.txt");
                             ofstream sn("nepazangus.txt");
 
-                            sp << left << setw(15) << "Vardas" << left << setw(15) << "Pavarde" << left << setw(18) << "Galutinis (vid.)" << "Galutinis (med.)" << endl;
+                            sp << left << setw(15) << "Vardas" << left << setw(15) << "Pavarde" << left << setw(18) << "Galutinis (vid.)" << "Galutinis (med.)\n";
                             sp << "-----------------------------------------------------------------" << endl;
-                            sn << left << setw(15) << "Vardas" << left << setw(15) << "Pavarde" << left << setw(18) << "Galutinis (vid.)" << "Galutinis (med.)" << endl;
-                            sn << "-----------------------------------------------------------------" << endl;
+                            sn << left << setw(15) << "Vardas" << left << setw(15) << "Pavarde" << left << setw(18) << "Galutinis (vid.)" << "Galutinis (med.)\n";
+                            sn << "-----------------------------------------------------------------\n";
                             for (const auto& A : grupe) {
                                 if (A.paz_vid >= 5 || A.paz_m >= 5)
                                 {
@@ -162,10 +162,10 @@ int main()
                         }
                         else
                         {
-                            cout << left << setw(15) << "Vardas" << left << setw(15) << "Pavarde" << left << setw(18) << "Galutinis (vid.)" << "Galutinis (med.)" << endl;
-                            cout << "-----------------------------------------------------------------" << endl;
-                            cout << "Pazangus studentai: " << endl;
-                            cout << "-----------------------------------------------------------------" << endl;
+                            cout << left << setw(15) << "Vardas" << left << setw(15) << "Pavarde" << left << setw(18) << "Galutinis (vid.)" << "Galutinis (med.)\n";
+                            cout << "-----------------------------------------------------------------\n";
+                            cout << "Pazangus studentai: \n";
+                            cout << "-----------------------------------------------------------------\n";
                             for (const auto& A : grupe) {
                                 if (A.paz_vid >= 5 || A.paz_m >= 5)
                                 {
@@ -175,9 +175,9 @@ int main()
                                     cout << fixed << setprecision(2) << A.paz_m << endl;
                                 }
                             }
-                            cout << "-----------------------------------------------------------------" << endl;
-                            cout << "Nepazangus studentai: " << endl;
-                            cout << "-----------------------------------------------------------------" << endl;
+                            cout << "-----------------------------------------------------------------\n";
+                            cout << "Nepazangus studentai: \n";
+                            cout << "-----------------------------------------------------------------\n";
                             for (const auto& A : grupe) {
                                 if (A.paz_vid < 5 && A.paz_m < 5)
                                 {
