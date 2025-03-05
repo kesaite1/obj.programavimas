@@ -1,2 +1,2 @@
-Failo generavimo laikas: 0.0149845
-Failo skaitymo laikas: 0.0027004
+Failo skaitymo laikas: 0.0187538
+Programos darbo laikas: 22.6333

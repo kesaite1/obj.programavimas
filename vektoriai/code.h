@@ -17,10 +17,10 @@ void pazymys_vidurkis(studentai& A);
 void iv1(studentai& A);
 void iv2(studentai& A);
 void iv3(studentai& A, vector <string>& vardai, vector <string>& pavardes);
-double iv4(vector<studentai>& grupe);
+double iv4(vector<studentai>& grupe, ofstream& laiko_failas, vector <double>& trukme, int kartai);
 string raide(string vardai);
 void generavimas(string failas, int dydis);
-void generavimo_laikas(string &filename, ofstream& laiko_failas);
-void apdorojimo_laikas(string &filename, vector<studentai>& grupe, ofstream& laiko_failas);
+void generavimo_laikas(string& filename, ofstream& laiko_failas, vector <double>& trukme, int kartai);
+void apdorojimo_laikas(string& filename, vector<studentai>& grupe, ofstream& laiko_failas);
 
 #endif
