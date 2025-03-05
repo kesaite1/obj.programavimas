@@ -20,6 +20,7 @@ void iv3(studentai& A, vector <string>& vardai, vector <string>& pavardes);
 double iv4(vector<studentai>& grupe);
 string raide(string vardai);
 void generavimas(string failas, int dydis);
-void generavimo_laikas(string &filename);
+void generavimo_laikas(string &filename, ofstream& laiko_failas);
+void apdorojimo_laikas(string &filename, vector<studentai>& grupe, ofstream& laiko_failas);
 
 #endif

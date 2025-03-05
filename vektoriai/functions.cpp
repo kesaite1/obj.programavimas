@@ -79,11 +79,11 @@ void iv3(studentai& A, vector <string>& vardai, vector <string>& pavardes)
 //-------------------------------------------------------------------------------------------
 double iv4(vector<studentai>& grupe)
 {
-   // ofstream laiko_failas("laikas.txt");
-    int kiek_paz;
+    ofstream laiko_failas("laikas.txt");
+    //int kiek_paz;
     string filename, choose;
-    double nd;
-    studentai B;
+    //double nd;
+    //studentai B;
     try {
         cout << "Pasirinkite: generuoti nauja faila - g, ar skaityti is egzistuoancio - e: ";
         cin >> choose;
@@ -104,12 +104,11 @@ double iv4(vector<studentai>& grupe)
     cin >> filename;
 
     if (choose == "g") {
-        //cout << "Iveskite irasu skaiciu faile: ";
-        //cin >> dydis;
-        generavimo_laikas(filename);
-        //generavimas(filename, dydis);
+        
+        generavimo_laikas(filename, laiko_failas);
     }
-    ifstream fd(filename);
+    apdorojimo_laikas(filename, grupe, laiko_failas);
+   /* ifstream fd(filename);
     if (!fd)
     {
         cout << "Nepavyko atidaryti failo!\n";
@@ -141,9 +140,9 @@ double iv4(vector<studentai>& grupe)
     auto end = high_resolution_clock::now();
     duration<double> skirtumas = end - start;
     fd.close();
-	//laiko_failas.close();
 
-    return skirtumas.count();
+    return skirtumas.count();*/
+	laiko_failas.close();
 }
 //------------------------------------------------------------------------------------------------------------------
 string raide (string vardai)
@@ -157,7 +156,6 @@ void generavimas(string failas, int dydis)
     int sk, egz;
     double nd;
     ofstream file(failas);
-    //auto gstart = high_resolution_clock::now();
     for (int i = 0; i < dydis; i++)
     {
         file << left << setw(20) << ("Vardas"+ to_string(i)) << left << setw(20) << ("Pavarde" + to_string(i));
@@ -171,28 +169,62 @@ void generavimas(string failas, int dydis)
         file << egz << endl;
     }
     file.close();
-    //auto gend = high_resolution_clock::now();
-    //duration<double> gskirtumas = gend - gstart;
-	//laiko_failas << "Failo generavimo laikas: " << gskirtumas.count() << endl;
 }
 //------------------------------------------------------------------------------------------------------------------------  
-void generavimo_laikas(string &filename)
+void generavimo_laikas(string &filename, ofstream &laiko_failas)
 { 
-    ofstream laiko_failas("laikas.txt");
+    //ofstream laiko_failas("laikas.txt");
     int dydis;
     cout << "Iveskite irasu skaiciu faile: ";
     cin >> dydis;
-    auto gstart = high_resolution_clock::now();
+    auto start = high_resolution_clock::now();
     generavimas(filename, dydis);
-    auto gend = high_resolution_clock::now();
-    duration<double> gskirtumas = gend - gstart;
-    laiko_failas << "Failo generavimo laikas: " << gskirtumas.count() << endl;
-    laiko_failas.close();
+    auto end = high_resolution_clock::now();
+    duration<double> skirtumas = end - start;
+    laiko_failas << "Failo generavimo laikas: " << skirtumas.count() << endl;
+    ///laiko_failas.close();
 }
 
 
 //------------------------------------------------------------------------------------------------------------------------
-/*void apdorojimo_laikas()
+void apdorojimo_laikas(string &filename, vector<studentai>& grupe, ofstream &laiko_failas)
 { 
-
-}*/
+    int kiek_paz;
+    double nd;
+    studentai B;
+    ifstream fd(filename);
+    //ofstream laiko_failas("laikas.txt");
+    if (!fd)
+    {
+        cout << "Nepavyko atidaryti failo!\n";
+       
+    }
+    string antrastes;
+    getline(fd, antrastes);
+    auto start = high_resolution_clock::now();
+    while (fd >> B.v >> B.pav)
+    {
+        B.hw.clear();
+        kiek_paz = 0;
+        while (fd >> nd)
+        {
+            B.hw.push_back(nd);
+            if (fd.peek() == '\n')
+                break;
+            kiek_paz++;
+        }
+        if (kiek_paz > 0)
+        {
+            B.egz = B.hw[kiek_paz - 1];
+            B.hw.pop_back();
+        }
+        pazymys_vidurkis(B);
+        pazymys_mediana(B);
+        grupe.push_back(B);
+    }
+    auto end = high_resolution_clock::now();
+    duration<double> skirtumas = end - start;
+    laiko_failas << "Failo skaitymo laikas: " << skirtumas.count() << endl;
+	//laiko_failas.close();   
+    fd.close();
+}
