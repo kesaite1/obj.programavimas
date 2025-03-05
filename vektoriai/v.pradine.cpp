@@ -1,16 +1,19 @@
 #include "my.h"
 #include "code.h"
 
+//ofstream laiko_failas("laikas.txt");
 int main()
 {
     // string filename;
+    vector <studentai> pazangus;
+    vector <studentai> nepazangus;
     vector <studentai> grupe;
     int iv = 0, sorting = 0; //??
     string isvestis;
     studentai  A;
     vector <string> vardai = { "Emile", "Greta", "Haroldas", "Guste", "Paulius", "Aleksas", "Kristina", "Aidas", "Vasare", "Diana" };
     vector <string> pavardes = { "Jonaitis", "Pavardaite", "Pavardenis", "Adomaitis", "Lapaite", "Apuokas", "Karalaite", "Nausediene" };
-    ofstream laiko_failas("laikas.txt");
+    
     srand(time(NULL));
     while (iv != 5)
     {
@@ -71,7 +74,7 @@ int main()
             else {
                 while (true) {
                     try {
-                        cout << "Pasirinkite, kaip norite rikiuoti duomenis:\n ";
+                        cout << "Pasirinkite, kaip norite rikiuoti duomenis:\n";
                         cout << "1 - vardai abeceles tvarka,\n";
                         cout << "2 - pavardes abeceles tvarka,\n";
                         cout << "3 - galutini vidurkio pazymiai didejimo tvarka,\n";
@@ -141,21 +144,28 @@ int main()
                             sn << left << setw(15) << "Vardas" << left << setw(15) << "Pavarde" << left << setw(18) << "Galutinis (vid.)" << "Galutinis (med.)\n";
                             sn << "-----------------------------------------------------------------\n";
                             for (const auto& A : grupe) {
-                                if (A.paz_vid >= 5 || A.paz_m >= 5)
-                                {
-                                    sp << left << setw(15) << A.v;
-                                    sp << left << setw(15) << A.pav;
-                                    sp << left << setw(18) << fixed << setprecision(2) << A.paz_vid;
-                                    sp << fixed << setprecision(2) << A.paz_m << endl;
+                                if (A.paz_vid >= 5 || A.paz_m >= 5) {
+                                    pazangus.push_back(A);
                                 }
-                                else
-                                {
-                                    sn << left << setw(15) << A.v;
-                                    sn << left << setw(15) << A.pav;
-                                    sn << left << setw(18) << fixed << setprecision(2) << A.paz_vid;
-                                    sn << fixed << setprecision(2) << A.paz_m << endl;
+                                else {
+                                    nepazangus.push_back(A);
                                 }
                             }
+
+                            for (const auto& A : pazangus) {
+                                sp << left << setw(15) << A.v;
+                                sp << left << setw(15) << A.pav;
+                                sp << left << setw(18) << fixed << setprecision(2) << A.paz_vid;
+                                sp << fixed << setprecision(2) << A.paz_m << endl;
+                            }
+
+                            for (const auto& A : nepazangus) {
+                                sn << left << setw(15) << A.v;
+                                sn << left << setw(15) << A.pav;
+                                sn << left << setw(18) << fixed << setprecision(2) << A.paz_vid;
+                                sn << fixed << setprecision(2) << A.paz_m << endl;
+                            }
+
                             sp.close();
                             sn.close();
                             break;
@@ -198,7 +208,7 @@ int main()
         catch (const invalid_argument& e) { cerr << "Klaida: " << e.what() << endl; }
         catch (const out_of_range& e) { cerr << "Klaida: " << e.what() << endl; }
     }
-        laiko_failas.close();
+        //laiko_failas.close();
         return 0;
 }
 

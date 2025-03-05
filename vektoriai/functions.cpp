@@ -24,14 +24,12 @@ static double mediana(studentai& A)
 //-------------------------------------------------------------------------------------------
 void pazymys_mediana(studentai& A)
 {
-    double med = mediana(A);
-    A.paz_m = 0.4 * med + 0.6 * A.egz;
+    A.paz_m = 0.4 * mediana(A) + 0.6 * A.egz;
 }
 //-------------------------------------------------------------------------------------------
 void pazymys_vidurkis(studentai& A)
 {
-    double vidu = vidurkis(A);
-    A.paz_vid = 0.4 * vidu + 0.6 * A.egz;
+    A.paz_vid = 0.4 * vidurkis(A) + 0.6 * A.egz;
 }
 //-------------------------------------------------------------------------------------------
 void iv1(studentai& A)
@@ -81,7 +79,7 @@ void iv3(studentai& A, vector <string>& vardai, vector <string>& pavardes)
 //-------------------------------------------------------------------------------------------
 double iv4(vector<studentai>& grupe)
 {
-    using namespace std::chrono;
+    ofstream laiko_failas("laikas.txt");
     int kiek_paz, dydis;
     string filename, choose;
     double nd;
@@ -108,7 +106,7 @@ double iv4(vector<studentai>& grupe)
     if (choose == "g") {
         cout << "Iveskite irasu skaiciu faile: ";
         cin >> dydis;
-        generavimas(filename, dydis);
+        generavimas(laiko_failas, filename, dydis);
     }
     ifstream fd(filename);
     if (!fd)
@@ -142,6 +140,7 @@ double iv4(vector<studentai>& grupe)
     auto end = high_resolution_clock::now();
     duration<double> skirtumas = end - start;
     fd.close();
+	laiko_failas.close();
 
     return skirtumas.count();
 }
@@ -152,11 +151,12 @@ string raide (string vardai)
     return vardai;
 }
 //------------------------------------------------------------------------------------------------------------------------
-void generavimas(string failas, int dydis)
+void generavimas(ofstream& laiko_failas, string failas, int dydis)
 {
     int sk, egz;
     double nd;
     ofstream file(failas);
+    auto gstart = high_resolution_clock::now();
     for (int i = 0; i < dydis; i++)
     {
         file << left << setw(20) << ("Vardas"+ to_string(i)) << left << setw(20) << ("Pavarde" + to_string(i));
@@ -170,4 +170,13 @@ void generavimas(string failas, int dydis)
         file << egz << endl;
     }
     file.close();
+    auto gend = high_resolution_clock::now();
+    duration<double> gskirtumas = gend - gstart;
+	laiko_failas << "Failo generavimo laikas: " << gskirtumas.count() << endl;
 }
+//------------------------------------------------------------------------------------------------------------------------  
+/*void generavimo_laikas()
+{ 
+
+
+}*/
