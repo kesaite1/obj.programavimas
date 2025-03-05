@@ -44,9 +44,10 @@
               "RelativeDocumentMoniker": "my.h",
               "ToolTip": "C:\\Users\\Dell\\Documents\\VU MIF\\Objektinis programavimas\\obj.programavimas\\vektoriai\\my.h",
               "RelativeToolTip": "my.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB8AAAAWAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-03-05T19:45:37.852Z"
+              "WhenOpened": "2025-03-05T19:45:37.852Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -54,9 +55,9 @@
               "Title": "functions.cpp",
               "DocumentMoniker": "C:\\Users\\Dell\\Documents\\VU MIF\\Objektinis programavimas\\obj.programavimas\\vektoriai\\functions.cpp",
               "RelativeDocumentMoniker": "functions.cpp",
-              "ToolTip": "C:\\Users\\Dell\\Documents\\VU MIF\\Objektinis programavimas\\obj.programavimas\\vektoriai\\functions.cpp*",
-              "RelativeToolTip": "functions.cpp*",
-              "ViewState": "AgIAAK4AAAAAAAAAAAAiwHYAAAAuAAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\Dell\\Documents\\VU MIF\\Objektinis programavimas\\obj.programavimas\\vektoriai\\functions.cpp",
+              "RelativeToolTip": "functions.cpp",
+              "ViewState": "AgIAAFcAAAAAAAAAAAAAAHMAAAAqAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2025-03-01T21:31:46.888Z",
               "EditorCaption": ""
@@ -69,9 +70,10 @@
               "RelativeDocumentMoniker": "v.pradine.cpp",
               "ToolTip": "C:\\Users\\Dell\\Documents\\VU MIF\\Objektinis programavimas\\obj.programavimas\\vektoriai\\v.pradine.cpp",
               "RelativeToolTip": "v.pradine.cpp",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAABsAAAAnAAAAAAAAAA==",
+              "ViewState": "AgIAAL0AAAAAAAAAAAAAANAAAAAZAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-02-08T19:01:16.627Z"
+              "WhenOpened": "2025-02-08T19:01:16.627Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -81,7 +83,7 @@
               "RelativeDocumentMoniker": "code.h",
               "ToolTip": "C:\\Users\\Dell\\Documents\\VU MIF\\Objektinis programavimas\\obj.programavimas\\vektoriai\\code.h",
               "RelativeToolTip": "code.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAlAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2025-03-01T21:34:14.88Z",
               "EditorCaption": ""
