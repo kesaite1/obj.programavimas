@@ -29,9 +29,6 @@
     <ClInclude Include="my.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="v.pradine.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="kursiokai.txt">

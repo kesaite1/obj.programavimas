@@ -133,7 +133,6 @@
   <ItemGroup>
     <ClInclude Include="code.h" />
     <ClInclude Include="my.h" />
-    <ClInclude Include="v.pradine.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="kursiokai.txt" />

@@ -1,2 +1,5 @@
-Failo skaitymo laikas: 0.0187538
-Programos darbo laikas: 22.6333
+Duomenu skaitymo is failo laikas: 0.0071894
+Studentu rusiavimo i dvi grupes laikas: 0.0002613
+Programos darbo laikas: 17.5441
+------------------------------------------------------------------------------------------
+Testu laiku vidurkis: 3.52462
