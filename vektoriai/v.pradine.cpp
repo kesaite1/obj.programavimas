@@ -1,17 +1,18 @@
 #include "my.h"
 #include "code.h"
-#include "v.pradine.h"
 
 //ofstream laiko_failas("laikas.txt");
 int main()
 {
     ofstream laiko_failas("laikas.txt");
-    // string filename;
+    //string filename;
+    double skirstymo_laikas, isvedimo_laikas, programos_laikas, failu_laikas;
     vector <studentai> pazangus;
     vector <studentai> nepazangus;
     vector <studentai> grupe;
-	vector <double> trukme;
-    int iv = 0, sorting = 0, kartai = 5;
+	//vector <double> trukme;
+    int iv = 0, sorting = 0;
+    //int kartai = 5;
     string isvestis;
     studentai  A;
     vector <string> vardai = { "Emile", "Greta", "Haroldas", "Guste", "Paulius", "Aleksas", "Kristina", "Aidas", "Vasare", "Diana" };
@@ -62,8 +63,9 @@ int main()
             }
             else if (iv == 4)
             {
-                double time1 = iv4(grupe, laiko_failas, trukme, kartai);
+                failu_laikas = iv4(grupe, laiko_failas);
             }
+
             else {
                 while (true) {
                     try {
@@ -125,7 +127,8 @@ int main()
                     }
                 }
                 auto skirstymas_end = high_resolution_clock::now();
-                duration<double> skirstymas_skirtumas = skirstymas_end - skirstymas_start;
+                skirstymo_laikas = apdorojimo_laikas(skirstymas_start, skirstymas_end);
+                laiko_failas<<"Studentu rusiavimo i dvi grupes laikas: "<<skirstymo_laikas<<endl;
 
                 while (true) {
                     try {
@@ -165,11 +168,9 @@ int main()
                                 sn << fixed << setprecision(2) << A.paz_m << endl;
                             }
                             auto isvedimas_end = high_resolution_clock::now();
-                            duration<double> isvedimas_skirtumas = isvedimas_end - isvedimas_start;
-							laiko_failas << "-----------------------------------------------------------------\n";
-                            laiko_failas << "Studentu rusiavimo laikas: " << skirstymas_skirtumas.count() << endl;
-                            laiko_failas << "Surusiuotu studentu isvedimo laikas: " << isvedimas_skirtumas.count() << endl;
-                            laiko_failas << "Testu laiku vidurkis: " << accumulate(trukme.begin(), trukme.end(), 0.0) / kartai << endl;
+                            isvedimo_laikas = apdorojimo_laikas(isvedimas_start, isvedimas_end);
+                            laiko_failas<<"Surusiuotu studentu isvedimo i atskirus failus laikas: "<<isvedimo_laikas<<endl;
+                       
                             sp.close();
                             sn.close();
                             break;
@@ -201,10 +202,10 @@ int main()
                             }
 							cout << "-----------------------------------------------------------------\n";
                             auto isvedimas_end = high_resolution_clock::now();
-                            duration<double> isvedimas_skirtumas = isvedimas_end - isvedimas_start;
-                            cout << "Studentu rusiavimo laikas: " << skirstymas_skirtumas.count() << endl;
-                            cout << "Surusiuotu studentu isvedimo laikas: " << isvedimas_skirtumas.count() << endl;
-							cout << "Testu laiku vidurkis: " << accumulate(trukme.begin(), trukme.end(), 0.0) / kartai << endl;
+                            isvedimo_laikas = apdorojimo_laikas(isvedimas_start, isvedimas_end);
+                            cout << "Failo skaitymo ir/arba generavimo laikas: " << setprecision(5) << failu_laikas << endl;
+                            cout << "Studentu rusiavimo laikas: " << setprecision(5) << skirstymo_laikas << endl;
+                            cout << "Surusiuotu studentu isvedimo laikas: " << setprecision(5) << isvedimo_laikas << endl;
                             break;
                         }
                     }
@@ -217,9 +218,16 @@ int main()
         catch (const out_of_range& e) { cerr << "Klaida: " << e.what() << endl; }
     }
 	auto programa_end = high_resolution_clock::now();
-	duration<double> programa_skirtumas = programa_end - programa_start;
-	laiko_failas << "Programos darbo laikas: " << programa_skirtumas.count() << endl;
-    cout << "Programos darbo laikas: " << programa_skirtumas.count() << endl;
+    programos_laikas = apdorojimo_laikas(programa_start, programa_end);
+	laiko_failas << "Programos darbo laikas: " << programos_laikas << endl;
+    laiko_failas << "------------------------------------------------------------------------------------------\n";
+    laiko_failas << "Testu laiku vidurkis: " << (skirstymo_laikas + isvedimo_laikas + programos_laikas + failu_laikas) / 5.0 << endl;
+     if (isvestis == "e")
+     {
+         cout << "Programos darbo laikas: " << setprecision(5) << programos_laikas << endl;
+         cout << "-----------------------------------------------------------------\n";
+         cout << "Testu laiku vidurkis: " << setprecision(5) <<(skirstymo_laikas + isvedimo_laikas + programos_laikas + failu_laikas) / 5.0 << endl;
+     }
     laiko_failas.close();
     return 0;
 }
