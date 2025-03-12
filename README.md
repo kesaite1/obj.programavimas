@@ -32,7 +32,8 @@ Kode panaudotas išimčių valdymas (angl. Exception Handling), naudojamas try-c
 ![Studentų duomenų išvedimas](https://github.com/user-attachments/assets/86870dbd-6b5f-4b90-9b4e-786b5260a189)
 ![Testavimo rezultatų pavyzdys](https://github.com/user-attachments/assets/c30d1664-350b-4ed5-8aec-4a21663a4afe)
 
-
+v0.4
 
    
 
+main
