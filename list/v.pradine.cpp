@@ -1,24 +1,20 @@
 #include "my.h"
 #include "code.h"
 
-//ofstream laiko_failas("laikas.txt");
 int main()
 {
     ofstream laiko_failas("laikas.txt", ios::app);
-    //string filename;
     double skirstymo_laikas, isvedimo_laikas, programos_laikas, failu_laikas;
     list <studentai> pazangus;
     list <studentai> nepazangus;
     list <studentai> grupe;
-	//vector <double> trukme;
     int iv = 0, sorting = 0;
-    //int kartai = 5;
     string isvestis;
     studentai  A;
     list <string> vardai = { "Emile", "Greta", "Haroldas", "Guste", "Paulius", "Aleksas", "Kristina", "Aidas", "Vasare", "Diana" };
     list <string> pavardes = { "Jonaitis", "Pavardaite", "Pavardenis", "Adomaitis", "Lapaite", "Apuokas", "Karalaite", "Nausediene" };
 
-    random_device rd;  // Seed generator (Hardware-based)
+    random_device rd; 
     mt19937 gen(rd());
     auto programa_start = high_resolution_clock::now();
     while (iv != 5)
