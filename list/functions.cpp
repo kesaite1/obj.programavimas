@@ -51,33 +51,39 @@ void iv1(studentai& A)
     }
 }
 //------------------------------------------------------------------------------------------
-void iv2(studentai& A)
+void iv2(studentai& A, mt19937& gen)
 {
-    double nd;
+    int k;
     cout << "Iveskite studento varda ir pavarde: ";
     cin >> A.v >> A.pav;
-    A.egz = rand() % 10 + 1;
-    for (int i = 0; i < rand() % 50 + 1; i++)
+    uniform_int_distribution<int> egz(1, 10);
+    A.egz = egz(gen);
+    uniform_int_distribution<int> kiek(1, 50);
+    k = kiek(gen);
+    for (int i = 0; i < k + 1; i++)
     {
-        nd = 1.0 + (double)rand() / RAND_MAX * 9.0;
-        A.hw.push_back(nd);
+		uniform_real_distribution<double> nd(1.0, 10.0);
+		A.hw.push_back(nd(gen));
     }
 }
 //------------------------------------------------------------------------------------------
-void iv3(studentai& A, vector <string>& vardai, vector <string>& pavardes)
+void iv3(studentai& A, list <string>& vardai, list <string>& pavardes, mt19937& gen)
 {
-    double nd;
+    int k;
     A.v = vardai[rand() % vardai.size()];
     A.pav = pavardes[rand() % pavardes.size()];
-    A.egz = rand() % 10 + 1;
-    for (int i = 0; i < rand() % 50 + 1; i++)
+    uniform_int_distribution<int> egz(1, 10);
+    A.egz = egz(gen);
+    uniform_int_distribution<int> kiek(1, 50);
+    k = kiek(gen);
+    for (int i = 0; i < k; i++)
     {
-        nd = 1.0 + (double)rand() / RAND_MAX * 9.0;
-        A.hw.push_back(nd);
+        uniform_real_distribution<double> nd(1.0, 10.0);
+        A.hw.push_back(nd(gen));
     }
 }
 //-------------------------------------------------------------------------------------------
-double iv4(vector<studentai>& grupe, ofstream& laiko_failas)
+double iv4(list<studentai>& grupe, ofstream& laiko_failas)
 {
     string choose, filename;
     int kiek_paz;
