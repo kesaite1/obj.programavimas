@@ -163,20 +163,22 @@ string raide(string vardai)
 //------------------------------------------------------------------------------------------------------------------------
 void generavimas(string failas, int dydis)
 {
-    int sk, egz;
-    double nd;
+    random_device rd;  
+    mt19937 gen(rd());
+    uniform_int_distribution<int> sk(1, 50);
+    uniform_real_distribution<double> nd(1.0, 10.0);
+    uniform_int_distribution<int> egz(1, 10);
     ofstream file(failas);
+ 
     for (int i = 0; i < dydis; i++)
     {
         file << left << setw(20) << ("Vardas" + to_string(i)) << left << setw(20) << ("Pavarde" + to_string(i));
-        sk = rand() % 10 + 1;
-        for (int j = 0; j < sk; j++)
+        
+        for (int j = 0; j < sk(gen); j++)
         {
-            nd = 1.0 + (double)rand() / RAND_MAX * 9.0;
-            file << fixed << setprecision(2) << left << setw(5) << nd;
+            file << fixed << setprecision(2) << left << setw(5) << nd(gen);
         }
-        egz = rand() % 10 + 1;
-        file << egz << endl;
+        file << egz(gen) << endl;
     }
     file.close();
 }
