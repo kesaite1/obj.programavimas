@@ -1,0 +1,35 @@
+#ifndef MY_H       
+#define MY_H
+#include <iostream>
+#include <fstream>
+#include <vector>
+#include <iomanip>
+#include <string>
+#include <algorithm>
+#include <ctime>
+#include <chrono>
+#include <numeric>
+
+using std::cout;
+using std::cin;
+using std::string;
+using std::vector;
+using std::endl;
+using std::fixed;
+using std::setprecision;
+using std::left;
+using std::setw;
+using std::sort;
+using std::ifstream;
+using std::ofstream;
+using std::transform;
+using std::exception;
+using std::cerr;
+using std::invalid_argument;
+using std::out_of_range;
+using std::to_string;
+using namespace std::chrono;
+using std::accumulate;
+
+
+#endif 
