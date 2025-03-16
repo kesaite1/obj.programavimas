@@ -4,21 +4,22 @@
 //ofstream laiko_failas("laikas.txt");
 int main()
 {
-    ofstream laiko_failas("laikas.txt");
+    ofstream laiko_failas("laikas.txt", ios::app);
     //string filename;
     double skirstymo_laikas, isvedimo_laikas, programos_laikas, failu_laikas;
-    vector <studentai> pazangus;
-    vector <studentai> nepazangus;
-    vector <studentai> grupe;
+    list <studentai> pazangus;
+    list <studentai> nepazangus;
+    list <studentai> grupe;
 	//vector <double> trukme;
     int iv = 0, sorting = 0;
     //int kartai = 5;
     string isvestis;
     studentai  A;
-    vector <string> vardai = { "Emile", "Greta", "Haroldas", "Guste", "Paulius", "Aleksas", "Kristina", "Aidas", "Vasare", "Diana" };
-    vector <string> pavardes = { "Jonaitis", "Pavardaite", "Pavardenis", "Adomaitis", "Lapaite", "Apuokas", "Karalaite", "Nausediene" };
+    list <string> vardai = { "Emile", "Greta", "Haroldas", "Guste", "Paulius", "Aleksas", "Kristina", "Aidas", "Vasare", "Diana" };
+    list <string> pavardes = { "Jonaitis", "Pavardaite", "Pavardenis", "Adomaitis", "Lapaite", "Apuokas", "Karalaite", "Nausediene" };
 
-    srand(time(NULL));
+    random_device rd;  // Seed generator (Hardware-based)
+    mt19937 gen(rd());
     auto programa_start = high_resolution_clock::now();
     while (iv != 5)
     {
@@ -47,7 +48,7 @@ int main()
             }
             else if (iv == 2)
             {
-                iv2(A);
+                iv2(A, gen);
                 pazymys_vidurkis(A);
                 pazymys_mediana(A);
 
@@ -55,7 +56,7 @@ int main()
             }
             else if (iv == 3)
             {
-                iv3(A, vardai, pavardes);
+                iv3(A, vardai, pavardes, gen);
                 pazymys_vidurkis(A);
                 pazymys_mediana(A);
 

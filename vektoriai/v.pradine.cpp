@@ -18,7 +18,8 @@ int main()
     vector <string> vardai = { "Emile", "Greta", "Haroldas", "Guste", "Paulius", "Aleksas", "Kristina", "Aidas", "Vasare", "Diana" };
     vector <string> pavardes = { "Jonaitis", "Pavardaite", "Pavardenis", "Adomaitis", "Lapaite", "Apuokas", "Karalaite", "Nausediene" };
 
-    srand(time(NULL));
+    random_device rd;  
+    mt19937 gen(rd());
     auto programa_start = high_resolution_clock::now();
     while (iv != 5)
     {
@@ -47,7 +48,7 @@ int main()
             }
             else if (iv == 2)
             {
-                iv2(A);
+                iv2(A, gen);
                 pazymys_vidurkis(A);
                 pazymys_mediana(A);
 
@@ -55,7 +56,7 @@ int main()
             }
             else if (iv == 3)
             {
-                iv3(A, vardai, pavardes);
+                iv3(A, vardai, pavardes, gen);
                 pazymys_vidurkis(A);
                 pazymys_mediana(A);
 
