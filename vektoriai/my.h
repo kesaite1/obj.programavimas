@@ -9,6 +9,7 @@
 #include <ctime>
 #include <chrono>
 #include <numeric>
+#include <random>
 
 using std::cout;
 using std::cin;
@@ -30,6 +31,10 @@ using std::out_of_range;
 using std::to_string;
 using namespace std::chrono;
 using std::accumulate;
+using std::random_device;
+using std::mt19937;
+using std::uniform_int_distribution;
+using std::uniform_real_distribution;
 
 
 #endif 
