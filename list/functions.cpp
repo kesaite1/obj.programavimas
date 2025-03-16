@@ -3,23 +3,45 @@
 
 static double vidurkis(studentai& A)
 {
-    double suma = 0, sk;
+    double suma = 0;
+	int sk;
     sk = A.hw.size();
-    for (int i = 0; i < sk; i++)
+    for (auto i = A.hw.begin(); i != A.hw.end(); ++i)
     {
-        suma += A.hw[i];
+        suma += *i;
     }
     return (sk > 0) ? suma / sk : 0;
 }
 //-------------------------------------------------------------------------------------------
 static double mediana(studentai& A)
 {
+	double suma = 0;
     int sk;
     sk = A.hw.size();
     sort(A.hw.begin(), A.hw.end());
     if (sk == 0) return 0;
-    if (sk % 2 == 0)  return (A.hw[sk / 2] + A.hw[(sk / 2) - 1]) / 2.0;
-    else return A.hw[sk / 2];
+    if (sk % 2 == 0)
+    {
+		for (int i = 0; i < (sk / 2) - 2; i++)
+		{
+			A.hw.pop_front();
+            A.hw.pop_back();
+		}
+        for (auto i = A.hw.begin(); i != A.hw.end(); ++i)
+        {
+            suma += *i;
+        }
+		return suma / 2.0;
+    }
+    else
+    {
+		for (int i = 0; i < (sk / 2); i++)
+		{
+			A.hw.pop_front();
+            A.hw.pop_back();
+		}
+        return *A.hw.begin();
+    }
 }
 //-------------------------------------------------------------------------------------------
 void pazymys_mediana(studentai& A)
@@ -163,20 +185,22 @@ string raide(string vardai)
 //------------------------------------------------------------------------------------------------------------------------
 void generavimas(string failas, int dydis)
 {
-    int sk, egz;
-    double nd;
+    random_device rd;  
+    mt19937 gen(rd());
+    uniform_int_distribution<int> sk(1, 50);
+    uniform_real_distribution<double> nd(1.0, 10.0);
+    uniform_int_distribution<int> egz(1, 10);
     ofstream file(failas);
+ 
     for (int i = 0; i < dydis; i++)
     {
         file << left << setw(20) << ("Vardas" + to_string(i)) << left << setw(20) << ("Pavarde" + to_string(i));
-        sk = rand() % 10 + 1;
-        for (int j = 0; j < sk; j++)
+        
+        for (int j = 0; j < sk(gen); j++)
         {
-            nd = 1.0 + (double)rand() / RAND_MAX * 9.0;
-            file << fixed << setprecision(2) << left << setw(5) << nd;
+            file << fixed << setprecision(2) << left << setw(5) << nd(gen);
         }
-        egz = rand() % 10 + 1;
-        file << egz << endl;
+        file << egz(gen) << endl;
     }
     file.close();
 }
