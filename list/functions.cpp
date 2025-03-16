@@ -3,23 +3,45 @@
 
 static double vidurkis(studentai& A)
 {
-    double suma = 0, sk;
+    double suma = 0;
+	int sk;
     sk = A.hw.size();
-    for (int i = 0; i < sk; i++)
+    for (auto i = A.hw.begin(); i != A.hw.end(); ++i)
     {
-        suma += A.hw[i];
+        suma += *i;
     }
     return (sk > 0) ? suma / sk : 0;
 }
 //-------------------------------------------------------------------------------------------
 static double mediana(studentai& A)
 {
+	double suma = 0;
     int sk;
     sk = A.hw.size();
     sort(A.hw.begin(), A.hw.end());
     if (sk == 0) return 0;
-    if (sk % 2 == 0)  return (A.hw[sk / 2] + A.hw[(sk / 2) - 1]) / 2.0;
-    else return A.hw[sk / 2];
+    if (sk % 2 == 0)
+    {
+		for (int i = 0; i < (sk / 2) - 2; i++)
+		{
+			A.hw.pop_front();
+            A.hw.pop_back();
+		}
+        for (auto i = A.hw.begin(); i != A.hw.end(); ++i)
+        {
+            suma += *i;
+        }
+		return suma / 2.0;
+    }
+    else
+    {
+		for (int i = 0; i < (sk / 2); i++)
+		{
+			A.hw.pop_front();
+            A.hw.pop_back();
+		}
+        return *A.hw.begin();
+    }
 }
 //-------------------------------------------------------------------------------------------
 void pazymys_mediana(studentai& A)
