@@ -1,14 +1,22 @@
 #include "my.h"
 #include "code.h"
 
+bool abc_vardai(const studentai& A, const studentai& B) { return raide(A.v) < raide(B.v); }
+bool abc_pavardes(const studentai& A, const studentai& B) { return raide(A.pav) < raide(B.pav); }
+bool did_vid(const studentai& A, const studentai& B) { return A.paz_vid < B.paz_vid; }
+bool maz_vid(const studentai& A, const studentai& B) { return A.paz_vid > B.paz_vid; }
+bool did_med(const studentai& A, const studentai& B) { return A.paz_m < B.paz_m; }
+bool maz_med(const studentai& A, const studentai& B) { return A.paz_m > B.paz_m; }
+
+
 static double vidurkis(studentai& A)
 {
     double suma = 0;
 	int sk;
     sk = A.hw.size();
-    for (auto i = A.hw.begin(); i != A.hw.end(); ++i)
+    for (list<double>::iterator it = A.hw.begin(); it != A.hw.end(); ++it)
     {
-        suma += *i;
+        suma += *it;
     }
     return (sk > 0) ? suma / sk : 0;
 }
@@ -27,9 +35,9 @@ static double mediana(studentai& A)
 			A.hw.pop_front();
             A.hw.pop_back();
 		}
-        for (auto i = A.hw.begin(); i != A.hw.end(); ++i)
+        for (list<double>::iterator it = A.hw.begin(); it != A.hw.end(); ++it)
         {
-            suma += *i;
+            suma += *it;
         }
 		return suma / 2.0;
     }
@@ -75,14 +83,12 @@ void iv1(studentai& A)
 //------------------------------------------------------------------------------------------
 void iv2(studentai& A, mt19937& gen)
 {
-    int k;
     cout << "Iveskite studento varda ir pavarde: ";
     cin >> A.v >> A.pav;
     uniform_int_distribution<int> egz(1, 10);
     A.egz = egz(gen);
     uniform_int_distribution<int> kiek(1, 50);
-    k = kiek(gen);
-    for (int i = 0; i < k + 1; i++)
+    for (int i = 0; i < kiek(gen); i++)
     {
 		uniform_real_distribution<double> nd(1.0, 10.0);
 		A.hw.push_back(nd(gen));
@@ -91,16 +97,19 @@ void iv2(studentai& A, mt19937& gen)
 //------------------------------------------------------------------------------------------
 void iv3(studentai& A, list <string>& vardai, list <string>& pavardes, mt19937& gen)
 {
-    int k;
-    A.v = vardai[rand() % vardai.size()];
-    A.pav = pavardes[rand() % pavardes.size()];
+    uniform_int_distribution<int> kiek_v(0, vardai.size() - 1);
+    uniform_int_distribution<int> kiek_pav(0, pavardes.size() - 1);
     uniform_int_distribution<int> egz(1, 10);
-    A.egz = egz(gen);
     uniform_int_distribution<int> kiek(1, 50);
-    k = kiek(gen);
-    for (int i = 0; i < k; i++)
+    uniform_real_distribution<double> nd(1.0, 10.0);
+    list<string>::iterator vard = next(vardai.begin(), kiek_v(gen));
+    A.v = *vard;
+    list<string>::iterator pavard = next(vardai.begin(), kiek_v(gen));
+    A.pav = *pavard;
+    A.egz = egz(gen);
+   
+    for (int i = 0; i < kiek(gen); i++)
     {
-        uniform_real_distribution<double> nd(1.0, 10.0);
         A.hw.push_back(nd(gen));
     }
 }
@@ -108,7 +117,7 @@ void iv3(studentai& A, list <string>& vardai, list <string>& pavardes, mt19937& 
 double iv4(list<studentai>& grupe, ofstream& laiko_failas)
 {
     string choose, filename;
-    int kiek_paz;
+    //int kiek_paz;
     double nd, glaikas, flaikas, skaitymo_laikas;
     studentai B;
     try {
@@ -146,19 +155,19 @@ double iv4(list<studentai>& grupe, ofstream& laiko_failas)
         while (fd >> B.v >> B.pav)
         {
             B.hw.clear();
-            kiek_paz = 0;
+            //kiek_paz = 0;
             while (fd >> nd)
             {
                 B.hw.push_back(nd);
                 if (fd.peek() == '\n')
                     break;
-                kiek_paz++;
+               //kiek_paz++;
             }
-            if (kiek_paz > 0)
-            {
-                B.egz = B.hw[kiek_paz - 1];
+           // if (kiek_paz > 0)
+            
+                B.egz = B.hw.back();
                 B.hw.pop_back();
-            }
+            
             pazymys_vidurkis(B);
             pazymys_mediana(B);
             grupe.push_back(B);
