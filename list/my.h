@@ -8,6 +8,7 @@
 #include <algorithm>
 #include <ctime>
 #include <chrono>
+#include <vector>
 #include <numeric>
 #include <random>
 
@@ -20,7 +21,6 @@ using std::fixed;
 using std::setprecision;
 using std::left;
 using std::setw;
-using std::sort;
 using std::ifstream;
 using std::ofstream;
 using std::transform;
