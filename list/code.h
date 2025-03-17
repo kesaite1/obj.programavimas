@@ -10,6 +10,13 @@ struct studentai {
     double paz_m, paz_vid;
 };
 
+bool abc_vardai(const studentai& A, const studentai& B);
+bool abc_pavardes(const studentai& A, const studentai& B);
+bool did_vid(const studentai& A, const studentai& B);
+bool maz_vid(const studentai& A, const studentai& B);
+bool did_med(const studentai& A, const studentai& B);
+bool maz_med(const studentai& A, const studentai& B);
+
 static double vidurkis(studentai& A);
 static double mediana(studentai& A);
 void pazymys_mediana(studentai& A);
