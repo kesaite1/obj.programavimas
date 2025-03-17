@@ -85,30 +85,38 @@ int main()
 
                             throw out_of_range(" Neteisinga ivestis! Iveskite skaiciu nuo 1 iki 6.");
                         }
+                        cout << "Sorting choice: " << sorting << endl; // Debugging line
                         if (sorting == 1)
                         {
-                          sort(grupe.begin(), grupe.end(), abc_vardai);
+                            grupe.sort(abc_vardai);
+                           // sort(grupe.begin(), grupe.end(), abc_vardai);
                         }
                         else if (sorting == 2)
                         {
-                            sort(grupe.begin(), grupe.end(), abc_pavardes);
+                            grupe.sort(abc_pavardes);
+                            //sort(grupe.begin(), grupe.end(), abc_pavardes);
                         }
                         else if (sorting == 3)
                         {
-                            sort(grupe.begin(), grupe.end(), did_vid);
+                            grupe.sort(did_vid);
+                            //sort(grupe.begin(), grupe.end(), did_vid);
                         }
                         else if (sorting == 4)
                         {
-                            sort(grupe.begin(), grupe.end(), maz_vid);
+                            grupe.sort(maz_vid);
+                            //sort(grupe.begin(), grupe.end(), maz_vid);
                         }
                         else if (sorting == 5)
                         {
-                            sort(grupe.begin(), grupe.end(), did_med);
+                            grupe.sort(did_med);
+                            //sort(grupe.begin(), grupe.end(), did_med);
                         }
                         else if (sorting == 6)
                         {
-                            sort(grupe.begin(), grupe.end(), maz_med);
+                            grupe.sort(maz_med);
+                           // sort(grupe.begin(), grupe.end(), maz_med);
                         }
+                        cout << "Sorting done!" << endl; // Debugging line
                         break;
                     }
                     catch (const invalid_argument& e) { cerr << "Klaida:" << e.what() << endl; }
@@ -116,17 +124,19 @@ int main()
                 }
 
                 auto skirstymas_start = high_resolution_clock::now();
-                for (list<studentai>::iterator it; it != grupe.begin(); it--) {
+                for (list<studentai>::iterator it = grupe.begin(); it != grupe.end();) {
 
                     A = *it;
 
                     if (A.paz_vid >= 5 || A.paz_m >= 5) {
                         pazangus.push_back(A);
-                        grupe.pop_back();
+                       // grupe.pop_back();
+                        it = grupe.erase(it);
                     }
                     else {
                         nepazangus.push_back(A);
-                        grupe.pop_back();
+                       // grupe.pop_back();
+                        it = grupe.erase(it);
                     }
                 }
                 auto skirstymas_end = high_resolution_clock::now();

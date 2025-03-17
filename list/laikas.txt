@@ -3,3 +3,32 @@ Studentu rusiavimo i dvi grupes laikas: 0.0002613
 Programos darbo laikas: 17.5441
 ------------------------------------------------------------------------------------------
 Testu laiku vidurkis: 3.52462
+Failo generavimo laikas: 0.11233
+Duomenu skaitymo is failo laikas: 0.0691167
+Failo generavimo laikas: 0.0678334
+Duomenu skaitymo is failo laikas: 0.0503754
+Failo generavimo laikas: 0.0200105
+Duomenu skaitymo is failo laikas: 0.005505
+Failo generavimo laikas: 0.0133198
+Duomenu skaitymo is failo laikas: 0.0049901
+Failo generavimo laikas: 0.0203751
+Duomenu skaitymo is failo laikas: 0.0056017
+Failo generavimo laikas: 0.018934
+Duomenu skaitymo is failo laikas: 0.0056104
+Studentu rusiavimo i dvi grupes laikas: 0.0007153
+Surusiuotu studentu isvedimo i atskirus failus laikas: 0.0015741
+Programos darbo laikas: 25.5058
+------------------------------------------------------------------------------------------
+Testu laiku vidurkis: 5.10653
+Failo generavimo laikas: 0.0147788
+Failo generavimo laikas: 0.016626
+Failo generavimo laikas: 0.0137414
+Duomenu skaitymo is failo laikas: 0.0054477
+Studentu rusiavimo i dvi grupes laikas: 0.000436
+Surusiuotu studentu isvedimo i atskirus failus laikas: 0.001559
+Programos darbo laikas: 18.7402
+------------------------------------------------------------------------------------------
+Testu laiku vidurkis: 3.75227
+Failo generavimo laikas: 0.0160943
+Failo generavimo laikas: 0.0166851
+Failo generavimo laikas: 0.0187848
