@@ -12,13 +12,12 @@ bool maz_med(const studentai& A, const studentai& B) { return A.paz_m > B.paz_m;
 static double vidurkis(studentai& A)
 {
     double suma = 0;
-	int sk;
-    sk = A.hw.size();
+	
     for (list<double>::iterator it = A.hw.begin(); it != A.hw.end(); ++it)
     {
         suma += *it;
     }
-    return (sk > 0) ? suma / sk : 0;
+    return (A.hw.size() > 0) ? suma / A.hw.size() : 0;
 }
 //-------------------------------------------------------------------------------------------
 static double mediana(studentai& A)
@@ -26,29 +25,27 @@ static double mediana(studentai& A)
 	//double suma = 0;
     //int sk;
    // sk = A.hw.size();
-    cout << "skaiciuoja" << endl;
-    A.hw.sort();
-
     if (A.hw.size() == 0) return 0;
-   
-    auto slow = A.hw.begin();
-    auto fast = A.hw.begin();
+
+    list<double> sorted_hw = A.hw;  // Create a copy to avoid modifying the original
+    sorted_hw.sort();
+
+    auto slow = sorted_hw.begin();
+    auto fast = sorted_hw.begin();
 
     // Move `fast` by two steps and `slow` by one step
-    while (fast != A.hw.end() && next(fast) != A.hw.end()) {
+    while (fast != sorted_hw.end() && next(fast) != sorted_hw.end()) {
         ++slow;
         advance(fast, 2);
     }
 
     // If the number of elements is odd, return the middle element
-    if (A.hw.size() % 2 == 0) {
-        auto next_slow = next(slow);
-        cout << "suskaiciavo" << endl;
-        return (*slow + *next_slow) / 2.0;
+    if (sorted_hw.size() % 2 == 0 && next(slow) != sorted_hw.end()) {
+       // auto next_slow = next(slow);
+        return (*slow + *next(slow)) / 2.0;
     }
     // If the number of elements is even, return the average of the two middle elements
     else {
-        cout << "suskaiciavo" << endl;
         return *slow;
     }
    
@@ -119,7 +116,6 @@ void iv3(studentai& A, list <string>& vardai, list <string>& pavardes, mt19937& 
 double iv4(list<studentai>& grupe, ofstream& laiko_failas)
 {
     string choose, filename;
-    //int kiek_paz;
     double nd, glaikas, flaikas, skaitymo_laikas;
     studentai B;
     try {
@@ -157,16 +153,12 @@ double iv4(list<studentai>& grupe, ofstream& laiko_failas)
         while (fd >> B.v >> B.pav)
         {
             B.hw.clear();
-            //kiek_paz = 0;
             while (fd >> nd)
             {
                 B.hw.push_back(nd);
                 if (fd.peek() == '\n')
                     break;
-               //kiek_paz++;
             }
-           // if (kiek_paz > 0)
-            
                 B.egz = B.hw.back();
                 B.hw.pop_back();
             
@@ -238,26 +230,3 @@ double apdorojimo_laikas(high_resolution_clock::time_point start, high_resolutio
     duration<double> skirtumas = end - start;
     return skirtumas.count();
 }
-
-/* if (sk % 2 == 0)
-    {
-        for (int i = 0; i < ((sk / 2) - 2); i++)
-        {
-            A.hw.pop_front();
-            A.hw.pop_back();
-        }
-        for (list<double>::iterator it = A.hw.begin(); it != A.hw.end(); ++it)
-        {
-            suma += *it;
-        }
-        return suma / 2.0;
-    }
-    else
-    {
-        for (int i = 0; i < (sk / 2); i++)
-        {
-            A.hw.pop_front();
-            A.hw.pop_back();
-        }
-        return *A.hw.begin();
-    }*/
