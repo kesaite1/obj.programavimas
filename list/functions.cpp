@@ -23,33 +23,35 @@ static double vidurkis(studentai& A)
 //-------------------------------------------------------------------------------------------
 static double mediana(studentai& A)
 {
-	double suma = 0;
-    int sk;
-    sk = A.hw.size();
-    sort(A.hw.begin(), A.hw.end());
-    if (sk == 0) return 0;
-    if (sk % 2 == 0)
-    {
-		for (int i = 0; i < (sk / 2) - 2; i++)
-		{
-			A.hw.pop_front();
-            A.hw.pop_back();
-		}
-        for (list<double>::iterator it = A.hw.begin(); it != A.hw.end(); ++it)
-        {
-            suma += *it;
-        }
-		return suma / 2.0;
+	//double suma = 0;
+    //int sk;
+   // sk = A.hw.size();
+    cout << "skaiciuoja" << endl;
+    A.hw.sort();
+
+    if (A.hw.size() == 0) return 0;
+   
+    auto slow = A.hw.begin();
+    auto fast = A.hw.begin();
+
+    // Move `fast` by two steps and `slow` by one step
+    while (fast != A.hw.end() && next(fast) != A.hw.end()) {
+        ++slow;
+        advance(fast, 2);
     }
-    else
-    {
-		for (int i = 0; i < (sk / 2); i++)
-		{
-			A.hw.pop_front();
-            A.hw.pop_back();
-		}
-        return *A.hw.begin();
+
+    // If the number of elements is odd, return the middle element
+    if (A.hw.size() % 2 == 0) {
+        auto next_slow = next(slow);
+        cout << "suskaiciavo" << endl;
+        return (*slow + *next_slow) / 2.0;
     }
+    // If the number of elements is even, return the average of the two middle elements
+    else {
+        cout << "suskaiciavo" << endl;
+        return *slow;
+    }
+   
 }
 //-------------------------------------------------------------------------------------------
 void pazymys_mediana(studentai& A)
@@ -104,7 +106,7 @@ void iv3(studentai& A, list <string>& vardai, list <string>& pavardes, mt19937& 
     uniform_real_distribution<double> nd(1.0, 10.0);
     list<string>::iterator vard = next(vardai.begin(), kiek_v(gen));
     A.v = *vard;
-    list<string>::iterator pavard = next(vardai.begin(), kiek_v(gen));
+    list<string>::iterator pavard = next(pavardes.begin(), kiek_v(gen));
     A.pav = *pavard;
     A.egz = egz(gen);
    
@@ -236,3 +238,26 @@ double apdorojimo_laikas(high_resolution_clock::time_point start, high_resolutio
     duration<double> skirtumas = end - start;
     return skirtumas.count();
 }
+
+/* if (sk % 2 == 0)
+    {
+        for (int i = 0; i < ((sk / 2) - 2); i++)
+        {
+            A.hw.pop_front();
+            A.hw.pop_back();
+        }
+        for (list<double>::iterator it = A.hw.begin(); it != A.hw.end(); ++it)
+        {
+            suma += *it;
+        }
+        return suma / 2.0;
+    }
+    else
+    {
+        for (int i = 0; i < (sk / 2); i++)
+        {
+            A.hw.pop_front();
+            A.hw.pop_back();
+        }
+        return *A.hw.begin();
+    }*/
