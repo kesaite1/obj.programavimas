@@ -85,38 +85,30 @@ int main()
 
                             throw out_of_range(" Neteisinga ivestis! Iveskite skaiciu nuo 1 iki 6.");
                         }
-                        cout << "Sorting choice: " << sorting << endl; // Debugging line
                         if (sorting == 1)
                         {
                             grupe.sort(abc_vardai);
-                           // sort(grupe.begin(), grupe.end(), abc_vardai);
                         }
                         else if (sorting == 2)
                         {
                             grupe.sort(abc_pavardes);
-                            //sort(grupe.begin(), grupe.end(), abc_pavardes);
                         }
                         else if (sorting == 3)
                         {
                             grupe.sort(did_vid);
-                            //sort(grupe.begin(), grupe.end(), did_vid);
                         }
                         else if (sorting == 4)
                         {
                             grupe.sort(maz_vid);
-                            //sort(grupe.begin(), grupe.end(), maz_vid);
                         }
                         else if (sorting == 5)
                         {
                             grupe.sort(did_med);
-                            //sort(grupe.begin(), grupe.end(), did_med);
                         }
                         else if (sorting == 6)
                         {
                             grupe.sort(maz_med);
-                           // sort(grupe.begin(), grupe.end(), maz_med);
                         }
-                        cout << "Sorting done!" << endl; // Debugging line
                         break;
                     }
                     catch (const invalid_argument& e) { cerr << "Klaida:" << e.what() << endl; }
@@ -130,14 +122,11 @@ int main()
 
                     if (A.paz_vid >= 5 || A.paz_m >= 5) {
                         pazangus.push_back(A);
-                       // grupe.pop_back();
-                        it = grupe.erase(it);
                     }
                     else {
                         nepazangus.push_back(A);
-                       // grupe.pop_back();
-                        it = grupe.erase(it);
                     }
+                    it = grupe.erase(it);
                 }
                 auto skirstymas_end = high_resolution_clock::now();
                 skirstymo_laikas = apdorojimo_laikas(skirstymas_start, skirstymas_end);
