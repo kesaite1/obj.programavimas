@@ -15,10 +15,10 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="v.pradine.cpp">
+    <ClCompile Include="functions.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="functions.cpp">
+    <ClCompile Include="vektoriuMain.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

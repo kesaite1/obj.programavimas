@@ -128,7 +128,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="functions.cpp" />
-    <ClCompile Include="v.pradine.cpp" />
+    <ClCompile Include="vektoriuMain.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="code.h" />
