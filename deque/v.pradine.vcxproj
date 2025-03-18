@@ -127,8 +127,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="dequeMain.cpp" />
     <ClCompile Include="functions.cpp" />
-    <ClCompile Include="v.pradine.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="code.h" />
