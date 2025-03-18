@@ -10,6 +10,7 @@
 #include <chrono>
 #include <numeric>
 #include <random>
+#include <sstream>
 
 using std::cout;
 using std::cin;
@@ -35,6 +36,7 @@ using std::random_device;
 using std::mt19937;
 using std::uniform_int_distribution;
 using std::uniform_real_distribution;
-
+using std::runtime_error;
+using std::stringstream;
 
 #endif 
