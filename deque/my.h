@@ -2,7 +2,7 @@
 #define MY_H
 #include <iostream>
 #include <fstream>
-#include <vector>
+#include <deque>
 #include <iomanip>
 #include <string>
 #include <algorithm>
@@ -10,6 +10,7 @@
 #include <chrono>
 #include <numeric>
 #include <random>
+#include <sstream>
 
 using std::cout;
 using std::cin;
@@ -21,6 +22,7 @@ using std::setprecision;
 using std::left;
 using std::setw;
 using std::sort;
+using std::deque;
 using std::ifstream;
 using std::ofstream;
 using std::transform;
@@ -35,6 +37,8 @@ using std::random_device;
 using std::mt19937;
 using std::uniform_int_distribution;
 using std::uniform_real_distribution;
-
+using std::runtime_error;
+using std::stringstream;
+using std::ios;
 
 #endif 
