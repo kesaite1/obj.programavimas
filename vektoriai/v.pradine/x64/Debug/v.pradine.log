@@ -1,19 +1,2 @@
-﻿  functions.cpp
-C:\Users\Dell\Documents\VU MIF\Objektinis programavimas\obj.programavimas\vektoriai\functions.cpp(7,19): warning C4244: '=': conversion from 'unsigned __int64' to 'double', possible loss of data
-C:\Users\Dell\Documents\VU MIF\Objektinis programavimas\obj.programavimas\vektoriai\functions.cpp(18,19): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\Dell\Documents\VU MIF\Objektinis programavimas\obj.programavimas\vektoriai\functions.cpp(71,59): warning C4267: 'argument': conversion from 'size_t' to '_Ty', possible loss of data
-C:\Users\Dell\Documents\VU MIF\Objektinis programavimas\obj.programavimas\vektoriai\functions.cpp(71,59): warning C4267:         with
-C:\Users\Dell\Documents\VU MIF\Objektinis programavimas\obj.programavimas\vektoriai\functions.cpp(71,59): warning C4267:         [
-C:\Users\Dell\Documents\VU MIF\Objektinis programavimas\obj.programavimas\vektoriai\functions.cpp(71,59): warning C4267:             _Ty=int
-C:\Users\Dell\Documents\VU MIF\Objektinis programavimas\obj.programavimas\vektoriai\functions.cpp(71,59): warning C4267:         ]
-C:\Users\Dell\Documents\VU MIF\Objektinis programavimas\obj.programavimas\vektoriai\functions.cpp(72,63): warning C4267: 'argument': conversion from 'size_t' to '_Ty', possible loss of data
-C:\Users\Dell\Documents\VU MIF\Objektinis programavimas\obj.programavimas\vektoriai\functions.cpp(72,63): warning C4267:         with
-C:\Users\Dell\Documents\VU MIF\Objektinis programavimas\obj.programavimas\vektoriai\functions.cpp(72,63): warning C4267:         [
-C:\Users\Dell\Documents\VU MIF\Objektinis programavimas\obj.programavimas\vektoriai\functions.cpp(72,63): warning C4267:             _Ty=int
-C:\Users\Dell\Documents\VU MIF\Objektinis programavimas\obj.programavimas\vektoriai\functions.cpp(72,63): warning C4267:         ]
-C:\Users\Dell\Documents\VU MIF\Objektinis programavimas\obj.programavimas\vektoriai\functions.cpp(147,42): warning C4244: '=': conversion from '_Ty' to 'int', possible loss of data
-C:\Users\Dell\Documents\VU MIF\Objektinis programavimas\obj.programavimas\vektoriai\functions.cpp(147,42): warning C4244:         with
-C:\Users\Dell\Documents\VU MIF\Objektinis programavimas\obj.programavimas\vektoriai\functions.cpp(147,42): warning C4244:         [
-C:\Users\Dell\Documents\VU MIF\Objektinis programavimas\obj.programavimas\vektoriai\functions.cpp(147,42): warning C4244:             _Ty=double
-C:\Users\Dell\Documents\VU MIF\Objektinis programavimas\obj.programavimas\vektoriai\functions.cpp(147,42): warning C4244:         ]
+﻿  vektoriuMain.cpp
   v.pradine.vcxproj -> C:\Users\Dell\Documents\VU MIF\Objektinis programavimas\obj.programavimas\vektoriai\x64\Debug\v.pradine.exe
