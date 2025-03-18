@@ -11,6 +11,7 @@
 #include <vector>
 #include <numeric>
 #include <random>
+#include <sstream>
 
 using std::cout;
 using std::cin;
@@ -36,6 +37,6 @@ using std::mt19937;
 using std::uniform_int_distribution;
 using std::uniform_real_distribution;
 using std::ios;
-
-
+using std::runtime_error;
+using std::stringstream;
 #endif 

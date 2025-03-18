@@ -118,6 +118,7 @@ double iv4(list<studentai>& grupe, ofstream& laiko_failas)
     string choose, filename;
     double nd, glaikas, flaikas, skaitymo_laikas;
     studentai B;
+    while (true) {
     try {
         cout << "Pasirinkite: generuoti nauja faila - g, ar skaityti is egzistuojancio - e: ";
         cin >> choose;
@@ -131,41 +132,57 @@ double iv4(list<studentai>& grupe, ofstream& laiko_failas)
 
             throw out_of_range(" Neteisinga ivestis! Iveskite raide g arbe e.");
         }
+        break;
     }
     catch (const invalid_argument& e) { cerr << "Klaida: " << e.what() << endl; }
-    catch (const out_of_range& e) { cerr << "Klaida: " << e.what() << endl; }
-    cout << "Iveskite failo pavadinima tokiu formatu: pavadinimas.txt: ";
-    cin >> filename;
-    
-        if (choose == "g") {
+	catch (const out_of_range& e) { cerr << "Klaida: " << e.what() << endl; }
+	}
+    auto skaitymo_start = high_resolution_clock::now();
+    while (true) {
+        try {
 
-           glaikas = generavimo_laikas(filename, laiko_failas);
-        }
-       
-        auto skaitymo_start = high_resolution_clock::now();
-        ifstream fd(filename);
-        if (!fd)
-        {
-            cout << "Nepavyko atidaryti failo!\n";
-        }
-        string antrastes;
-        getline(fd, antrastes);
-        while (fd >> B.v >> B.pav)
-        {
-            B.hw.clear();
-            while (fd >> nd)
-            {
-                B.hw.push_back(nd);
-                if (fd.peek() == '\n')
-                    break;
+            cout << "Iveskite failo pavadinima tokiu formatu: pavadinimas.txt: ";
+            cin >> filename;
+
+            if (choose == "g" || choose == "G") {
+
+                if (filename.size() < 4 || filename.substr(filename.size() - 4) != ".txt") {
+
+                    filename += ".txt";  // automatiskia prideda .txt failo pavadinime
+                }
+                glaikas = generavimo_laikas(filename, laiko_failas);
             }
+            ifstream fd(filename);
+            if (!fd)
+            {
+                cout << "Nepavyko atidaryti failo!\n";
+                throw runtime_error("Nepavyko atidaryti failo! Bandykite dar karta.");
+            }
+            string antrastes;
+            getline(fd, antrastes);
+            while (fd >> B.v >> B.pav)
+            {
+                B.hw.clear();
+                while (fd >> nd)
+                {
+                    B.hw.push_back(nd);
+                    if (fd.peek() == '\n')
+                        break;
+                }
                 B.egz = B.hw.back();
                 B.hw.pop_back();
-            
-            pazymys_vidurkis(B);
-            pazymys_mediana(B);
-            grupe.push_back(B);
+
+                pazymys_vidurkis(B);
+                pazymys_mediana(B);
+                grupe.push_back(B);
+            }
+            fd.close();
+            break;
         }
+        catch (const exception& e) {
+            cerr << "Klaida: " << e.what() << endl;
+        }
+    }
         auto skaitymo_end = high_resolution_clock::now();
         skaitymo_laikas = apdorojimo_laikas(skaitymo_start, skaitymo_end);
         laiko_failas << "Duomenu skaitymo is failo laikas: " << skaitymo_laikas << endl;
@@ -175,8 +192,7 @@ double iv4(list<studentai>& grupe, ofstream& laiko_failas)
             flaikas = skaitymo_laikas + glaikas;
         }
         else flaikas = skaitymo_laikas;
-       
-        fd.close();
+    
         return flaikas;
 }
 //------------------------------------------------------------------------------------------------------------------
@@ -211,8 +227,24 @@ void generavimas(string failas, int dydis)
 double generavimo_laikas(string& filename, ofstream& laiko_failas)
 {
     int dydis;
-    cout << "Iveskite irasu skaiciu faile: ";
-    cin >> dydis;
+    string userInput;
+    cin.ignore(1000, '\n');
+    while (true) {
+        try {
+            cout << "Iveskite irasu skaiciu faile: ";
+            getline(cin, userInput);
+            stringstream ss(userInput);
+            if (!(ss >> dydis) || !(ss.eof())) {  // Tikrina, kad visa ivestis butu integer
+                throw invalid_argument("Neteisinga ivestis! Iveskite skaiciu.");
+            }
+            if (dydis <= 0) {
+                throw out_of_range(" Skaicius turi buti didesnis uz 0. ");
+            }
+            break;
+        }
+        catch (const invalid_argument& e) { cerr << "Klaida: " << e.what() << endl; }
+        catch (const out_of_range& e) { cerr << "Klaida: " << e.what() << endl; }
+    }
 	duration<double> skirtumas;
 
         auto start = high_resolution_clock::now();
