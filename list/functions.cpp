@@ -116,7 +116,7 @@ void iv3(studentai& A, list <string>& vardai, list <string>& pavardes, mt19937& 
 double iv4(list<studentai>& grupe, ofstream& laiko_failas)
 {
     string choose, filename;
-    double nd, glaikas, flaikas, skaitymo_laikas;
+    double nd, skaitymo_laikas;
     studentai B;
     while (true) {
     try {
@@ -150,7 +150,8 @@ double iv4(list<studentai>& grupe, ofstream& laiko_failas)
 
                     filename += ".txt";  // automatiskia prideda .txt failo pavadinime
                 }
-                glaikas = generavimo_laikas(filename, laiko_failas);
+                generavimas(filename);
+                //generavimo_laikas(filename, laiko_failas);
             }
             ifstream fd(filename);
             if (!fd)
@@ -176,6 +177,9 @@ double iv4(list<studentai>& grupe, ofstream& laiko_failas)
                 pazymys_mediana(B);
                 grupe.push_back(B);
             }
+            auto skaitymo_end = high_resolution_clock::now();
+            skaitymo_laikas = apdorojimo_laikas(skaitymo_start, skaitymo_end);
+            laiko_failas << "Duomenu skaitymo is failo laikas: " << skaitymo_laikas << endl;
             fd.close();
             break;
         }
@@ -183,17 +187,13 @@ double iv4(list<studentai>& grupe, ofstream& laiko_failas)
             cerr << "Klaida: " << e.what() << endl;
         }
     }
-        auto skaitymo_end = high_resolution_clock::now();
-        skaitymo_laikas = apdorojimo_laikas(skaitymo_start, skaitymo_end);
-        laiko_failas << "Duomenu skaitymo is failo laikas: " << skaitymo_laikas << endl;
-        
-        if (choose == "g") {
+        /*if (choose == "g") {
 
             flaikas = skaitymo_laikas + glaikas;
         }
-        else flaikas = skaitymo_laikas;
+        else flaikas = skaitymo_laikas;*/
     
-        return flaikas;
+        return skaitymo_laikas;
 }
 //------------------------------------------------------------------------------------------------------------------
 string raide(string vardai)
@@ -202,7 +202,7 @@ string raide(string vardai)
     return vardai;
 }
 //------------------------------------------------------------------------------------------------------------------------
-void generavimas(string failas, int dydis)
+void generavimas(string failas)
 {
     random_device rd;  
     mt19937 gen(rd());
@@ -210,6 +210,25 @@ void generavimas(string failas, int dydis)
     uniform_real_distribution<double> nd(1.0, 10.0);
     uniform_int_distribution<int> egz(1, 10);
     ofstream file(failas);
+    int dydis;
+    string userInput;
+    cin.ignore(1000, '\n');
+    while (true) {
+        try {
+            cout << "Iveskite irasu skaiciu faile: ";
+            getline(cin, userInput);
+            stringstream ss(userInput);
+            if (!(ss >> dydis) || !(ss.eof())) {  // Tikrina, kad visa ivestis butu integer
+                throw invalid_argument("Neteisinga ivestis! Iveskite skaiciu.");
+            }
+            if (dydis <= 0) {
+                throw out_of_range(" Skaicius turi buti didesnis uz 0. ");
+            }
+            break;
+        }
+        catch (const invalid_argument& e) { cerr << "Klaida: " << e.what() << endl; }
+        catch (const out_of_range& e) { cerr << "Klaida: " << e.what() << endl; }
+    }
  
     for (int i = 0; i < dydis; i++)
     {
@@ -224,7 +243,7 @@ void generavimas(string failas, int dydis)
     file.close();
 }
 //------------------------------------------------------------------------------------------------------------------------  
-double generavimo_laikas(string& filename, ofstream& laiko_failas)
+/*double generavimo_laikas(string& filename, ofstream& laiko_failas)
 {
     int dydis;
     string userInput;
@@ -253,7 +272,7 @@ double generavimo_laikas(string& filename, ofstream& laiko_failas)
         skirtumas = end - start;
     laiko_failas << "Failo generavimo laikas: " << skirtumas.count() << endl;
     return skirtumas.count();
-}
+}*/
 
 
 //------------------------------------------------------------------------------------------------------------------------
