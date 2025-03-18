@@ -3,7 +3,7 @@
 
 int main()
 {
-    ofstream laiko_failas("laikas.txt", ios::app);
+    ofstream laiko_failas("C:/Users/Dell/Documents/VU MIF/Objektinis programavimas/obj.programavimas/laikas.txt", ios::app);
     double skirstymo_laikas, rusiavimo_laikas, skaitymo_laikas;
     list <studentai> pazangus;
     list <studentai> nepazangus;
@@ -17,7 +17,9 @@ int main()
     random_device rd; 
     mt19937 gen(rd());
     //auto programa_start = high_resolution_clock::now();
+    laiko_failas << "------------------------------------------------------------------------------------------\n";
     laiko_failas << "Programos su list konteineriais laikai:\n";
+	laiko_failas << "\n";
     while (iv != 5)
     {
         try {
@@ -230,8 +232,9 @@ int main()
 	//auto programa_end = high_resolution_clock::now();
     //programos_laikas = apdorojimo_laikas(programa_start, programa_end);
 	//laiko_failas << "Programos darbo laikas: " << programos_laikas << endl;
-    laiko_failas << "------------------------------------------------------------------------------------------\n";
+	laiko_failas << "\n";
     laiko_failas << "Testu laiku vidurkis: " << (skirstymo_laikas + rusiavimo_laikas + skaitymo_laikas) / 5.0 << endl;
+    laiko_failas << "------------------------------------------------------------------------------------------\n";
      if (isvestis == "e")
      {
          //cout << "Programos darbo laikas: " << setprecision(5) << programos_laikas << endl;

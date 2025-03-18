@@ -1,6 +1,0 @@
-Programos su list konteineriais laikai:
-Duomenu skaitymo is failo laikas: 8.78382
-Studentu rusiavimo pasirinkta tvarka laikas: 0.0225557
-Studentu skirstymo i dvi grupes laikas: 0.009689
-------------------------------------------------------------------------------------------
-Testu laiku vidurkis: 1.76321
