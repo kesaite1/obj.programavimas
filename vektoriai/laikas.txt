@@ -1,6 +1,0 @@
-Programos su vector konteineriais laikai:
-Duomenu skaitymo is failo laikas: 7.96528
-Studentu rusiavimo pasirinkta tvarka laikas: 0.0126573
-Studentu skirstymo i dvi grupes laikas: 0.0045188
-------------------------------------------------------------------------------------------
-Testu laiku vidurkis: 1.59649

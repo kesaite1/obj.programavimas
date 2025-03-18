@@ -1,0 +1,27 @@
+ ------------------------------------------------------------------------------------------
+Programos su vector konteineriais laikai:
+ 
+Duomenu skaitymo is failo laikas: 12.0047
+Studentu rusiavimo pasirinkta tvarka laikas: 0.154047
+Studentu skirstymo i dvi grupes laikas: 0.0590739
+
+Testu laiku vidurkis: 2.44356
+------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------
+Programos su list konteineriais laikai:
+
+Duomenu skaitymo is failo laikas: 11.7127
+Studentu rusiavimo pasirinkta tvarka laikas: 0.0044986
+Studentu skirstymo i dvi grupes laikas: 0.0899711
+
+Testu laiku vidurkis: 2.36142
+------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------
+Programos su deque konteineriais laikai:
+
+Duomenu skaitymo is failo laikas: 11.7021
+Studentu rusiavimo pasirinkta tvarka laikas: 0.184085
+Studentu skirstymo i dvi grupes laikas: 0.0521411
+
+Testu laiku vidurkis: 2.38766
+------------------------------------------------------------------------------------------
