@@ -1,15 +1,2 @@
-﻿  functions.cpp
-C:\Users\Dell\Documents\VU MIF\Objektinis programavimas\obj.programavimas\list\functions.cpp(99,59): warning C4267: 'argument': conversion from 'size_t' to '_Ty', possible loss of data
-C:\Users\Dell\Documents\VU MIF\Objektinis programavimas\obj.programavimas\list\functions.cpp(99,59): warning C4267:         with
-C:\Users\Dell\Documents\VU MIF\Objektinis programavimas\obj.programavimas\list\functions.cpp(99,59): warning C4267:         [
-C:\Users\Dell\Documents\VU MIF\Objektinis programavimas\obj.programavimas\list\functions.cpp(99,59): warning C4267:             _Ty=int
-C:\Users\Dell\Documents\VU MIF\Objektinis programavimas\obj.programavimas\list\functions.cpp(99,59): warning C4267:         ]
-C:\Users\Dell\Documents\VU MIF\Objektinis programavimas\obj.programavimas\list\functions.cpp(100,63): warning C4267: 'argument': conversion from 'size_t' to '_Ty', possible loss of data
-C:\Users\Dell\Documents\VU MIF\Objektinis programavimas\obj.programavimas\list\functions.cpp(100,63): warning C4267:         with
-C:\Users\Dell\Documents\VU MIF\Objektinis programavimas\obj.programavimas\list\functions.cpp(100,63): warning C4267:         [
-C:\Users\Dell\Documents\VU MIF\Objektinis programavimas\obj.programavimas\list\functions.cpp(100,63): warning C4267:             _Ty=int
-C:\Users\Dell\Documents\VU MIF\Objektinis programavimas\obj.programavimas\list\functions.cpp(100,63): warning C4267:         ]
-C:\Users\Dell\Documents\VU MIF\Objektinis programavimas\obj.programavimas\list\functions.cpp(172,34): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
-  listMain.cpp
-  Generating Code...
+﻿  listMain.cpp
   v.pradine.vcxproj -> C:\Users\Dell\Documents\VU MIF\Objektinis programavimas\obj.programavimas\list\x64\Debug\v.pradine.exe

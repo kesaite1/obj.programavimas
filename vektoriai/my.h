@@ -38,5 +38,6 @@ using std::uniform_int_distribution;
 using std::uniform_real_distribution;
 using std::runtime_error;
 using std::stringstream;
+using std::ios;
 
 #endif 

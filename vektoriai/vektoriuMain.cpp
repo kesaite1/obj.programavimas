@@ -1,18 +1,14 @@
 #include "my.h"
 #include "code.h"
 
-//ofstream laiko_failas("laikas.txt");
 int main()
 {
-    ofstream laiko_failas("laikas.txt");
-    //string filename;
-    double skirstymo_laikas, isvedimo_laikas, programos_laikas, failu_laikas;
+    ofstream laiko_failas("laikas.txt", ios::app);
+    double skirstymo_laikas, rusiavimo_laikas, skaitymo_laikas;
     vector <studentai> pazangus;
     vector <studentai> nepazangus;
     vector <studentai> grupe;
-	//vector <double> trukme;
     int iv = 0, sorting = 0;
-    //int kartai = 5;
     string isvestis;
     studentai  A;
     vector <string> vardai = { "Emile", "Greta", "Haroldas", "Guste", "Paulius", "Aleksas", "Kristina", "Aidas", "Vasare", "Diana" };
@@ -20,10 +16,12 @@ int main()
 
     random_device rd;  
     mt19937 gen(rd());
-    auto programa_start = high_resolution_clock::now();
+    //auto programa_start = high_resolution_clock::now();
+	laiko_failas << "Programos su vector konteineriais laikai:\n";
     while (iv != 5)
     {
         try {
+			cout << "-----------------------------------------------------------------\n";
             cout << "Pasirink, kokiu budu bus ivedami studento duomenys\n";
             cout << "1 - ranka, 2 - generuoti pazymius, 3 - generuoti ir pazymius ir studentu vardus, pavardes,\n";
             cout << "4 - skaityti duomenis is failo, 5 - baigti darba\n";
@@ -64,7 +62,7 @@ int main()
             }
             else if (iv == 4)
             {
-                failu_laikas = iv4(grupe, laiko_failas);
+                skaitymo_laikas = iv4(grupe, laiko_failas);
             }
 
             else {
@@ -84,6 +82,7 @@ int main()
                             cin.ignore(1000, '\n');
                             throw invalid_argument(" Neteisinga ivestis! Iveskite skaiciu nuo 1 iki 6.");
                         }
+						auto rusiavimo_start = high_resolution_clock::now();
                         if (sorting < 1 || sorting > 6) {
 
                             throw out_of_range(" Neteisinga ivestis! Iveskite skaiciu nuo 1 iki 6.");
@@ -112,12 +111,15 @@ int main()
                         {
                             sort(grupe.begin(), grupe.end(), [](const studentai& A, const studentai& B) { return A.paz_m > B.paz_m; });
                         }
-                        break;
+                    auto rusiavimo_end = high_resolution_clock::now();
+				    rusiavimo_laikas = apdorojimo_laikas(rusiavimo_start, rusiavimo_end);
+                    laiko_failas << "Studentu rusiavimo pasirinkta tvarka laikas: " << rusiavimo_laikas << endl;
+                    break;
                     }
                     catch (const invalid_argument& e) { cerr << "Klaida:" << e.what() << endl; }
                     catch (const out_of_range& e) { cerr << "Klaida:" << e.what() << endl; }
                 }
-
+				
                 auto skirstymas_start = high_resolution_clock::now();
                 for (const auto& A : grupe) {
                     if (A.paz_vid >= 5 || A.paz_m >= 5) {
@@ -129,7 +131,7 @@ int main()
                 }
                 auto skirstymas_end = high_resolution_clock::now();
                 skirstymo_laikas = apdorojimo_laikas(skirstymas_start, skirstymas_end);
-                laiko_failas<<"Studentu rusiavimo i dvi grupes laikas: "<<skirstymo_laikas<<endl;
+                laiko_failas<<"Studentu skirstymo i dvi grupes laikas: "<<skirstymo_laikas<<endl;
 
                 while (true) {
                     try {
@@ -154,7 +156,7 @@ int main()
                             sn << left << setw(15) << "Vardas" << left << setw(15) << "Pavarde" << left << setw(18) << "Galutinis (vid.)" << "Galutinis (med.)\n";
                             sn << "-----------------------------------------------------------------\n";
 
-                            auto isvedimas_start = high_resolution_clock::now();
+                          //  auto isvedimas_start = high_resolution_clock::now();
                             for (const auto& A : pazangus) {
                                 sp << left << setw(15) << A.v;
                                 sp << left << setw(15) << A.pav;
@@ -168,9 +170,9 @@ int main()
                                 sn << left << setw(18) << fixed << setprecision(2) << A.paz_vid;
                                 sn << fixed << setprecision(2) << A.paz_m << endl;
                             }
-                            auto isvedimas_end = high_resolution_clock::now();
-                            isvedimo_laikas = apdorojimo_laikas(isvedimas_start, isvedimas_end);
-                            laiko_failas<<"Surusiuotu studentu isvedimo i atskirus failus laikas: "<<isvedimo_laikas<<endl;
+                            //auto isvedimas_end = high_resolution_clock::now();
+                            //isvedimo_laikas = apdorojimo_laikas(isvedimas_start, isvedimas_end);
+                            //laiko_failas<<"Surusiuotu studentu isvedimo i atskirus failus laikas: "<<isvedimo_laikas<<endl;
                        
                             sp.close();
                             sn.close();
@@ -182,31 +184,33 @@ int main()
                             cout << "-----------------------------------------------------------------\n";
                             cout << "Pazangus studentai: \n";
                             cout << "-----------------------------------------------------------------\n";
-                            auto isvedimas_start = high_resolution_clock::now();
+                            // auto isvedimas_start = high_resolution_clock::now();
                             for (const auto& A : pazangus) {
-                               
-                                    cout << left << setw(15) << A.v;
-                                    cout << left << setw(15) << A.pav;
-                                    cout << left << setw(18) << fixed << setprecision(2) << A.paz_vid;
-                                    cout << fixed << setprecision(2) << A.paz_m << endl;
-                                
+
+                                cout << left << setw(15) << A.v;
+                                cout << left << setw(15) << A.pav;
+                                cout << left << setw(18) << fixed << setprecision(2) << A.paz_vid;
+                                cout << fixed << setprecision(2) << A.paz_m << endl;
+
                             }
                             cout << "-----------------------------------------------------------------\n";
                             cout << "Nepazangus studentai: \n";
                             cout << "-----------------------------------------------------------------\n";
                             for (const auto& A : nepazangus) {
-             
-                                    cout << left << setw(15) << A.v;
-                                    cout << left << setw(15) << A.pav;
-                                    cout << left << setw(18) << fixed << setprecision(2) << A.paz_vid;
-                                    cout << fixed << setprecision(2) << A.paz_m << endl;
+
+                                cout << left << setw(15) << A.v;
+                                cout << left << setw(15) << A.pav;
+                                cout << left << setw(18) << fixed << setprecision(2) << A.paz_vid;
+                                cout << fixed << setprecision(2) << A.paz_m << endl;
                             }
-							cout << "-----------------------------------------------------------------\n";
-                            auto isvedimas_end = high_resolution_clock::now();
-                            isvedimo_laikas = apdorojimo_laikas(isvedimas_start, isvedimas_end);
-                            cout << "Failo skaitymo ir/arba generavimo laikas: " << setprecision(5) << failu_laikas << endl;
-                            cout << "Studentu rusiavimo laikas: " << setprecision(5) << skirstymo_laikas << endl;
-                            cout << "Surusiuotu studentu isvedimo laikas: " << setprecision(5) << isvedimo_laikas << endl;
+                            cout << "-----------------------------------------------------------------\n";
+                            //auto isvedimas_end = high_resolution_clock::now();
+                            //isvedimo_laikas = apdorojimo_laikas(isvedimas_start, isvedimas_end);
+                            if (skaitymo_laikas != 0) {
+                            cout << "Failo skaitymo laikas " << setprecision(5) << skaitymo_laikas << endl;
+                        }
+                            cout << "Studentu skirstymo i dvi grupes laikas: " << setprecision(5) << skirstymo_laikas << endl;
+                           // cout << "Surusiuotu studentu isvedimo laikas: " << setprecision(5) << isvedimo_laikas << endl;
                             break;
                         }
                     }
@@ -218,16 +222,16 @@ int main()
         catch (const invalid_argument& e) { cerr << "Klaida: " << e.what() << endl; }
         catch (const out_of_range& e) { cerr << "Klaida: " << e.what() << endl; }
     }
-	auto programa_end = high_resolution_clock::now();
-    programos_laikas = apdorojimo_laikas(programa_start, programa_end);
-	laiko_failas << "Programos darbo laikas: " << programos_laikas << endl;
+	//auto programa_end = high_resolution_clock::now();
+   // programos_laikas = apdorojimo_laikas(programa_start, programa_end);
+	//laiko_failas << "Programos darbo laikas: " << programos_laikas << endl;
     laiko_failas << "------------------------------------------------------------------------------------------\n";
-    laiko_failas << "Testu laiku vidurkis: " << (skirstymo_laikas + isvedimo_laikas + programos_laikas + failu_laikas) / 5.0 << endl;
+    laiko_failas << "Testu laiku vidurkis: " << (skirstymo_laikas + rusiavimo_laikas + skaitymo_laikas) / 5.0 << endl;
      if (isvestis == "e")
      {
-         cout << "Programos darbo laikas: " << setprecision(5) << programos_laikas << endl;
+        // cout << "Programos darbo laikas: " << setprecision(5) << programos_laikas << endl;
          cout << "-----------------------------------------------------------------\n";
-         cout << "Testu laiku vidurkis: " << setprecision(5) <<(skirstymo_laikas + isvedimo_laikas + programos_laikas + failu_laikas) / 5.0 << endl;
+         cout << "Testu laiku vidurkis: " << setprecision(5) <<(skirstymo_laikas + rusiavimo_laikas + skaitymo_laikas) / 5.0 << endl;
      }
     laiko_failas.close();
     return 0;
