@@ -1,7 +1,6 @@
-Failo generavimo laikas: 0.132815
-Duomenu skaitymo is failo laikas: 17.3615
-Studentu rusiavimo i dvi grupes laikas: 0.0073303
-Surusiuotu studentu isvedimo i atskirus failus laikas: 0.021585
-Programos darbo laikas: 28.8987
+Programos su vector konteineriais laikai:
+Duomenu skaitymo is failo laikas: 7.96528
+Studentu rusiavimo pasirinkta tvarka laikas: 0.0126573
+Studentu skirstymo i dvi grupes laikas: 0.0045188
 ------------------------------------------------------------------------------------------
-Testu laiku vidurkis: 9.28438
+Testu laiku vidurkis: 1.59649
