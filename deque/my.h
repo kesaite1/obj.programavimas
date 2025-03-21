@@ -11,6 +11,7 @@
 #include <numeric>
 #include <random>
 #include <sstream>
+#include <windows.h>
 
 using std::cout;
 using std::cin;
