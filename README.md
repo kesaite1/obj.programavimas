@@ -21,6 +21,7 @@ Kode panaudotas išimčių valdymas (angl. Exception Handling), naudojamas try-c
 
 
 **Duomenys išvedimo failuose yra struktūruoti tokiu būdu:**
+
 |Vardas         |Pavardė        |Galutinis (vid.)  |Galutinis (med.)  |
 |---------------|---------------|------------------|------------------|
 |VardasNR1      |PavardėNR1     |7.35              |7.76              |
@@ -29,41 +30,49 @@ Kode panaudotas išimčių valdymas (angl. Exception Handling), naudojamas try-c
 
 
 **Programos testavimo procesas ir rezultatai**
+
 Kiekviena programa yra ištestuojama atskirai, o rezultatai surašomi į bendrą testo laikų failą *laikas.txt* gautų rezultatų palyginimui. 
 Testavimo metu yra testuojamos šios programos operacijos:
 1. duomenų nuskaitymas iš failų į atitinkamą konteinerį,
 2. studentų rūšiavimas didėjimo tvarka konteineryje (funkcija sort),
 3. studentų skirstymas  į dvi grupes/kategorijas (naujų konteinerių su skirtingais studentais kūrimas).
 
-Gautų testavimo rezultatų pvz.:
+Gautų testavimo rezultatų su 100000 įrašų failu pvz.:
+
  ------------------------------------------------------------------------------------------
 Programos su vector konteineriais laikai:
  
-Duomenu skaitymo is failo laikas: 12.0047
-Studentu rusiavimo pasirinkta tvarka laikas: 0.154047
-Studentu skirstymo i dvi grupes laikas: 0.0590739
+Duomenu skaitymo is failo laikas: 12.0054
+Studentu rusiavimo pasirinkta tvarka laikas: 1.89215
+Studentu skirstymo i dvi grupes laikas: 0.626981
 
-Testu laiku vidurkis: 2.44356
+Testu laiku vidurkis: 2.9049
 ------------------------------------------------------------------------------------------
 Programos su list konteineriais laikai:
 
-Duomenu skaitymo is failo laikas: 11.7127
-Studentu rusiavimo pasirinkta tvarka laikas: 0.0044986
-Studentu skirstymo i dvi grupes laikas: 0.0899711
-
-Testu laiku vidurkis: 2.36142
+Duomenu skaitymo is failo laikas: 22.3816
+Studentu rusiavimo pasirinkta tvarka laikas: 0.134302
+Studentu skirstymo i dvi grupes laikas: 1.08133
+Testu laiku vidurkis: 4.71944
 ------------------------------------------------------------------------------------------
 Programos su deque konteineriais laikai:
 
-Duomenu skaitymo is failo laikas: 11.7021
-Studentu rusiavimo pasirinkta tvarka laikas: 0.184085
-Studentu skirstymo i dvi grupes laikas: 0.0521411
+Duomenu skaitymo is failo laikas: 28.3951
+Studentu rusiavimo pasirinkta tvarka laikas: 3.66368
+Studentu skirstymo i dvi grupes laikas: 1.91435
 
-Testu laiku vidurkis: 2.38766
+Testu laiku vidurkis: 6.79462
 ------------------------------------------------------------------------------------------
 
 Taip pat kiekvienos programos veikimo metu yra sugeneruojamas failas su CPU, RAM ir disko apkrovos duomenimis programos testavimo metu.
 Rezultatų pvz.:
+Vector konteineris:
+CPU usage: LoadPercentage  18              
+RAM usage: RAM naudojimas: 95%
+Disk usage:
+FreeSpace    Name  Size          
+27100065792  C:    254761791488  
+
 List konteineris:
 CPU usage: LoadPercentage  13              
 RAM usage: RAM naudojimas: 93%
@@ -78,12 +87,9 @@ Disk usage:
 FreeSpace    Name  Size          
 27336642560  C:    254761791488  
 
-Vector konteineris:
-CPU usage: LoadPercentage  18              
-RAM usage: RAM naudojimas: 95%
-Disk usage:
-FreeSpace    Name  Size          
-27100065792  C:    254761791488  
+Testavimo išvados:
+Remiantis programos operacijų laikais, efektyviausiai veikianti programa naudoja vector konteinerius, o mažiausiai efektyvi programa naudoja deque konteinerius. 
+
 
 
 ![Duomenų įvedimo procesas](https://github.com/user-attachments/assets/26189234-f898-48fd-a30b-62bf3c1a61e5)

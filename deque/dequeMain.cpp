@@ -131,6 +131,7 @@ int main()
                         nepazangus.push_back(A);
                     }
                 }
+            
                 auto skirstymas_end = high_resolution_clock::now();
                 skirstymo_laikas = apdorojimo_laikas(skirstymas_start, skirstymas_end);
                 laiko_failas<<"Studentu skirstymo i dvi grupes laikas: "<<skirstymo_laikas<<endl;

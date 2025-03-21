@@ -259,8 +259,3 @@ void Disk(ofstream& report) {
 
 
 //------------------------------------------------------------------------------------------------------------------------
-double apdorojimo_laikas(high_resolution_clock::time_point start, high_resolution_clock::time_point end)
-{
-    duration<double> skirtumas = end - start;
-    return skirtumas.count();
-}
