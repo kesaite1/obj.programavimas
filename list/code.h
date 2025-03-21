@@ -29,5 +29,9 @@ string raide(string vardai);
 void generavimas(string failas);
 //double generavimo_laikas(string& filename, ofstream& laiko_failas);
 double apdorojimo_laikas(high_resolution_clock::time_point start, high_resolution_clock::time_point end);
+//void RAM(ofstream& report);
+//void CPU(ofstream& report);
+//void Disk(ofstream& report);
+
 
 #endif

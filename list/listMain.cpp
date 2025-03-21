@@ -3,6 +3,7 @@
 
 int main()
 {
+    //fstream report("sistemos_testavimo_duomenys.txt");
     ofstream laiko_failas("C:/Users/Dell/Documents/VU MIF/Objektinis programavimas/obj.programavimas/laikas.txt", ios::app);
     double skirstymo_laikas, rusiavimo_laikas, skaitymo_laikas;
     list <studentai> pazangus;
@@ -241,6 +242,10 @@ int main()
          cout << "-----------------------------------------------------------------\n";
          cout << "Testu laiku vidurkis: " << setprecision(5) <<(skirstymo_laikas + rusiavimo_laikas + skaitymo_laikas) / 5.0 << endl;
      }
+     /*CPU(report);
+     RAM(report);
+     Disk(report);
+     report.close();*/
     laiko_failas.close();
     return 0;
 }
