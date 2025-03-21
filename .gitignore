@@ -1,0 +1,64 @@
+# Prerequisites
+*.d
+
+# Compiled Object files
+*.slo
+*.lo
+*.o
+*.obj
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Compiled Dynamic libraries
+*.so
+*.dylib
+*.dll
+
+# Fortran module files
+*.mod
+*.smod
+
+# Compiled Static libraries
+*.lai
+*.la
+*.a
+*.lib
+
+# Executables
+*.exe
+*.out
+*.app
+
+# Ignore Visual Studio-specific files and folders
+.vs/
+*.vcxproj.user
+*.suo
+*.ipch
+*.obj
+*.pch
+*.pdb
+*.ilk
+*.idb
+*.tlog
+*.lastbuildstate
+
+# Ignore build directories
+Debug/
+Release/
+x64/
+x86/
+
+# Ignore user-specific files
+*.opensdf
+*.sdf
+*.user
+*.ncb
+
+# Ignore CMake-related files (if using CMake)
+CMakeCache.txt
+CMakeFiles/
+CMakeLists.txt.user
+
+vektoriai/Debug/studentai1000000.txt
