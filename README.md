@@ -38,55 +38,57 @@ Testavimo metu yra testuojamos šios programos operacijos:
 3. studentų skirstymas  į dvi grupes/kategorijas (naujų konteinerių su skirtingais studentais kūrimas).
 
 Gautų testavimo rezultatų su 100000 įrašų failu pvz.:
-
  ------------------------------------------------------------------------------------------
-Programos su vector konteineriais laikai:
+***Programos su vector konteineriais laikai:***
  
 Duomenu skaitymo is failo laikas: 12.0054
 Studentu rusiavimo pasirinkta tvarka laikas: 1.89215
 Studentu skirstymo i dvi grupes laikas: 0.626981
 
 Testu laiku vidurkis: 2.9049
-------------------------------------------------------------------------------------------
-Programos su list konteineriais laikai:
+ ------------------------------------------------------------------------------------------
+***Programos su list konteineriais laikai:***
 
 Duomenu skaitymo is failo laikas: 22.3816
 Studentu rusiavimo pasirinkta tvarka laikas: 0.134302
 Studentu skirstymo i dvi grupes laikas: 1.08133
 Testu laiku vidurkis: 4.71944
-------------------------------------------------------------------------------------------
-Programos su deque konteineriais laikai:
+ ------------------------------------------------------------------------------------------
+***Programos su deque konteineriais laikai:***
 
 Duomenu skaitymo is failo laikas: 28.3951
 Studentu rusiavimo pasirinkta tvarka laikas: 3.66368
 Studentu skirstymo i dvi grupes laikas: 1.91435
 
 Testu laiku vidurkis: 6.79462
-------------------------------------------------------------------------------------------
+ ------------------------------------------------------------------------------------------
+
 
 Taip pat kiekvienos programos veikimo metu yra sugeneruojamas failas su CPU, RAM ir disko apkrovos duomenimis programos testavimo metu.
+
 Rezultatų pvz.:
-Vector konteineris:
+ ------------------------------------------------------------------------------------------
+***Vector konteineris:***
 CPU usage: LoadPercentage  18              
 RAM usage: RAM naudojimas: 95%
 Disk usage:
 FreeSpace    Name  Size          
 27100065792  C:    254761791488  
-
-List konteineris:
+ ------------------------------------------------------------------------------------------
+***List konteineris:***
 CPU usage: LoadPercentage  13              
 RAM usage: RAM naudojimas: 93%
 Disk usage:
 FreeSpace    Name  Size          
 27226103808  C:    254761791488  
-
-Deque konteineris:
+ ------------------------------------------------------------------------------------------
+***Deque konteineris:***
 CPU usage: LoadPercentage  28   
 RAM usage: RAM naudojimas: 92%
 Disk usage:
 FreeSpace    Name  Size          
 27336642560  C:    254761791488  
-
+ ------------------------------------------------------------------------------------------
 Testavimo išvados:
 Remiantis programos operacijų laikais, efektyviausiai veikianti programa naudoja vector konteinerius, o mažiausiai efektyvi programa naudoja deque konteinerius. 
 
@@ -98,4 +100,3 @@ Remiantis programos operacijų laikais, efektyviausiai veikianti programa naudoj
 
 
 
-main
