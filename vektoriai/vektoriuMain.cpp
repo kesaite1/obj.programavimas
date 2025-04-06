@@ -136,8 +136,8 @@ int main()
 
                             throw out_of_range(" Neteisinga ivestis! Iveskite skaiciu nuo 1 iki 3.");
                         }
+                        auto skirstymas_start = high_resolution_clock::now();
                         if (strateg == 1) {
-                            auto skirstymas_start = high_resolution_clock::now();
                             for (const auto& A : grupe) {
                                 if (A.paz_vid >= 5 || A.paz_m >= 5) {
                                     pazangus.push_back(A);
@@ -146,36 +146,28 @@ int main()
                                     nepazangus.push_back(A);
                                 }
                             }
-                            auto skirstymas_end = high_resolution_clock::now();
-                            skirstymo_laikas = apdorojimo_laikas(skirstymas_start, skirstymas_end);
-                            laiko_failas << "Studentu skirstymo i dvi grupes laikas 1-aja strategija: " << skirstymo_laikas << endl;
                         }
                         else if (strateg == 2)
                         {
-                            auto skirstymas_start = high_resolution_clock::now();
-                            auto partition_point = std::partition(grupe.begin(), grupe.end(), [](const studentai& A) { return A.paz_vid >= 5 || A.paz_m >= 5; }); // Move "vargðiukai" to the end
+                            auto partition_point = partition(grupe.begin(), grupe.end(), [](const studentai& A) { return A.paz_vid >= 5 || A.paz_m >= 5; }); // Move "vargðiukai" to the end
                             nepazangus.assign(partition_point, grupe.end()); // Move "vargðiukai" to the separate container
                             grupe.erase(partition_point, grupe.end()); // Erase "vargðiukai" from the original container in one step
 
                             pazangus = grupe;  // Remaining students are "pazangus"
-                            auto skirstymas_end = high_resolution_clock::now();
-                            skirstymo_laikas = apdorojimo_laikas(skirstymas_start, skirstymas_end);
-                            laiko_failas << "Studentu skirstymo i dvi grupes laikas 2-aja strategija: " << skirstymo_laikas << endl;
                         }
                         else
                         {
-                            auto skirstymas_start = high_resolution_clock::now();
                             copy_if(grupe.begin(), grupe.end(), back_inserter(nepazangus), [](const studentai& A) { return A.paz_vid < 5 && A.paz_m < 5; }); // Copy "vargðiukai" to `nepazangus` using `std::copy_if`
 
                             grupe.erase(remove_if(grupe.begin(), grupe.end(), [](const studentai& A) { return A.paz_vid < 5 && A.paz_m < 5; }), grupe.end()); // Remove "vargðiukai" from `grupe` using `std::remove_if` + `erase`
 
                             pazangus = grupe;  // Remaining students are "pazangus"
+                        }
 
                             auto skirstymas_end = high_resolution_clock::now();
                             skirstymo_laikas = apdorojimo_laikas(skirstymas_start, skirstymas_end);
-                            laiko_failas << "Studentu skirstymo i dvi grupes laikas 3-aja strategija: " << skirstymo_laikas << endl;
-                        }
-                        break;
+                            laiko_failas << "Studentu skirstymo i dvi grupes " << strateg << " strategija " << "laikas: " << skirstymo_laikas << endl;
+                            break;
                     }
                     catch (const invalid_argument& e) { cerr << "Klaida: " << e.what() << endl; }
 					catch (const out_of_range& e) { cerr << "Klaida: " << e.what() << endl; }
