@@ -96,3 +96,16 @@ vektoriai/Debug/studentai1000000.txt
 .txt
 backup-repo/
 .vscode/
+
+deque/CppProperties.json
+deque/v.pradine.sln
+deque/v.pradine.vcxproj
+deque/v.pradine.vcxproj.filters
+list/CppProperties.json
+list/v.pradine.sln
+list/v.pradine.vcxproj
+list/v.pradine.vcxproj.filters
+vektoriai/CppProperties.json
+vektoriai/v.pradine.sln
+vektoriai/v.pradine.vcxproj
+vektoriai/v.pradine.vcxproj.filters
