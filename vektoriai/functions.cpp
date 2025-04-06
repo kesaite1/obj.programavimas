@@ -24,12 +24,12 @@ static double mediana(studentai& A)
 //-------------------------------------------------------------------------------------------
 void pazymys_mediana(studentai& A)
 {
-    A.paz_m = 0.4 * mediana(A) + 0.6 * A.egz;
+    A.paz_m = (round ((0.4 * mediana(A) + 0.6 * A.egz) * 100.0)) / 100.0;
 }
 //-------------------------------------------------------------------------------------------
 void pazymys_vidurkis(studentai& A)
 {
-    A.paz_vid = 0.4 * vidurkis(A) + 0.6 * A.egz;
+    A.paz_vid = (round ((0.4 * vidurkis(A) + 0.6 * A.egz) * 100.0)) / 100.0;
 }
 //-------------------------------------------------------------------------------------------
 void iv1(studentai& A)

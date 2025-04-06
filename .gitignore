@@ -65,8 +65,15 @@ x86/
 .vs/
 **/.vs/
 vektoriai/.vs/
-list/.vs/
+vektoriai/v.pradine/x64/
+vektoriai/x64/
 deque/.vs/
+deque/v.pradine/x64/
+deque/x64/
+list/.vs/
+list/v.pradine/x64/
+list/x64/
+
 
 # Ignore user-specific files
 *.opensdf
