@@ -36,11 +36,16 @@
 *.vcxproj.user
 *.suo
 *.ipch
+*.user
+*.userosscache
+*.sln.docstates
 *.obj
 *.pch
 *.pdb
 *.ilk
 *.idb
+*.log
+*.db
 *.tlog
 *.lastbuildstate
 
@@ -50,11 +55,30 @@ Release/
 x64/
 x86/
 
+# Ignore Debug/Release builds
+**/Debug/
+**/Release/
+**/x64/
+*.exe
+*.dll
+
+.vs/
+**/.vs/
+vektoriai/.vs/
+list/.vs/
+deque/.vs/
+
 # Ignore user-specific files
 *.opensdf
 *.sdf
 *.user
 *.ncb
+
+# Ignore student data text files if needed
+studentai*.txt
+nepazangus.txt
+pazangus.txt
+laikas.txt
 
 # Ignore CMake-related files (if using CMake)
 CMakeCache.txt
@@ -62,5 +86,5 @@ CMakeFiles/
 CMakeLists.txt.user
 
 vektoriai/Debug/studentai1000000.txt
-
+.txt
 backup-repo/
