@@ -21,6 +21,7 @@ int main()
     laiko_failas << "------------------------------------------------------------------------------------------\n";
     laiko_failas << "Programos su deque konteineriais laikai:\n";
     laiko_failas << "\n";
+    cout << "DEQUE KONTEINERIU PROGRAMA\n";
     while (iv != 5)
     {
         try {

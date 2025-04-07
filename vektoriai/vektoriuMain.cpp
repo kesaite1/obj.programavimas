@@ -21,6 +21,7 @@ int main()
     laiko_failas << "------------------------------------------------------------------------------------------\n";
 	laiko_failas << "Programos su vector konteineriais laikai:\n";
 	laiko_failas << " " << endl;
+	cout << "VECTOR KONTEINERIU PROGRAMA\n";
     while (iv != 5)
     {
         try {
