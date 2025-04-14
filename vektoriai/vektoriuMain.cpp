@@ -4,7 +4,7 @@
 int main()
 {
     //ofstream report("sistemos_testavimo_duomenys.txt");
-    ofstream laiko_failas("C:/Users/Dell/Documents/VU MIF/Objektinis programavimas/obj.programavimas/laikas.txt", ios::app);
+    ofstream laiko_failas("../laikas.txt", ios::app);
     double skirstymo_laikas, rusiavimo_laikas, skaitymo_laikas;
     vector <studentai> pazangus;
     vector <studentai> nepazangus;
@@ -117,7 +117,7 @@ int main()
                         }
                     auto rusiavimo_end = high_resolution_clock::now();
 				    rusiavimo_laikas = apdorojimo_laikas(rusiavimo_start, rusiavimo_end);
-                    laiko_failas << "Studentu rusiavimo pasirinkta tvarka laikas: " << rusiavimo_laikas << endl;
+                    laiko_failas << "Studentu rikiavimo pasirinkta tvarka laikas: " << rusiavimo_laikas << endl;
                     break;
                     }
                     catch (const invalid_argument& e) { cerr << "Klaida:" << e.what() << endl; }
@@ -150,17 +150,17 @@ int main()
                         }
                         else if (strateg == 2)
                         {
-                            auto partition_point = partition(grupe.begin(), grupe.end(), [](const studentai& A) { return A.paz_vid >= 5 || A.paz_m >= 5; }); // Move "vargðiukai" to the end
-                            nepazangus.assign(partition_point, grupe.end()); // Move "vargðiukai" to the separate container
-                            grupe.erase(partition_point, grupe.end()); // Erase "vargðiukai" from the original container in one step
+                            auto partition_point = partition(grupe.begin(), grupe.end(), [](const studentai& A) { return A.paz_vid >= 5 || A.paz_m >= 5; }); // Move "vargï¿½iukai" to the end
+                            nepazangus.assign(partition_point, grupe.end()); // Move "vargï¿½iukai" to the separate container
+                            grupe.erase(partition_point, grupe.end()); // Erase "vargï¿½iukai" from the original container in one step
 
                             pazangus = grupe;  // Remaining students are "pazangus"
                         }
                         else
                         {
-                            copy_if(grupe.begin(), grupe.end(), back_inserter(nepazangus), [](const studentai& A) { return A.paz_vid < 5 && A.paz_m < 5; }); // Copy "vargðiukai" to `nepazangus` using `std::copy_if`
+                            copy_if(grupe.begin(), grupe.end(), back_inserter(nepazangus), [](const studentai& A) { return A.paz_vid < 5 && A.paz_m < 5; }); // Copy "vargï¿½iukai" to `nepazangus` using `std::copy_if`
 
-                            grupe.erase(remove_if(grupe.begin(), grupe.end(), [](const studentai& A) { return A.paz_vid < 5 && A.paz_m < 5; }), grupe.end()); // Remove "vargðiukai" from `grupe` using `std::remove_if` + `erase`
+                            grupe.erase(remove_if(grupe.begin(), grupe.end(), [](const studentai& A) { return A.paz_vid < 5 && A.paz_m < 5; }), grupe.end()); // Remove "vargï¿½iukai" from `grupe` using `std::remove_if` + `erase`
 
                             pazangus = grupe;  // Remaining students are "pazangus"
                         }

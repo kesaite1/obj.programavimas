@@ -1,10 +1,12 @@
 @echo off
 
+
+rmdir /s /q build >nul 2>&1
+mkdir build
 cd build
-cmake ..
+cmake .. -G "MinGW Makefiles" 
 cmake --build .
 
-cd "C:\Users\Dell\Documents\VU MIF\Objektinis programavimas\obj.programavimas\build\list\Debug"
-ListProgram.exe
+list\ListProgram.exe
 
 pause

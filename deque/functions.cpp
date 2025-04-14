@@ -132,22 +132,25 @@ double iv4(deque<studentai>& grupe, ofstream& laiko_failas)
         }
         string antrastes;
         getline(fd, antrastes);
-        while (fd >> B.v >> B.pav)
+        grupe.clear(); //??
+        //while (fd >> B.v >> B.pav)
+        while (getline (fd,antrastes))
         {
+            istringstream iss(antrastes);
             B.hw.clear();
-            kiek_paz = 0;
-            while (fd >> nd)
+            iss >> B.v >> B.pav;
+            //kiek_paz = 0;
+            while (iss >> nd)
             {
                 B.hw.push_back(nd);
-                if (fd.peek() == '\n')
+               /* if (fd.peek() == '\n')
                     break;
-                kiek_paz++;
+                kiek_paz++;*/
             }
-            if (kiek_paz > 0)
-            {
-                B.egz = B.hw[kiek_paz - 1];
-                B.hw.pop_back();
-            }
+           if (!B.hw.empty()) {
+            B.egz = B.hw.back();
+            B.hw.pop_back();
+        }
             pazymys_vidurkis(B);
             pazymys_mediana(B);
             grupe.push_back(B);
@@ -252,7 +255,7 @@ void Disk(ofstream& report) {
     std::ifstream diskFile("disk_usage.txt");
     std::string line;
     while (getline(diskFile, line)) {
-        report << "- Disko bûsena: " << line << "\n";
+        report << "- Disko bï¿½sena: " << line << "\n";
     }
     diskFile.close();
 }*/

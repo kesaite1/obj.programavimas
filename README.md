@@ -63,6 +63,32 @@ Studentu skirstymo i dvi grupes laikas: 1.91435
 Testu laiku vidurkis: 6.79462
  ------------------------------------------------------------------------------------------
 
+***Programos su vector konteineriais laikai:***
+|Failo dydis     |Duomenu skaitymas  |Studentu rikiavimas  |Studentu skirstymas  |
+|----------------|-------------------|---------------------|---------------------|
+|1000 irasu      |  5.80886          |   0.0082508         |    0.0015565        |
+|10000 irasu     |  22.2508          |   0.0132417         |    0.430376         |
+|100000 irasu    |  88.537           |   0.132074          |    2.01038          |
+|1000000 irasu   |  143.538          |   1.67533           |    3.08502          |
+|10000000 irasu  |     -             |     -               |     -               |
+
+***Programos su list konteineriais laikai:***
+|Failo dydis     |Duomenu skaitymas  |Studentu rikiavimas  |Studentu skirstymas  |
+|----------------|-------------------|---------------------|---------------------|
+|1000 irasu      | 6.45228           |   0.0007254         |   0.0038673         |
+|10000 irasu     | 7.7377            |   0.0048768         |   0.0048768         |
+|100000 irasu    | 17.1777           |   0.094924          |   0.363702          |
+|1000000 irasu   | 105.575           |   2.19874           |   4.59075           |
+|10000000 irasu  |   -               |   -                 |    -                |
+
+***Programos su deque konteineriais laikai:***
+|Failo dydis     |Duomenu skaitymas  |Studentu rikiavimas  |Studentu skirstymas  |
+|----------------|-------------------|---------------------|---------------------|
+|1000 irasu      | 6.17446           |  0.0121783          |  0.0040825          |
+|10000 irasu     | 8.67017           |  0.161958           |  0.0483131          |
+|100000 irasu    | 12.7501           |  2.5883             |  0.831552           |
+|1000000 irasu   | 51.5151           |  18.3511            |  11.8796            |
+|10000000 irasu  |  -                |   -                 |   -                 |
 
 Taip pat kiekvienos programos veikimo metu yra sugeneruojamas failas su CPU, RAM ir disko apkrovos duomenimis programos testavimo metu.
 
@@ -89,8 +115,14 @@ Disk usage:
 FreeSpace    Name  Size          
 27336642560  C:    254761791488  
  ------------------------------------------------------------------------------------------
-Testavimo išvados:
-Remiantis programos operacijų laikais, efektyviausiai veikianti programa naudoja vector konteinerius, o mažiausiai efektyvi programa naudoja deque konteinerius. 
+
+ **Sistemos parametrai:**
+ CPU Intel(R) Core(TM) i3-10110U CPU @ 2.10GHz, 2592 Mhz, 2 Core(s), 4 Logical Processor(s)
+ RAM 4,00 GB
+ Disk SSD 239 GB
+
+**Testavimo išvados:**
+Remiantis programos operacijų laikais, efektyviausiai veikianti programa naudoja deque konteinerius, o mažiausiai efektyvi programa naudoja vector konteinerius. (Galimi testavimo neatitikimai, kurie priklauso nuo sistemos parametru).
 
 
 

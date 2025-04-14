@@ -4,7 +4,7 @@
 int main()
 {
     //fstream report("sistemos_testavimo_duomenys.txt");
-    ofstream laiko_failas("C:/Users/Dell/Documents/VU MIF/Objektinis programavimas/obj.programavimas/laikas.txt", ios::app);
+    ofstream laiko_failas("../laikas.txt", ios::app);
     double skirstymo_laikas, rusiavimo_laikas, skaitymo_laikas;
     const double epsilon = 1e-6;
     list <studentai> pazangus;
@@ -118,7 +118,7 @@ int main()
                         }
                         auto rusiavimo_end = high_resolution_clock::now();
                         rusiavimo_laikas = apdorojimo_laikas(rusiavimo_start, rusiavimo_end);
-                        laiko_failas << "Studentu rusiavimo pasirinkta tvarka laikas: " << rusiavimo_laikas << endl;
+                        laiko_failas << "Studentu rikiavimo pasirinkta tvarka laikas: " << rusiavimo_laikas << endl;
                         break;
                     }
                     catch (const invalid_argument& e) { cerr << "Klaida:" << e.what() << endl; }

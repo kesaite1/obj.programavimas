@@ -109,3 +109,5 @@ vektoriai/CppProperties.json
 vektoriai/v.pradine.sln
 vektoriai/v.pradine.vcxproj
 vektoriai/v.pradine.vcxproj.filters
+
+build/
