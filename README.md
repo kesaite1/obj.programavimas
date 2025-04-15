@@ -127,14 +127,13 @@ RAM usage: RAM naudojimas: 92%
 Disk usage:
 FreeSpace    Name  Size          
 27336642560  C:    254761791488  
-------------------------------------------------------------------------------------------
 
 
- **Sistemos parametrai:**
+**Sistemos parametrai:**
 
- - CPU Intel(R) Core(TM) i3-10110U CPU @ 2.10GHz, 2592 Mhz, 2 Core(s), 4 Logical Processor(s)
- - RAM 4,00 GB
- - Disk SSD 239 GB
+- CPU Intel(R) Core(TM) i3-10110U CPU @ 2.10GHz, 2592 Mhz, 2 Core(s), 4 Logical Processor(s) 
+- RAM 4,00 GB
+- Disk SSD 239 GB
 
 **Testavimo išvados:**
 Remiantis programos operacijų laikais, efektyviausiai veikianti programa naudoja deque konteinerius, o mažiausiai efektyvi programa naudoja vector konteinerius. (Galimi testavimo neatitikimai, kurie priklauso nuo sistemos parametru).
