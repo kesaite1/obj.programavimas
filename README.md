@@ -61,6 +61,7 @@ Testavimo metu yra testuojamos šios programos operacijos:
 3. studentų skirstymas  į dvi grupes/kategorijas 
 
 **1-oji strategija:**
+
 ***Programos su vector konteineriais laikai:***
 |Failo dydis      |Duomenu skaitymas  |Studentu rikiavimas  |Studentu skirstymas  |
 |-----------------|-------------------|---------------------|---------------------|
@@ -102,8 +103,10 @@ Testavimo metu yra testuojamos šios programos operacijos:
 Taip pat kiekvienos programos veikimo metu yra sugeneruojamas failas su CPU, RAM ir disko apkrovos duomenimis programos testavimo metu.
 
 **Rezultatų pvz.:**
+
  ------------------------------------------------------------------------------------------
 ***Vector konteineris:***
+
 CPU usage: LoadPercentage  18              
 RAM usage: RAM naudojimas: 95%
 Disk usage:
@@ -111,6 +114,7 @@ FreeSpace    Name  Size
 27100065792  C:    254761791488  
  ------------------------------------------------------------------------------------------
 ***List konteineris:***
+
 CPU usage: LoadPercentage  13              
 RAM usage: RAM naudojimas: 93%
 Disk usage:
@@ -118,6 +122,7 @@ FreeSpace    Name  Size
 27226103808  C:    254761791488  
  ------------------------------------------------------------------------------------------
 ***Deque konteineris:***
+
 CPU usage: LoadPercentage  28   
 RAM usage: RAM naudojimas: 92%
 Disk usage:
