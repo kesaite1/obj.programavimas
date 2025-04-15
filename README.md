@@ -59,6 +59,7 @@ Testavimo metu yra testuojamos šios programos operacijos:
 1. duomenų nuskaitymas iš failų į atitinkamą konteinerį,
 2. studentų rikiavimas mazejimo tvarka konteineryje (funkcija sort),
 3. studentų skirstymas  į dvi grupes/kategorijas 
+
 **1-oji strategija:**
 ***Programos su vector konteineriais laikai:***
 |Failo dydis      |Duomenu skaitymas  |Studentu rikiavimas  |Studentu skirstymas  |
@@ -100,7 +101,7 @@ Testavimo metu yra testuojamos šios programos operacijos:
 
 Taip pat kiekvienos programos veikimo metu yra sugeneruojamas failas su CPU, RAM ir disko apkrovos duomenimis programos testavimo metu.
 
-Rezultatų pvz.:
+**Rezultatų pvz.:**
  ------------------------------------------------------------------------------------------
 ***Vector konteineris:***
 CPU usage: LoadPercentage  18              
