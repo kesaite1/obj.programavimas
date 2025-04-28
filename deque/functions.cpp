@@ -57,7 +57,7 @@ void iv2(studentai& A, mt19937& gen)
     cin >> A.v >> A.pav;
     uniform_int_distribution<int> egz(1, 10);
     uniform_int_distribution<int> kiek(1, 50);
-    uniform_real_distribution<double> nd(1.0, 10.0);
+    uniform_int_distribution<int> nd(1, 10);
      A.egz = egz(gen);
 
     for (int i = 0; i < kiek(gen); i++)
@@ -72,7 +72,7 @@ void iv3(studentai& A, deque <string>& vardai, deque <string>& pavardes, mt19937
     uniform_int_distribution<int> kiek_pav(0, pavardes.size() - 1);
     uniform_int_distribution<int> egz(1, 10);
     uniform_int_distribution<int> kiek(1, 50);
-    uniform_real_distribution<double> nd(1.0, 10.0);
+    uniform_int_distribution<int> nd(1, 10);
 	
     A.v = vardai[kiek_v(gen)];
 	A.pav = pavardes[kiek_pav(gen)];
@@ -132,20 +132,15 @@ double iv4(deque<studentai>& grupe, ofstream& laiko_failas)
         }
         string antrastes;
         getline(fd, antrastes);
-        grupe.clear(); //??
-        //while (fd >> B.v >> B.pav)
+        grupe.clear(); 
         while (getline (fd,antrastes))
         {
             istringstream iss(antrastes);
             B.hw.clear();
             iss >> B.v >> B.pav;
-            //kiek_paz = 0;
             while (iss >> nd)
             {
                 B.hw.push_back(nd);
-               /* if (fd.peek() == '\n')
-                    break;
-                kiek_paz++;*/
             }
            if (!B.hw.empty()) {
             B.egz = B.hw.back();
@@ -186,7 +181,7 @@ void generavimas(string failas)
     mt19937 gen(rd1());
     ofstream file(failas);
     uniform_int_distribution<int> kiek(1, 50);
-    uniform_real_distribution<double> nd(1.0, 10.0);
+    uniform_int_distribution<int> nd(1, 10);
     uniform_int_distribution<int> egz(1, 10);
     int dydis;
     string userInput;
@@ -210,7 +205,8 @@ void generavimas(string failas)
         catch (const invalid_argument& e) { cerr << "Klaida: " << e.what() << endl; }
         catch (const out_of_range& e) { cerr << "Klaida: " << e.what() << endl; }
     }
-
+    file << left << setw(20) << "Vardas" << left << setw(20) << "Pavarde" << left << setw(5) << "Pazymiai + egzamino balas\n";
+    file << "-----------------------------------------------------------------------------\n";
     for (int i = 0; i < dydis; i++)
     {
         file << left << setw(20) << ("Vardas" + to_string(i)) << left << setw(20) << ("Pavarde" + to_string(i));

@@ -36,9 +36,10 @@ using std::accumulate;
 using std::random_device;
 using std::mt19937;
 using std::uniform_int_distribution;
-using std::uniform_real_distribution;
 using std::ios;
 using std::runtime_error;
 using std::stringstream;
+using std::istringstream;
+
 
 #endif 

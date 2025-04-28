@@ -5,7 +5,7 @@
 
 struct studentai {
     string v, pav;
-    vector <double> hw;
+    vector <int> hw;
     int egz;
     double paz_m, paz_vid;
 };
